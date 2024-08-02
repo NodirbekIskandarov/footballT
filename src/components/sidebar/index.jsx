@@ -12,7 +12,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { IoFootball } from "react-icons/io5";
 const drawerWidth = 240;
 
@@ -81,26 +81,41 @@ export default function Sidebar() {
                 <Divider />
                 <List>
                     {/* shu joyini ozimga moslab ozgartirishim kk */}
-                    {['Football', 'Football', 'Football', 'Football'].map((text, index) => (
-                        <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                            <ListItemButton
-                                sx={{
-                                    minHeight: 48,
-                                    justifyContent: open ? 'initial' : 'center',
-                                    px: 2.5,
-                                }}
-                            >
-                                <ListItemIcon
+                    {[
+                        {
+                            name: "Home",
+                            url: "/"
+                        },
+                        {
+                            name: "Info",
+                            url: "info"
+                        },
+                        {
+                            name: "Test",
+                            url: "test"
+                        }
+                    ].map((item, index) => (
+                        <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+                            <Link to={item.url} style={{ textDecoration: "none", color: "black" }}>
+                                <ListItemButton
                                     sx={{
-                                        minWidth: 0,
-                                        mr: open ? 3 : 'auto',
-                                        justifyContent: 'center',
+                                        minHeight: 48,
+                                        justifyContent: open ? 'initial' : 'center',
+                                        px: 2.5,
                                     }}
                                 >
-                                    {index % 2 === 0 ? <IoFootball /> : <IoFootball />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                            </ListItemButton>
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : 'auto',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        {index % 2 === 0 ? <IoFootball /> : <IoFootball />}
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
+                                </ListItemButton>
+                            </Link>
                         </ListItem>
                     ))}
                 </List>
