@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home, MainLayout } from './pages'
 import Test from './pages/Test'
-
+import './App.css'
 function App() {
 
   return (
