@@ -1,10 +1,12 @@
-import Sidebar from "../../components/sidebar";
-import { Wrapper } from "../../global_styles/styles";
+import { Outlet } from "react-router-dom";
+import { Footer, Header } from "../../components";
 function MainLayout() {
     return (
-        <Wrapper height="100vh">
-            <Sidebar/>
-        </Wrapper>
+        <div>
+            <Header/>
+            <Outlet/>
+            <Footer/>
+        </div>
     )
 }
 export default MainLayout
