@@ -1,0 +1,22 @@
+.swiper {
+    width: 100%;
+    height: 800px; /* Set fixed height */
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 800px; /* Ensure image takes full height */
+    object-fit: cover; /* Maintain aspect ratio while covering */
+}
