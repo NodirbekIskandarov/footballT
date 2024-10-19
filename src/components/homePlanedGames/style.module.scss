@@ -1,0 +1,73 @@
+.planed_games {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #295FA799;
+    background-image: url('../../assets/images/planedback.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    padding: 46px 0;
+    border-radius: 10px;
+    .game {
+        width: 90%;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .clubs {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            div {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            span {
+                font-size: 17px;
+                font-weight: 400;
+            }
+        }
+        .date {
+            width: 30%;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            .time, .location {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+            }
+            span {
+                font-size: 17px;
+                font-weight: 400;
+            }
+        }
+        .details {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            .fav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .view {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+            span {
+                font-size: 17px;
+                font-weight: 400;
+            }
+        }
+    }
+}
