@@ -1,16 +1,82 @@
+.game-car {
+  background-color: #295FA74D;
+  padding: 20px 0;
+  background-image: url('../../assets/images/yarimlogo.png'), url('../../assets/images/yarimlogo2.png');
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+}
 .carousel-container {
     width: 90%; /* Adjust width as needed */
     margin: auto; /* Center the carousel */
   }
   
   .slide {
-    background: #f0f0f0; /* Light background color */
+    background: transparent; /* Light background color */
     border-radius: 8px; /* Rounded corners */
     padding: 20px; /* Padding for content */
     text-align: center; /* Center text */
+  }
+  .slide .slidee {
+    background-color: white;
+    padding: 23px 0;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
-  
+  .slide .slide-child {
+    margin: 23px;
+    text-align: center;
+  }
+  .slide .game_date {
+    border-radius: 5px;
+    background-color: #295FA7;
+    color: white;
+    padding: 5px 13px;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  .slide .clubs_part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .slide .clubs_part span {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .slide .clubs_part .vs {
+    width: 28px;
+    height: 28px;
+    background-color: #00A4DF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slide .clubs_part img {
+    border-radius: 50%;
+    border: 1px solid gray;
+  }
+  .slide .liga-name {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .slide .liga-name span{
+    width: 172px;
+    height: 36px;
+    background-color: #295FA7;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
   .slick-dots {
     bottom: -30px; /* Position dots below the carousel */
   }

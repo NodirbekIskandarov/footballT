@@ -1,10 +1,12 @@
 import { Banner, GameCar } from "../../components"
-
+import styles from './home.module.scss'
 function Home() {
   return (
     <div>
         <Banner/>
-        <GameCar/>
+        <div className={styles.home}>
+          <GameCar/>
+        </div>
     </div>
   )
 }
