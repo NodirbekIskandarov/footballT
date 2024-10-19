@@ -1,0 +1,24 @@
+.homeMedia {
+    margin-top: 30px;
+    .videos {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .video {
+            width: 30%;
+        }
+    }
+    .images {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .image {
+            width: 48%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
