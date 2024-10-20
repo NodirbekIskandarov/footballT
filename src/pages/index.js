@@ -1,3 +1,5 @@
 export {default as Home} from './Home'
 export {default as MainLayout} from './MainLayout'
 export {default as Tounament} from './Tournament'
+export {default as PastedGames} from './pastedGames'
+export {default as PlanedGames} from './planedGames'

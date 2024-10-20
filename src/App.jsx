@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Home, MainLayout, Tounament } from './pages'
+import { Home, MainLayout, PastedGames, PlanedGames, Tounament } from './pages'
 import './App.css'
 function App() {
 
@@ -10,7 +10,10 @@ function App() {
         <Routes>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
-            <Route path='/tounament' element={<Tounament/>}/>
+            <Route path='tounament' element={<Tounament/>}>
+              <Route path='pasted' element={<PastedGames/>}/>
+              <Route path='planed' element={<PlanedGames/>}/>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

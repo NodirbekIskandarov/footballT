@@ -1,0 +1,40 @@
+.menus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid #3b5998; /* Tashqi border */
+    border-width: 3px 0; /* Faqat yuqori va pastki border */
+    
+    .left {
+      background-color: #fff;
+      color: #000;
+      padding: 10px 20px;
+      width: 50%;
+      position: relative;
+      z-index: 1;
+    }
+  
+    .right {
+      background-color: #3b5998;
+      color: white;
+      padding: 10px 20px;
+      width: 50%;
+      position: relative;
+      text-align: right;
+      z-index: 1;
+  
+      /* Diagonal separator to connect the divs */
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     left: -40px; /* Adjust this value to match the diagonal length */
+    //     top: 0;
+    //     width: 0;
+    //     height: 100%;
+    //     border-left: 40px solid #fff; /* Color of left div */
+    //     border-top: 40px solid transparent; /* Matches height of div */
+    //   }
+    }
+  }
+  
