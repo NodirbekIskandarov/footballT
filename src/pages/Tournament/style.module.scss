@@ -1,49 +1,33 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #fff; // background for the whole container
+  .left,
+  .right {
+    width: 50%;
+    padding: 10px 0;
+  }
+  .left {
+    background-color: transparent;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    background-color: #fff; // background for the whole container
-    .left, .right {
-      width: 50%; // Each tab takes 50% of the width
-      padding: 10px 0;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-      color: #000;
-      position: relative;
-  
-      &.left {
-        background-color: #fff; // White background for the left tab
-        border: 1px solid #e5e5e5;
-      }
-      
-      &.right {
-        background-color: #2a4d8d; // Blue background for the right tab
-        color: #fff;
-        border: 1px solid #e5e5e5;
-        border-left: none;
-      }
-  
-      // Diagonal separator styling
-      &.left:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -12.5px;
-        border-left: 25px solid white; // Adjust the size/color to match the gap
-        border-bottom: 38.5px solid transparent;
-        z-index: 1;
-      }
-  
-      &.right:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -13.3px;
-        border-right: 25px solid #2a4d8d; // Match this with right tab color
-        border-top: 38.5px solid transparent;
-      }
+    .link {
+      color: black;
     }
   }
-  
+  .right {
+    background-color: #295fa7;
+    display: flex;
+    justify-content: center;
+    .link {
+      color: white;
+    }
+  }
+  .link {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
