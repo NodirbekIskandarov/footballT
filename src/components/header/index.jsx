@@ -38,7 +38,7 @@ function Header() {
           <div className={`${styles.menu_part} ${menuOpen ? styles.menu_open : ''}`}>
             <FaTimes className={styles.close_icon} onClick={toggleMenu} /> {/* Close icon for menu */}
             <Link className={styles.link} to="/">Home</Link>
-            <Link className={styles.link} to="/">Tournaments</Link>
+            <Link className={styles.link} to="/tounament">Tournaments</Link>
             <Link className={styles.link} to="/">News</Link>
             <Link className={styles.link} to="/">Media</Link>
             <Link className={styles.link} to="/">History</Link>
