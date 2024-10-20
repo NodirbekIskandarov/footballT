@@ -1,40 +1,49 @@
-.menus {
+.container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
-    border: 1px solid #3b5998; /* Tashqi border */
-    border-width: 3px 0; /* Faqat yuqori va pastki border */
-    
-    .left {
-      background-color: #fff;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff; // background for the whole container
+    .left, .right {
+      width: 50%; // Each tab takes 50% of the width
+      padding: 10px 0;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
       color: #000;
-      padding: 10px 20px;
-      width: 50%;
       position: relative;
-      z-index: 1;
-    }
   
-    .right {
-      background-color: #3b5998;
-      color: white;
-      padding: 10px 20px;
-      width: 50%;
-      position: relative;
-      text-align: right;
-      z-index: 1;
+      &.left {
+        background-color: #fff; // White background for the left tab
+        border: 1px solid #e5e5e5;
+      }
+      
+      &.right {
+        background-color: #2a4d8d; // Blue background for the right tab
+        color: #fff;
+        border: 1px solid #e5e5e5;
+        border-left: none;
+      }
   
-      /* Diagonal separator to connect the divs */
-    //   &::before {
-    //     content: '';
-    //     position: absolute;
-    //     left: -40px; /* Adjust this value to match the diagonal length */
-    //     top: 0;
-    //     width: 0;
-    //     height: 100%;
-    //     border-left: 40px solid #fff; /* Color of left div */
-    //     border-top: 40px solid transparent; /* Matches height of div */
-    //   }
+      // Diagonal separator styling
+      &.left:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -12.5px;
+        border-left: 25px solid white; // Adjust the size/color to match the gap
+        border-bottom: 38.5px solid transparent;
+        z-index: 1;
+      }
+  
+      &.right:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -13.3px;
+        border-right: 25px solid #2a4d8d; // Match this with right tab color
+        border-top: 38.5px solid transparent;
+      }
     }
   }
   

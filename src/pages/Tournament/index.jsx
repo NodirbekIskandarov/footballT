@@ -5,10 +5,11 @@ export default function Tournament() {
   return (
     <div>
       <TournamentBanner />
-      <div className={styles.menus}>
+      <div className={styles.container}>
         <div className={styles.left}>Otkazilgan turnirlar</div>
         <div className={styles.right}>Rejalashtirilgan turnirlar</div>
       </div>
+
       <Outlet />
     </div>
   );
