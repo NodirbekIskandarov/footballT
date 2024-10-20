@@ -1,0 +1,37 @@
+.partners {
+  background-color: #295fa74d;
+  padding: 20px 0;
+  background-image: url("../../assets/images/yarimlogo.png"),
+    url("../../assets/images/yarimlogo2.png");
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+  margin-top: 50px;
+}
+.carousel_container {
+  width: 90%; /* Adjust width as needed */
+  margin: auto; /* Center the carousel */
+  .slide {
+    background: transparent; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+    text-align: center; /* Center text */
+    .slidee {
+      background-color: white;
+      padding: 23px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+  }
+}
+.slick-dots {
+  bottom: -30px; /* Position dots below the carousel */
+}
+
+.slick-dots li button:before {
+  font-size: 12px; /* Size of dots */
+  color: black; /* Color of inactive dots */
+}
+
+.slick-dots li.slick-active button:before {
+  color: black; /* Color of active dot */
+}

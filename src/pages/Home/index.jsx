@@ -1,4 +1,4 @@
-import { Banner, GameCar, HomeMedia, HomePlanedGames } from "../../components"
+import { Banner, GameCar, HomeMedia, HomePlanedGames, Partners } from "../../components"
 import styles from './home.module.scss'
 function Home() {
   return (
@@ -8,6 +8,7 @@ function Home() {
           <GameCar/>
           <HomeMedia/>
           <HomePlanedGames/>
+          <Partners/>
         </div>
     </div>
   )
