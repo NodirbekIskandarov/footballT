@@ -1,0 +1,87 @@
+.player_banner{
+    width: 100%;
+    margin: 30px 0;
+    .image_part {
+        width: 100%;
+        background-color: #172C41;
+        border-radius: 10px;
+        display: flex;
+        .image {
+            width: 40%;
+            img {
+                width: 100%;
+            }
+        }
+        .right {
+            width: 60%;
+            padding: 40px;
+            .name {
+                font-weight: 700;
+                font-size: 36px;
+                color: #FFFFFF;
+            }
+            .date {
+                width: 100%;
+                display: flex;
+                gap: 100px;
+                margin-top: 24px;
+                span {
+                    width: 250px;
+                    color: #FFFFFF;
+                    font-size: 28px;
+                    font-weight: 400;
+                }
+            }
+            .age {
+                width: 100%;
+                display: flex;
+                gap: 100px;
+                margin-top: 14px;
+                span {
+                    width: 250px;
+                    color: #FFFFFF;
+                    font-size: 28px;
+                    font-weight: 400;
+                }
+            }
+            .club {
+                width: 100%;
+                display: flex;
+                gap: 100px;
+                margin-top: 14px;
+                span {
+                    width: 250px;
+                    color: #FFFFFF;
+                    font-size: 28px;
+                    font-weight: 400;
+                }
+            }
+            .scores {
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                margin-top: 200px;
+                .yellow, .red {
+                    width: 30px;
+                    height: 36px;
+                }
+                .yellow {
+                    background-color: #FFFF00;
+                }
+                .red {
+                    background-color: #FF0000;
+                }
+                div {
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    span {
+                        font-weight: 400;
+                        font-size: 36px;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}

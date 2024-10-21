@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Home, MainLayout, PastedGames, PlanedGames, Players, Tounament } from './pages'
+import { AboutPlayer, Home, MainLayout, PastedGames, PlanedGames, Players, Tounament } from './pages'
 import './App.css'
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
               <Route path='planed' element={<PlanedGames/>}/>
             </Route>
             <Route path='players' element={<Players/>}/>
+            <Route path="about-player" element={<AboutPlayer/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
