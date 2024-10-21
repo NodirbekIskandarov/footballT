@@ -1,7 +1,11 @@
+import GamesTournament from "../../components/gamesTourament"
 
 function PlanedGames() {
+  // filterlar
   return (
-    <div>PlanedGames</div>
+    <div>
+      <GamesTournament/>
+    </div>
   )
 }
 
