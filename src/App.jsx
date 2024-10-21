@@ -1,7 +1,8 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, Home, MainLayout, PastedGames, PlanedGames, Players, Tounament } from './pages'
+import { AboutPlayer, Home, MainLayout, Media, PastedGames, PlanedGames, Players, Tounament } from './pages'
 import './App.css'
+import { Photo, Video } from './components'
 function App() {
 
   return (
@@ -16,6 +17,10 @@ function App() {
             </Route>
             <Route path='players' element={<Players/>}/>
             <Route path="about-player" element={<AboutPlayer/>}/>
+            <Route path='media' element={<Media/>}>
+                <Route index element={<Photo/>}/>
+                <Route path='video' element={<Video/>}/>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
