@@ -1,10 +1,11 @@
 import React from 'react'
-import { PlayerBanner } from '../../components'
+import { PlayerBanner, PlayerGamesTable } from '../../components'
 
 function AboutPlayer() {
   return (
     <div>
         <PlayerBanner/>
+        <PlayerGamesTable/>
     </div>
   )
 }
