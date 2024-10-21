@@ -5,7 +5,7 @@ function Video() {
   return (
     <div className={styles.video}>
       <div className='container'>
-      <div className={styles.boxes}>
+        <div className={styles.boxes}>
           <div className={styles.box}>
             <img src={mediaphoto} alt="media photo" />
             <div className={styles.text}>
@@ -15,6 +15,7 @@ function Video() {
             </div>
           </div>
         </div>
+        <button>See more video</button>
       </div>
     </div>
   )

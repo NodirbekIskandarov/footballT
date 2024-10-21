@@ -14,6 +14,7 @@ function Photo() {
             </div>
           </div>
         </div>
+        <button>See more video</button>
       </div>
     </div>
   )

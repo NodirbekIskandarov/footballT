@@ -29,4 +29,19 @@
             }
         }
     }
+    button {
+        width: 220px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        border: none;
+        background: linear-gradient(to bottom, #3b73cc, #6d99e1);
+        color: white;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 50px auto;
+        cursor: pointer;
+    }
 }
