@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 function Media() {
+    const location = useLocation()
     return (
         <div>
             <div style={{
@@ -21,14 +22,14 @@ function Media() {
                     <button style={{
                         width: "100%",
                         height: "44px",
-                        backgroundColor: "white",
+                        backgroundColor: `${location.pathname=="/media/video" ? "transparent" : "white"}`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: "5px",
                         fontSize: "24px",
                         fontWeight: "500",
-                        color: "#295FA7",
+                        color: `${location.pathname=="/media/video" ? "white" : "#295FA7"}`,
                         border: "none",
                         cursor: "pointer"
                     }}>Photo</button>
@@ -45,12 +46,12 @@ function Media() {
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: "5px",
-                        color: "white",
+                        color: `${location.pathname!="/media/video" ? "white" : "#295FA7"}`,
                         fontSize: "24px",
                         fontWeight: "500",
                         border: "none",
                         cursor: "pointer",
-                        background: "transparent"
+                        backgroundColor: `${location.pathname!="/media/video" ? "transparent" : "white"}`
                     }}>Video</button>
                 </Link>
             </div>
