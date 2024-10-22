@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, Home, MainLayout, Media, PastedGames, PlanedGames, Players, Tounament } from './pages'
+import { AboutPlayer, Home, MainLayout, Media, News, PastedGames, PlanedGames, Players, Tounament } from './pages'
 import './App.css'
 import { Photo, Video } from './components'
 function App() {
@@ -21,6 +21,7 @@ function App() {
                 <Route index element={<Photo/>}/>
                 <Route path='video' element={<Video/>}/>
             </Route>
+            <Route path='news' element={<News/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
