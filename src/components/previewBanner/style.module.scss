@@ -1,0 +1,40 @@
+.banner {
+    width: 100%;
+    height: 580px;
+    .box {
+        width: 60%;
+        margin: 0 auto;
+        padding: 40px;
+        .info_part {
+            width: 100%;
+            text-align: center;
+            .date {
+                font-weight: 700;
+                font-size: 36px;
+                color: #FFFFFF;
+            }
+            .location {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+                span {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                }
+            }
+            .time {
+                font-weight: 700;
+                font-size: 36px;
+                color: #FFFFFF;
+            }
+        }
+        .club_part {
+            display: flex;
+            justify-content: space-between;
+            //shujoyi
+        }
+    }
+}
