@@ -1,6 +1,53 @@
 .news_card {
     width: 100%;
+    margin: 50px 0;
     .card {
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: #295FA7;
+        border-radius: 10px;
+        background-image: url("../../assets/images/planedback.png");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: 45%;
+        .left {
+            width: 40%;
+            padding-top: 64px;
+            padding-left: 100px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            .club_part {
+                width: 100%;
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+                span {
+                    font-weight: 700;
+                    font-size: 32px;
+                }
+            }
+            .vs {
+                font-size: 32px;
+                font-weight: 700;
+            }
+            .text {
+                font-size: 36px;
+                font-weight: 500;
+            }
+        }
+        .right {
+            width: 60%;
+            img {
+                width: 100%;
+            }
+        }
     }
 }

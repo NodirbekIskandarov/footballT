@@ -1,9 +1,9 @@
-import React from 'react'
+import { NewsCard } from '../../components'
 
 function News() {
   return (
     <div>
-        
+        <NewsCard/>
     </div>
   )
 }
