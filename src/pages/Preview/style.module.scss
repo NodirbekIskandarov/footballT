@@ -1,0 +1,18 @@
+.links_part {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    border: 1px solid #295FA7;
+    .link {
+        text-decoration: none;
+        width: 25%;
+        button {
+            width: 100%;
+            border: none;
+            font-size: 24px;
+            font-weight: 400;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+    }
+}

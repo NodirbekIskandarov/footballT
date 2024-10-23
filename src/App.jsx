@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, Home, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, Tounament } from './pages'
+import { AboutPlayer, Events, Home, Live, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC, Protocol, Tounament } from './pages'
 import './App.css'
 import { Photo, Video } from './components'
 function App() {
@@ -22,7 +22,13 @@ function App() {
                 <Route path='video' element={<Video/>}/>
             </Route>
             <Route path='news' element={<News/>}/>
-            <Route path='preview' element={<Preview/>}/>
+            <Route path='preview' element={<Preview/>}>
+              <Route index element={<PreviewC/>}/> 
+              <Route path='previ' element={<PreviewC/>}/>
+              <Route path='protocol' element={<Protocol/>}/>
+              <Route path='events' element={<Events/>}/>
+              <Route path='live' element={<Live/>}/>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
