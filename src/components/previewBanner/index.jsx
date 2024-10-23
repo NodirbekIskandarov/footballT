@@ -27,7 +27,7 @@ function PreviewBanner() {
             <img src={clublogo} alt="clublogo" />
             <span>BELARUS NT</span>
           </div>
-          <span className={styles.vs}>vs</span>
+          <span className={styles.shot}>3:2</span>
           <div className={styles.club}>
             <img src={clublogo} alt="clublogo" />
             <span>BELARUS NT</span>
