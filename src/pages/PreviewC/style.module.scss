@@ -104,4 +104,76 @@
             }
         }
     }
+    .three {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #FFFFFF;
+        border-radius: 65px;
+        border: 1px solid #295FA7;
+        margin-top: 50px;
+        .left, .right {
+            display: flex;
+            align-items: center;
+            width: 45%;
+            img {
+                width: 130px;
+                height: 130px;
+            }
+            .text_part {
+                width: calc(100%);
+                text-align: center;
+                .name {
+                    height: 50px;
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: #295FA7;
+                }
+                .score {
+                    width: 100%;
+                    height: 50px;
+                    display: flex;
+                    justify-content: space-around;
+                    border-top: 1px solid black;
+                    .games, .goals {
+                        width: 20%;
+                        display: flex;
+                        gap: 15px;
+                        align-items: center;
+                        span:nth-child(1) {
+                            width: 100%;
+                            text-align: center;
+                            font-size: 18px;
+                            font-weight: 400;
+                            color: #295FA7;
+                        }
+                        span:nth-child(2) {
+                            font-size: 24px;
+                            font-weight: 500;
+                            color: #295FA7;
+                        }
+                    }
+                }
+            }
+        }
+        .middle {
+            width: 10%;
+            height: 130px;
+            background-color: #295FA7;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 56px;
+                height: 56px;
+            }
+            span {
+                font-size: 18px;
+                font-weight: 500;
+                color: #FFFFFF;
+            }
+        }
+    }
 }
