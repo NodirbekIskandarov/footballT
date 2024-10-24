@@ -99,7 +99,41 @@ function PreviewC() {
                         <img src={player} alt="player" />
                     </div>
                 </div>
-                <div className={styles.four}></div>
+                <div className={styles.four}>
+                    <span className={styles.title}>MATCHES AGAINST EACH OTHER</span>
+                    <div className={styles.scores}>
+                        <div className={styles.all}>
+                            <span>GAMES ALL</span>
+                            <span>2</span>
+                        </div>
+                        <div className={styles.home}>
+                            <span>WINS OF HOME TEAM</span>
+                            <span>2</span>
+                        </div>
+                        <div className={styles.away}>
+                            <span>WINS OF AWAY TEAM</span>
+                            <span>2</span>
+                        </div>
+                    </div>
+                    <div className={styles.middle}>
+                        <div className={styles.boxes}>
+                            <span>88</span>
+                            <div className={styles.box}>
+                                <img src={top} alt="top" />
+                                <span>Goals scored</span>
+                            </div>
+                            <span>56</span>
+                        </div>
+                        <div className={styles.boxes}>
+                            <span>88</span>
+                            <div className={styles.box}>
+                                <img src={vorata} alt="top" />
+                                <span>Goals scored</span>
+                            </div>
+                            <span>56</span>
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.five}></div>
             </div>
         </div>
