@@ -134,7 +134,26 @@ function PreviewC() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.five}></div>
+                <div className={styles.five}>
+                    <div className={styles.box}>
+                        <div className={styles.title}>
+                            <span>14 August 2024, Wednesday </span>
+                        </div>
+                        <div className={styles.score_part}>
+                            <div className={styles.club}>
+                                <img src={clublogo} alt="clublogo" />
+                                <span>BELARUS NT</span>
+                            </div>
+                            <div className={styles.shot}>
+                                <span>3:2</span>
+                            </div>
+                            <div className={styles.club}>
+                                <span>BELARUS NT</span>
+                                <img src={clublogo} alt="clublogo" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
