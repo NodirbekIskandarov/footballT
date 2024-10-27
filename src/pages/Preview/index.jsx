@@ -20,14 +20,14 @@ function Preview() {
                 }}
               >Preview</button>
             </Link>
-            <Link to={`/preview/protocol/${id}`} className={styles.link}>
+            {/* <Link to={`/preview/protocol/${id}`} className={styles.link}>
               <button
                 style={{
                   color: location.pathname.includes("protocol") ? "#295FA7" : "#FFFFFF",
                   backgroundColor: location.pathname.includes("protocol") ? "#FFFFFF" : "#295FA7"
                 }}
               >Protocol</button>
-            </Link>
+            </Link> */}
             <Link to={`/preview/events/${id}`} className={styles.link}>
               <button
                 style={{

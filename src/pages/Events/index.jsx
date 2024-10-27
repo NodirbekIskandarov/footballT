@@ -1,8 +1,11 @@
-import React from 'react'
-
+import styles from './style.module.scss'
 function Events() {
   return (
-    <div>Events</div>
+    <div className={styles.events}>
+      <div className='container'>
+          
+      </div>
+    </div>
   )
 }
 
