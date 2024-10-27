@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, AboutUs, BestPlayers, Events, Home, Kids, Live, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC, Protocol, Tounament } from './pages'
+import { AboutPlayer, AboutUs, BannerDetail, BestPlayers, Events, Home, Kids, Live, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC, Protocol, Tounament } from './pages'
 import './App.css'
 import { Photo, Video } from './components'
 function App() {
@@ -32,6 +32,7 @@ function App() {
             <Route path='best-players' element={<BestPlayers/>}/>
             <Route path='about-us' element={<AboutUs/>}/>
             <Route path='kids' element={<Kids/>}/>
+            <Route path=':id' element={<BannerDetail/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

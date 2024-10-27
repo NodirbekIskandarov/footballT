@@ -1,0 +1,143 @@
+.banner_detail {
+    margin-top: 50px;
+    .banner {
+        width: 100%;
+        img {
+            width: 100%;
+            height: 600px;
+        }
+    }
+    .desc_part {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        .title {
+            font-size: 30px;
+            font-weight: 500;
+            color: #1E1E1E;
+        }
+        .desc {
+            font-size: 24px;
+            font-weight: 400;
+            color: #0F132499;
+        }
+    }
+    .table {
+        width: 80%;
+        margin: 30px auto;
+        text-align: center;
+    
+        .sana {
+            font-size: 36px;
+            font-weight: 500;
+            color: #1E1E1E;
+        }
+    
+        .table_part {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            .left {
+                position: relative;
+                width: 47%;
+    
+                .image_part {
+                    position: absolute;
+                    left: 0;
+                    bottom: -18px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background-color: #295FA7;
+                    padding: 20px;
+    
+                    img {
+                        width: 100%;
+                        border-radius: 50%;
+                    }
+                }
+    
+                .name_part {
+                    width: 90%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #295FA7;
+                    color: white;
+                    border-radius: 56px;
+                    padding: 23px 0;
+                }
+            }
+    
+            .shot {
+                color: #295FA7;
+                font-size: 30px;
+                font-weight: 700;
+            }
+    
+            .right {
+                position: relative;
+                width: 47%;
+    
+                .image_part {
+                    position: absolute;
+                    right: 0;
+                    bottom: -18px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background-color: #295FA7;
+                    padding: 20px;
+    
+                    img {
+                        width: 100%;
+                        border-radius: 50%;
+                    }
+                }
+    
+                .name_part {
+                    width: 90%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #295FA7;
+                    color: white;
+                    border-radius: 56px;
+                    padding: 23px 0;
+                    float: right;
+                }
+            }
+        }
+    }
+    .epizod {
+        width: 100%;
+        text-align: center;
+        margin: 50px 0;
+        span {
+            font-size: 36px;
+            font-weight: 500;
+            color: #1E1E1E;
+        }
+        .boxes {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            .box {
+                width: 48%;
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
+                img {
+                    width: 100%;
+                    height: 310px;
+                    border-radius: 15px;
+                }
+            }
+        }
+    }
+}
