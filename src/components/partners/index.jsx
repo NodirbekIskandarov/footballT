@@ -1,33 +1,40 @@
 import Slider from "react-slick";
 import styles from "./style.module.scss";
+import { useEffect, useState } from "react";
+import { partners } from "../../utils/API_urls";
+import { getRequest } from "../../utils/request";
+
 function Partners() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    getRequest(partners)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: data?.length >= 3 ? 3 : data?.length,
     slidesToScroll: 1,
   };
+
   return (
     <div className={styles.partners}>
       <div className="container">
         <div className={styles.carousel_container}>
           <Slider {...settings}>
-            <div className={styles.slide}>
-              <div className={styles.slidee}>1</div>
-            </div>
-            <div className={styles.slide}>
-              <div className={styles.slidee}>2</div>
-            </div>
-            <div className={styles.slide}>
-              <div className={styles.slidee}>3</div>
-            </div>
-            <div className={styles.slide}>
-              <div className={styles.slidee}>4</div>
-            </div>
-            <div className={styles.slide}>
-              <div className={styles.slidee}>5</div>
-            </div>
+            {data?.map((item, index) => (
+              <div className={styles.slide} key={index}>
+                <img src={item?.image} alt={item?.name} />
+              </div>
+            ))}
           </Slider>
         </div>
       </div>

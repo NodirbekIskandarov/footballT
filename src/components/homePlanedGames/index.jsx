@@ -1,6 +1,6 @@
 import styles from "./style.module.scss";
 import { IoTimeOutline } from "react-icons/io5";
-import { CiLocationOn } from "react-icons/ci";
+// import { CiLocationOn } from "react-icons/ci";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
@@ -41,10 +41,10 @@ function HomePlanedGames() {
                   <IoTimeOutline />
                   <span>{formatDateToYMD(item?.date)}</span>
                 </div>
-                <div className={styles.location}>
+                {/* <div className={styles.location}>
                   <CiLocationOn color="red" />
                   <span>London</span>
-                </div>
+                </div> */}
               </div>
               <div className={styles.details}>
                 <div className={styles.fav}>
