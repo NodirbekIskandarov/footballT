@@ -28,7 +28,6 @@ export default function Banner() {
         console.log(error);
       });
   }, []);
-  console.log(data, "data");
   return (
     <>
       <Swiper
