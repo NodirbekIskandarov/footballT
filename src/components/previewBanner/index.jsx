@@ -1,8 +1,22 @@
 import styles from "./style.module.scss";
 import banner from "../../assets/images/previewbanner.png";
-import clublogo from '../../assets/images/clublogoo.png'
-import { IoLocation } from "react-icons/io5";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getRequest } from "../../utils/request";
+import { match_detail } from "../../utils/API_urls";
+import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 function PreviewBanner() {
+  const pk = useParams();
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getRequest(`${match_detail}${pk.id}`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [pk.id]);
   return (
     <div
       className={styles.banner}
@@ -15,22 +29,22 @@ function PreviewBanner() {
     >
       <div className={styles.box}>
         <div className={styles.info_part}>
-          <span className={styles.date}>14 August 2024 Wednesday </span>
+          <span className={styles.date}>{formatDateToYMD(data?.date)} </span>
           <div className={styles.location}>
-            <IoLocation color="red"/>
-            <span>Yunusobod SM</span>
+            {/* <IoLocation color="red"/>
+            <span>Yunusobod SM</span> */}
           </div>
-          <span className={styles.time}>20:00</span>
+          <span className={styles.time}>{formatDateToHMS(data?.date)}</span>
         </div>
         <div className={styles.club_part}>
           <div className={styles.club}>
-            <img src={clublogo} alt="clublogo" />
-            <span>BELARUS NT</span>
+            <img src={data?.team1?.icon_url} alt="clublogo" />
+            <span>{data?.team1?.name}</span>
           </div>
-          <span className={styles.shot}>3:2</span>
+          <span className={styles.shot}>{data?.score?.team1_score}:{data?.score?.team2_score}</span>
           <div className={styles.club}>
-            <img src={clublogo} alt="clublogo" />
-            <span>BELARUS NT</span>
+            <img src={data?.team2?.icon_url} alt="clublogo" />
+            <span>{data?.team2?.name}</span>
           </div>
         </div>
       </div>

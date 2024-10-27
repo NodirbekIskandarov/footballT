@@ -3,8 +3,11 @@ import "./GameCar.css"; // Import the CSS file
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { home_last_match } from "../../utils/API_urls";
+import { formatDateToYMD } from "../../utils/dateFormat";
+import { useNavigate } from "react-router-dom";
 export default function GameCar() {
   const [data, setData] = useState(null);
+  const navigate = useNavigate()
   useEffect(() => {
     getRequest(home_last_match)
       .then((response) => {
@@ -22,15 +25,9 @@ export default function GameCar() {
     slidesToShow: 3,
     slidesToScroll: 1,
   };
-  function formatDateToYMD(dateString) {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Oy 0 dan boshlanadi
-    const day = date.getDate().toString().padStart(2, '0');
-  
-    return `${year}.${month}.${day}`;
-}
-
+  function navigateFunc (id) {
+    navigate(`/preview/previ/${id}`)
+  }
   return (
     <div className="game-car">
       <div className="container">
@@ -40,7 +37,7 @@ export default function GameCar() {
               data?.map((item, index) => {
                 return (
                   <div className="slide" key={index}>
-                    <div className="slidee">
+                    <div className="slidee" onClick={() => navigateFunc(item?.uuid)}>
                       <div className="slide-child">
                         <span className="game_date">{formatDateToYMD(item?.date)}</span>
                         <div className="clubs_part">

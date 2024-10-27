@@ -1,67 +1,63 @@
 import styles from "./style.module.scss";
-import clublogo from "../../assets/images/clublogoo.png";
 import top from "../../assets/images/top.png";
-import vorata from "../../assets/images/vorata.png";
-import player from '../../assets/images/playerr.png'
-import krasovka from '../../assets/images/krasovka.png'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getRequest } from "../../utils/request";
+import { match_detail } from "../../utils/API_urls";
+import { formatDateToYMD } from "../../utils/dateFormat";
 function PreviewC() {
-    return (
-        <div className={styles.preview}>
-            <div className="container">
-                <div className={styles.one}>
-                    <div className={styles.club}>
-                        <img src={clublogo} alt="clublogo" />
-                        <span>BELARUS NT</span>
-                    </div>
-                    <span className={styles.center_text}>Tournament position</span>
-                    <div className={styles.club}>
-                        <span>BELARUS NT</span>
-                        <img src={clublogo} alt="clublogo" />
-                    </div>
-                </div>
-                <div className={styles.two}>
-                    <div className={styles.left}>
+  const pk = useParams();
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getRequest(`${match_detail}${pk.id}`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [pk.id]);
+  return (
+    <div className={styles.preview}>
+      <div className="container">
+        <div className={styles.one}>
+          <div className={styles.club}>
+            <img src={data?.team1?.icon_url} alt="clublogo" />
+            <span>{data?.team1?.name}</span>
+          </div>
+          {/* <span className={styles.center_text}>Tournament position</span> */}
+          <div className={styles.club}>
+            <span>{data?.team2?.name}</span>
+            <img src={data?.team2?.icon_url} alt="clublogo" />
+          </div>
+        </div>
+        <div className={styles.two}>
+          {/* <div className={styles.left}>
                         <span>Place in the table </span>
                         <span>5</span>
                         <div className={styles.line}></div>
                         <span className={styles.uch}>Players av. age</span>
                         <span className={styles.turt}>28.8</span>
-                    </div>
-                    <div className={styles.middle}>
-                        <div className={styles.boxes}>
-                            <span>88</span>
-                            <div className={styles.box}>
-                                <img src={top} alt="top" />
-                                <span>Goals scored</span>
-                            </div>
-                            <span>56</span>
-                        </div>
-                        <div className={styles.boxes}>
-                            <span>88</span>
-                            <div className={styles.box}>
-                                <img src={vorata} alt="top" />
-                                <span>Goals scored</span>
-                            </div>
-                            <span>56</span>
-                        </div>
-                        <div className={styles.boxes}>
-                            <span>88</span>
-                            <div className={styles.box}>
-                                <img src={top} alt="top" />
-                                <span>Goals scored</span>
-                            </div>
-                            <span>56</span>
-                        </div>
-                    </div>
-                    <div className={styles.right}>
+                    </div> */}
+          <div className={styles.middle}>
+            <div className={styles.boxes}>
+              <span>{data?.total_goals_in_season?.team1_goals}</span>
+              <div className={styles.box}>
+                <img src={top} alt="top" />
+                <span>Goals scored</span>
+              </div>
+              <span>{data?.total_goals_in_season?.team2_goals}</span>
+            </div>
+          </div>
+          {/* <div className={styles.right}>
                         <span>Place in the table </span>
                         <span>5</span>
                         <div className={styles.line}></div>
                         <span className={styles.uch}>Players av. age</span>
                         <span className={styles.turt}>28.8</span>
-                    </div>
-                </div>
-                <div className={styles.three}>
+                    </div> */}
+        </div>
+        {/* <div className={styles.three}>
                     <div className={styles.left}>
                         <img src={player} alt="player" />
                         <div className={styles.text_part}>
@@ -98,24 +94,24 @@ function PreviewC() {
                         </div>
                         <img src={player} alt="player" />
                     </div>
-                </div>
-                <div className={styles.four}>
-                    <span className={styles.title}>MATCHES AGAINST EACH OTHER</span>
-                    <div className={styles.scores}>
-                        <div className={styles.all}>
-                            <span>GAMES ALL</span>
-                            <span>2</span>
-                        </div>
-                        <div className={styles.home}>
-                            <span>WINS OF HOME TEAM</span>
-                            <span>2</span>
-                        </div>
-                        <div className={styles.away}>
-                            <span>WINS OF AWAY TEAM</span>
-                            <span>2</span>
-                        </div>
-                    </div>
-                    <div className={styles.middle}>
+                </div> */}
+        <div className={styles.four}>
+          <span className={styles.title}>MATCHES AGAINST EACH OTHER</span>
+          <div className={styles.scores}>
+            <div className={styles.all}>
+              <span>WIN</span>
+              <span>{data?.matches?.team_1_wins}</span>
+            </div>
+            <div className={styles.home}>
+              <span>DRAW</span>
+              <span>{data?.matches?.draws}</span>
+            </div>
+            <div className={styles.away}>
+              <span>WIN</span>
+              <span>{data?.matches?.team_2_wins}</span>
+            </div>
+          </div>
+          {/* <div className={styles.middle}>
                         <div className={styles.boxes}>
                             <span>88</span>
                             <div className={styles.box}>
@@ -132,31 +128,35 @@ function PreviewC() {
                             </div>
                             <span>56</span>
                         </div>
-                    </div>
-                </div>
-                <div className={styles.five}>
-                    <div className={styles.box}>
-                        <div className={styles.title}>
-                            <span>14 August 2024, Wednesday </span>
-                        </div>
-                        <div className={styles.score_part}>
-                            <div className={styles.club}>
-                                <img src={clublogo} alt="clublogo" />
-                                <span>BELARUS NT</span>
-                            </div>
-                            <div className={styles.shot}>
-                                <span>3:2</span>
-                            </div>
-                            <div className={styles.club}>
-                                <span>BELARUS NT</span>
-                                <img src={clublogo} alt="clublogo" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </div> */}
         </div>
-    );
+        <div className={styles.five}>
+          {data?.matches?.data?.map((item, index) => {
+            return (
+              <div className={styles.box} key={index}>
+                <div className={styles.title}>
+                  <span>{formatDateToYMD(item?.date)}</span>
+                </div>
+                <div className={styles.score_part}>
+                  <div className={styles.club}>
+                    <img src={item?.team1?.icon_url} alt="clublogo" />
+                    <span>{item?.team1?.name}</span>
+                  </div>
+                  <div className={styles.shot}>
+                    <span>{item?.score?.team1_score}:{item?.score?.team2_score}</span>
+                  </div>
+                  <div className={styles.club}>
+                    <span>{item?.team2?.name}</span>
+                    <img src={item?.team2?.icon_url} alt="clublogo" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default PreviewC;

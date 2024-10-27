@@ -24,10 +24,10 @@ function App() {
             <Route path='news' element={<News/>}/>
             <Route path='preview' element={<Preview/>}>
               <Route index element={<PreviewC/>}/> 
-              <Route path='previ' element={<PreviewC/>}/>
-              <Route path='protocol' element={<Protocol/>}/>
-              <Route path='events' element={<Events/>}/>
-              <Route path='live' element={<Live/>}/>
+              <Route path='previ/:id' element={<PreviewC/>}/>
+              <Route path='protocol/:id' element={<Protocol/>}/>
+              <Route path='events/:id' element={<Events/>}/>
+              <Route path='live/:id' element={<Live/>}/>
             </Route>
             <Route path='best-players' element={<BestPlayers/>}/>
             <Route path='about-us' element={<AboutUs/>}/>
