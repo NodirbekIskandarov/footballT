@@ -1,12 +1,34 @@
 .homeMedia {
     margin-top: 30px;
+    margin-bottom: 30px;
     .videos {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 20px 0;
         .video {
             width: 30%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 10px;
+            background-color: #FFFFFF;
+            padding-bottom: 20px;
+            img {
+                width: 100%;
+                border-radius: 10px;
+                height: 290px;
+            }
+            span {
+                margin-left: 20px;
+                font-size: 24px;
+                font-weight: 500;
+            }
+            .boldroq {
+                font-size: 28px;
+            }
         }
     }
     .images {
@@ -18,6 +40,7 @@
             width: 48%;
             img {
                 width: 100%;
+                border-radius: 10px;
             }
         }
     }
