@@ -28,6 +28,12 @@
                 display: flex;
                 align-items: center;
                 gap: 5px;
+                img {
+                    width: 43px;
+                    height: 43px;
+                    border: 1px solid gray;
+                    border-radius: 50%;
+                }
             }
             span {
                 font-size: 17px;
