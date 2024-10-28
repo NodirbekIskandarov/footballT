@@ -11,7 +11,6 @@ export default function GameCar() {
   useEffect(() => {
     getRequest(home_last_match)
       .then((response) => {
-        console.log(response);
         setData(response?.data);
       })
       .catch((error) => {

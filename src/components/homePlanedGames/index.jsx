@@ -12,7 +12,6 @@ function HomePlanedGames() {
   useEffect(() => {
     getRequest(expected_games)
       .then((response) => {
-        console.log(response, "response");
         setData(response?.data);
       })
       .catch((error) => {
