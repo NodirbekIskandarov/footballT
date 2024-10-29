@@ -48,7 +48,7 @@ export default function Banner() {
           data?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
-                <div
+                {/* <div
                   style={{
                     width: "100%",
                     height: "800px",
@@ -94,7 +94,59 @@ export default function Banner() {
                       </button>
                     </Link>
                   </div>
+                </div> */}
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%", // CSS fayli orqali boshqariladi
+                    backgroundImage: `url(${item?.photo})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "90%", // Mobil va tablet uchun kenglikni qisqartirish
+                      maxWidth: "800px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                      padding: "20px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "32px", // Desktop: 48px, Tablet: 32px, Mobil: 24px
+                        color: "#FFFFFF",
+                        textAlign: "center", // Mobil va tabletda matnni markazlashtirish
+                      }}
+                    >
+                      {item?.title}
+                    </span>
+                    <Link to={item?.uuid}>
+                      <button
+                        style={{
+                          padding: "12px 16px",
+                          backgroundColor: "#FFFFFF",
+                          borderRadius: "8px",
+                          border: "none",
+                          fontSize: "18px",
+                          color: "#1E1E1E",
+                          cursor: "pointer",
+                          alignSelf: "center", // Mobil va tabletda markaziy joylashuv
+                        }}
+                      >
+                        Ko’proq ma’lumot
+                      </button>
+                    </Link>
+                  </div>
                 </div>
+
               </SwiperSlide>
             );
           })}

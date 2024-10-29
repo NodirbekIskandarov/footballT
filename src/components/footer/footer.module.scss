@@ -1,3 +1,80 @@
+// .footer {
+//   width: 100%;
+//   background-color: #295fa7;
+//   padding: 20px 0;
+//   background-image: url("../../assets/images/footeryarimlogo.png"),
+//     url("../../assets/images/footeryarimlogo2.png");
+//   background-position: left, right;
+//   background-repeat: no-repeat, no-repeat;
+//   .footer_child {
+//     width: 60%;
+//     margin: 0 auto;
+//     .logo_part {
+//       width: 100%;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       .line_ {
+//         width: 40%;
+//         height: 2px; /* Adjust the thickness */
+//         background: linear-gradient(to right, transparent, #ccc);
+//       }
+//       .line__ {
+//         width: 40%;
+//         height: 2px; /* Adjust the thickness */
+//         background: linear-gradient(to right, #ccc, transparent);
+//       }
+//       .logotip {
+//         width: 120px;
+//         img {
+//             width: 100%;
+//         }
+//       }
+//     }
+//     .menus {
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-around;
+//         align-items: center;
+//         margin-top: 30px;
+//         .link {
+//             color: white;
+//             text-decoration: none;
+//             font-size: 28px;
+//             font-weight: 500;
+//         }
+//     }
+//     .socials {
+//         width: 30%;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         margin: 30px auto;
+//         .social {
+//             width: 50px;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             padding: 5px;
+//             background-color: white;
+//             border-radius: 5px;
+//             img {
+//                 width: 100%;
+//             }
+//         }
+//     }
+//     .text {
+//         width: 30%;
+//         margin: 30px auto;
+//         color: white;
+//         font-size: 20px;
+//         font-weight: 400;
+//         text-align: center;
+//     }
+//   }
+// }
+
+
 .footer {
   width: 100%;
   background-color: #295fa7;
@@ -6,70 +83,135 @@
     url("../../assets/images/footeryarimlogo2.png");
   background-position: left, right;
   background-repeat: no-repeat, no-repeat;
+
   .footer_child {
     width: 60%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .logo_part {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .line_ {
         width: 40%;
-        height: 2px; /* Adjust the thickness */
+        height: 2px;
         background: linear-gradient(to right, transparent, #ccc);
       }
+
       .line__ {
         width: 40%;
-        height: 2px; /* Adjust the thickness */
+        height: 2px;
         background: linear-gradient(to right, #ccc, transparent);
       }
+
       .logotip {
         width: 120px;
+        
         img {
-            width: 100%;
+          width: 100%;
         }
       }
     }
+
     .menus {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 30px;
-        .link {
-            color: white;
-            text-decoration: none;
-            font-size: 28px;
-            font-weight: 500;
-        }
-    }
-    .socials {
-        width: 30%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 30px auto;
-        .social {
-            width: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px;
-            background-color: white;
-            border-radius: 5px;
-            img {
-                width: 100%;
-            }
-        }
-    }
-    .text {
-        width: 30%;
-        margin: 30px auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 30px;
+
+      .link {
         color: white;
-        font-size: 20px;
-        font-weight: 400;
-        text-align: center;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+
+    .socials {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px auto;
+
+      .social {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        background-color: white;
+        border-radius: 5px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .text {
+      width: 30%;
+      margin: 30px auto;
+      color: white;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+
+  /* Tablet uchun */
+  @media (max-width: 1024px) {
+    .footer_child {
+      width: 80%;
+
+      .menus .link {
+        font-size: 22px;
+      }
+
+      .socials {
+        width: 50%;
+      }
+    }
+  }
+
+  /* Mobil uchun */
+  @media (max-width: 768px) {
+    .footer_child {
+      width: 90%;
+      
+      .logo_part {
+        flex-direction: column;
+        .line_, .line__ {
+          width: 80%;
+        }
+      }
+
+      .menus {
+        flex-direction: column;
+        gap: 10px;
+        
+        .link {
+          font-size: 20px;
+        }
+      }
+
+      .socials {
+        width: 70%;
+        .social {
+          width: 35px;
+        }
+      }
+
+      .text {
+        width: 100%;
+        font-size: 18px;
+      }
     }
   }
 }
