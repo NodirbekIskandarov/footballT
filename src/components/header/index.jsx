@@ -12,6 +12,9 @@ function Header() {
     setMenuOpen(!menuOpen); // Toggles menu open/close
   };
 
+  function handleClick () {
+    setMenuOpen(false)
+  }
 
   return (
     <div className={styles.header}>
@@ -25,12 +28,12 @@ function Header() {
 
           <div className={`${styles.menu_part} ${menuOpen ? styles.menu_open : ''}`}>
             <FaTimes className={styles.close_icon} onClick={toggleMenu} /> {/* Close icon for menu */}
-            <Link className={styles.link} to="/">Home</Link>
-            <Link className={styles.link} to="/tounament">Tournaments</Link>
-            <Link className={styles.link} to="/">News</Link>
-            <Link className={styles.link} to="/">Media</Link>
-            <Link className={styles.link} to="/">History</Link>
-            <Link className={styles.link} to="/">About us</Link>
+            <Link className={styles.link} to="/" onClick={handleClick}>Home</Link>
+            <Link className={styles.link} to="/tounament" onClick={handleClick}>Tournaments</Link>
+            <Link className={styles.link} to="/news" onClick={handleClick}>News</Link>
+            <Link className={styles.link} to="/media" onClick={handleClick}>Media</Link>
+            <Link className={styles.link} to="/" onClick={handleClick}>History</Link>
+            <Link className={styles.link} to="/about-us" onClick={handleClick}>About us</Link>
           </div>
 
           <div className={styles.language_part}>

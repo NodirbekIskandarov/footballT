@@ -16,11 +16,11 @@ function Footer() {
             </div>
             <div className={styles.menus}>
                 <Link className={styles.link} to='/'>Home</Link>
-                <Link className={styles.link} to='/'>Tournaments </Link>
-                <Link className={styles.link} to='/'>News</Link>
-                <Link className={styles.link} to='/'>Media</Link>
+                <Link className={styles.link} to='/tounament'>Tournaments </Link>
+                <Link className={styles.link} to='/news'>News</Link>
+                <Link className={styles.link} to='/media'>Media</Link>
                 <Link className={styles.link} to='/'>History</Link>
-                <Link className={styles.link} to='/'>About us</Link>
+                <Link className={styles.link} to='/about-us'>About us</Link>
             </div>
             <div className={styles.socials}>
               <div className={styles.social}>
