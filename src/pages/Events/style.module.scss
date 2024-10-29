@@ -1,0 +1,63 @@
+.events {
+    width: 100%;
+    .clubs {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        .club {
+            width: 25%;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 1px solid gray;
+            }
+            span {
+                font-size: 28px;
+                font-weight: 700;
+                color: #37517E;
+            }
+        }
+        .title {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                font-size: 28px;
+                font-weight: 700;
+                color: #37517E;
+            }
+        }
+    }
+    .events_part {
+        width: 100%;
+        text-align: center;
+        .tr {
+            width: 60%;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .player {
+                width: 30%;
+                span {
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+            }
+            .time {
+                width: 30%;
+                span {
+                    font-size: 44px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
