@@ -20,14 +20,22 @@ function Video() {
         <div className={styles.boxes}>
           {data?.map((item, index) => {
             return (
-              <div className={styles.box} key={index}>
+              <a
+              href={item?.link} // Dynamic link for each video
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+              className={styles.boxLink}
+            >
+              <div className={styles.box}>
                 <img src={item?.photo} alt="media photo" />
+                <b className={styles.playicon}>▶</b> {/* Play icon */}
                 <div className={styles.text}>
                   <span>{item?.description}</span>
                   <span>{formatDateToYMD(item?.updated_at)}</span>
-                  {/* <span>Final OIL STAR vs BMB</span> */}
                 </div>
               </div>
+            </a>
             );
           })}
         </div>

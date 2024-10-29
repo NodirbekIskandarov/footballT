@@ -19,12 +19,19 @@ function HomeMedia() {
         <div className={styles.videos}>
           {data?.videos?.map((item, index) => {
             return (
-              <div className={styles.video} key={index}>
-                <img src={item?.photo} alt="" />
-                <span>14 August 2024, Wednesday </span>
-                <span>Yunusobod SM</span>
-                <span className={styles.boldroq}>Final OIL STAR vs  BMB</span>
+              <a
+              href={item?.link} // Dynamic link from data
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+              className={styles.videoLink}
+            >
+              <div className={styles.video}>
+                <img src={item?.photo} alt="video thumbnail" />
+                <b className={styles.playicon}>▶</b>
+                <span>{item?.description}</span>
               </div>
+            </a>
             );
           })}
         </div>

@@ -1,50 +1,3 @@
-// .homeMedia {
-//     margin-top: 30px;
-//     margin-bottom: 30px;
-//     .videos {
-//         width: 100%;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         margin: 20px 0;
-//         .video {
-//             width: 30%;
-//             border-radius: 10px;
-//             display: flex;
-//             flex-direction: column;
-//             gap: 10px;
-//             border-radius: 10px;
-//             background-color: #FFFFFF;
-//             padding-bottom: 20px;
-//             img {
-//                 width: 100%;
-//                 border-radius: 10px;
-//                 height: 290px;
-//             }
-//             span {
-//                 margin-left: 20px;
-//                 font-size: 24px;
-//                 font-weight: 500;
-//             }
-//             .boldroq {
-//                 font-size: 28px;
-//             }
-//         }
-//     }
-//     .images {
-//         width: 100%;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         .image {
-//             width: 48%;
-//             img {
-//                 width: 100%;
-//                 border-radius: 10px;
-//             }
-//         }
-//     }
-// }
 
 .homeMedia {
     margin-top: 30px;
@@ -56,22 +9,36 @@
       justify-content: space-between;
       align-items: center;
       margin: 20px 0;
-  
-      .video {
+      .videoLink {
         width: 30%;
+        text-decoration: none; /* Remove default underline on anchor tag */
+        color: inherit; /* Inherit text color */
+      }
+      .video {
+        position: relative;
+        width: 100%;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         gap: 10px;
         background-color: #FFFFFF;
         padding-bottom: 20px;
-  
+        cursor: pointer;
         img {
           width: 100%;
           border-radius: 10px;
           height: 290px;
         }
-  
+        .playicon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 40px; /* Adjust icon size */
+          color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+          pointer-events: none;
+          
+        }
         span {
           margin-left: 20px;
           font-size: 24px;
