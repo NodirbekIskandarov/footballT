@@ -8,7 +8,6 @@ function Video() {
   useEffect(() => {
     getRequest(gallery_videos)
       .then((response) => {
-        console.log(response);
         setData(response?.data);
       })
       .catch((error) => {

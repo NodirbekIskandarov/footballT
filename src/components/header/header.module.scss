@@ -34,6 +34,7 @@
             }
 
             .submenu {
+                min-width: 100px;
                 position: absolute; // Position submenu absolutely
                 top: 100%; // Position it below the parent link
                 left: 100px; // Align it with the left edge of the parent

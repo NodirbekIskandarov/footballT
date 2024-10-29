@@ -8,7 +8,6 @@ const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     // You can modify the request config here (e.g., add headers)
-    console.log('Request made with ', config);
     return config; // Don't forget to return the config
   },
   error => {
@@ -22,7 +21,6 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     // Handle the response data here if needed
-    console.log('Response received:', response);
     return response; // Don't forget to return the response
   },
   error => {
