@@ -1,4 +1,3 @@
-import React from 'react'
 import { PlayerBanner, PlayerGamesTable } from '../../components'
 
 function AboutPlayer() {

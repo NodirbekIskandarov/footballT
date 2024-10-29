@@ -27,7 +27,6 @@ function Header() {
   useEffect(() => {
     getRequest(tournament_list)
       .then((response) => {
-        console.log(response, "menular");
         setData(response?.data);
       })
       .catch((error) => {

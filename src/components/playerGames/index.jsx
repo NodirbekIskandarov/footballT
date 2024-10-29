@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './style.module.scss'
 import stadion from '../../assets/images/stadionicon.png'
 import krasovka from '../../assets/images/krasovka.png'

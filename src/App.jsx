@@ -16,7 +16,7 @@ function App() {
               <Route path='planed' element={<PlanedGames/>}/>
             </Route>
             <Route path='players' element={<Players/>}/>
-            <Route path="about-player" element={<AboutPlayer/>}/>
+            <Route path="about-player/:id" element={<AboutPlayer/>}/>
             <Route path='media' element={<Media/>}>
                 <Route index element={<Photo/>}/>
                 <Route path='video' element={<Video/>}/>
