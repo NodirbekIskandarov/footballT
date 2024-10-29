@@ -8,27 +8,29 @@ import { useNavigate } from "react-router-dom";
 function BestPlayers() {
   const [data, setData] = useState(null);
   const navigate = useNavigate()
+  const [year, setYear] = useState("2024")
   useEffect(() => {
-    getRequest(best_players)
+    getRequest(`${best_players}?year=${year}`)
       .then((response) => {
         setData(response?.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [year]);
   function navigateFunc(id) {
     navigate(`/about-player/${id}`)
   }
+
   return (
     <div className={styles.players}>
       <div className="container">
         <div className={styles.title_part}>
           <span>Eng yaxshi futbolistlar</span>
-          <select name="" id="">
-            <option value="">2024</option>
-            <option value="">2024</option>
-          </select>
+          <select value={year} onChange={(e) => setYear(e.target.value)}>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+      </select>
         </div>
 
         <div className={styles.boxes}>
