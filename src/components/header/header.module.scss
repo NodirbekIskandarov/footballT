@@ -28,19 +28,23 @@
                 font-weight: 500;
                 color: #FFFFFF;
                 text-decoration: none;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
             }
 
             .submenu {
                 position: absolute; // Position submenu absolutely
                 top: 100%; // Position it below the parent link
-                left: 0; // Align it with the left edge of the parent
+                left: 100px; // Align it with the left edge of the parent
                 background-color: #295FA7; // Match header background
                 z-index: 1001; // Ensure it appears above other elements
                 display: flex;
                 flex-direction: column;
                 margin-top: 5px; // Space between main menu and submenu
                 padding: 10px 0; // Add some padding for better spacing
-
+                border-radius: 10px;
+                border: 1px solid white;
                 .submenu_link {
                     padding: 5px 10px; // Add some padding
                     color: #FFFFFF; // Change color as needed
