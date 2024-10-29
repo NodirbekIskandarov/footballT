@@ -215,3 +215,19 @@
     }
   }
 }
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px; // Space between main menu and submenu
+}
+
+.submenu_link {
+  padding: 5px 10px; // Add some padding
+  color: #FFFFFF; // Change color as needed
+  text-decoration: none; // Remove underline
+}
+
+.submenu_link:hover {
+  background-color: #f0f0f0; // Add hover effect
+}

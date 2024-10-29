@@ -1,20 +1,26 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import styles from './header.module.scss';
-import { FaTimes, FaBars } from 'react-icons/fa'; // FaBars added for hamburger icon
+import { FaTimes, FaBars } from 'react-icons/fa'; 
 import { useState } from 'react';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State for menu open/close
-
+  const [submenuOpen, setSubmenuOpen] = useState(false); // State for submenu open/close
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen); // Toggles menu open/close
+    setSubmenuOpen(false); // Close submenu when main menu is toggled
   };
 
-  function handleClick () {
-    setMenuOpen(false)
-  }
+  const toggleSubmenu = () => {
+    setSubmenuOpen(!submenuOpen); // Toggles submenu open/close
+  };
+
+  const handleClick = () => {
+    setMenuOpen(false);
+    setSubmenuOpen(false); // Close submenu when a link is clicked
+  };
 
   return (
     <div className={styles.header}>
@@ -24,12 +30,21 @@ function Header() {
             <img src={logo} alt="logo" />
           </div>
 
-          <FaBars className={styles.hamburger} onClick={toggleMenu} /> {/* Hamburger icon */}
+          <FaBars className={styles.hamburger} onClick={toggleMenu} />
 
           <div className={`${styles.menu_part} ${menuOpen ? styles.menu_open : ''}`}>
-            <FaTimes className={styles.close_icon} onClick={toggleMenu} /> {/* Close icon for menu */}
+            <FaTimes className={styles.close_icon} onClick={toggleMenu} />
             <Link className={styles.link} to="/" onClick={handleClick}>Home</Link>
-            <Link className={styles.link} to="/tounament" onClick={handleClick}>Tournaments</Link>
+            <div className={styles.tournament} onClick={toggleSubmenu}>
+              <span className={styles.link}>Tournaments</span>
+              {submenuOpen && (
+                <div className={styles.submenu}>
+                  <Link className={styles.submenu_link} to="/tournament/upcoming" onClick={handleClick}>Upcoming</Link>
+                  <Link className={styles.submenu_link} to="/tournament/past" onClick={handleClick}>Past Tournaments</Link>
+                  <Link className={styles.submenu_link} to="/tournament/rules" onClick={handleClick}>Tournament Rules</Link>
+                </div>
+              )}
+            </div>
             <Link className={styles.link} to="/news" onClick={handleClick}>News</Link>
             <Link className={styles.link} to="/media" onClick={handleClick}>Media</Link>
             <Link className={styles.link} to="/" onClick={handleClick}>History</Link>
