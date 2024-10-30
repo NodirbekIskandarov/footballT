@@ -5,9 +5,11 @@ import { getRequest } from "../../utils/request";
 import { home_last_match } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
 import { useNavigate } from "react-router-dom";
+
 export default function GameCar() {
   const [data, setData] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   useEffect(() => {
     getRequest(home_last_match)
       .then((response) => {
@@ -17,53 +19,62 @@ export default function GameCar() {
         console.log(error);
       });
   }, []);
+
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Katta ekranlarda ko'rinishi
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // Mobil qurilmalar uchun
+        settings: {
+          slidesToShow: 1, // Mobilda 1 ta slayd ko'rsatish
+        },
+      },
+    ],
   };
-  function navigateFunc (id) {
-    navigate(`/preview/previ/${id}`)
+
+  function navigateFunc(id) {
+    navigate(`/preview/previ/${id}`);
   }
+
   return (
     <div className="game-car">
       <div className="container">
         <div className="carousel-container">
           <Slider {...settings}>
-            {
-              data?.map((item, index) => {
-                return (
-                  <div className="slide" key={index}>
-                    <div className="slidee" onClick={() => navigateFunc(item?.uuid)}>
-                      <div className="slide-child">
-                        <span className="game_date">{formatDateToYMD(item?.date)}</span>
-                        <div className="clubs_part">
-                          <div>
-                            <img src={item?.team1?.icon_url} alt="komonda logosi" />
-                          </div>
-                          <div>
-                            <span>{item?.team1?.name}</span>
-                          </div>
-                          <div className="vs">VS</div>
-                          <div>
-                            <span>{item?.team2?.name}</span>
-                          </div>
-                          <div>
-                            <img src={item?.team2?.icon_url} alt="komonda logosi" />
-                          </div>
+            {data?.map((item, index) => {
+              return (
+                <div className="slide" key={index}>
+                  <div className="slidee" onClick={() => navigateFunc(item?.uuid)}>
+                    <div className="slide-child">
+                      <span className="game_date">{formatDateToYMD(item?.date)}</span>
+                      <div className="clubs_part">
+                        <div>
+                          <img src={item?.team1?.icon_url} alt="komonda logosi" />
                         </div>
-                        <span className="game_date">{item?.score?.team1_score} : {item?.score?.team2_score}</span>
-                        <div className="liga-name">
-                          <span>{item?.league}</span>
-                          {/* <img className="rasm" src={logoClub} alt="liga logosi" /> */}
+                        <div>
+                          <span>{item?.team1?.name}</span>
                         </div>
+                        <div className="vs">VS</div>
+                        <div>
+                          <span>{item?.team2?.name}</span>
+                        </div>
+                        <div>
+                          <img src={item?.team2?.icon_url} alt="komonda logosi" />
+                        </div>
+                      </div>
+                      <span className="game_date">{item?.score?.team1_score} : {item?.score?.team2_score}</span>
+                      <div className="liga-name">
+                        <span>{item?.league}</span>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </Slider>
         </div>
       </div>
