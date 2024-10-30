@@ -1,5 +1,4 @@
 import styles from "./style.module.scss";
-import player from "../../assets/images/player.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { getRequest } from "../../utils/request";
 import { best_players } from "../../utils/API_urls";
@@ -52,7 +51,7 @@ function BestPlayers() {
           {data?.map((item, index) => {
             return (
               <div className={styles.box} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
-                <img src={player} alt="player" />
+                <img src={item?.image} alt="player" />
                 <span className={styles.name}>{item[`name_${lng}`]}</span>
                 <span className={styles.position}>{item[`position_${lng}`]}</span>
                 <button onClick={() => navigateFunc(item?.uuid)}>

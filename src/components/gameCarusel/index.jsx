@@ -77,7 +77,7 @@ const lng = i18n.language
                       </div>
                       <span className="game_date">{item?.score?.team1_score} : {item?.score?.team2_score}</span>
                       <div className="liga-name">
-                        <span>{item?.league}</span>
+                        <span>{item[`league_${lng}`]}</span>
                       </div>
                     </div>
                   </div>
