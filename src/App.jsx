@@ -28,7 +28,7 @@ function App() {
               <Route path='previ/:id' element={<PreviewC/>}/>
               <Route path='protocol/:id' element={<Protocol/>}/>
               <Route path='events/:id' element={<Events/>}/>
-              <Route path='live/:id' element={<Live/>}/>
+              {/* <Route path='live/:id' element={<Live/>}/> */}
             </Route>
             <Route path='best-players' element={<BestPlayers/>}/>
             <Route path='about-us' element={<AboutUs/>}/>

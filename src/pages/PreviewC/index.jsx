@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
+import { useTranslation } from "react-i18next";
 function PreviewC() {
+  const {t} = useTranslation()
   const pk = useParams();
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -96,18 +98,18 @@ function PreviewC() {
                     </div>
                 </div> */}
         <div className={styles.four}>
-          <span className={styles.title}>MATCHES AGAINST EACH OTHER</span>
+          <span className={styles.title}>{t("MATCHES AGAINST EACH OTHER")}</span>
           <div className={styles.scores}>
             <div className={styles.all}>
-              <span>WIN</span>
+              <span>{t("WIN")}</span>
               <span>{data?.matches?.team_1_wins}</span>
             </div>
             <div className={styles.home}>
-              <span>DRAW</span>
+              <span>{t("DRAW")}</span>
               <span>{data?.matches?.draws}</span>
             </div>
             <div className={styles.away}>
-              <span>WIN</span>
+              <span>{t("WIN")}</span>
               <span>{data?.matches?.team_2_wins}</span>
             </div>
           </div>

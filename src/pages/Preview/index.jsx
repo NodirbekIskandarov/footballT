@@ -2,11 +2,24 @@ import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { PreviewBanner } from "../../components";
 import styles from './style.module.scss';
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { match_detail } from "../../utils/API_urls";
+import { getRequest } from "../../utils/request";
 
 function Preview() {
   const location = useLocation();
   const { id } = useParams(); // Get the id from the URL params
-  const {t} = useTranslation()
+  const { t } = useTranslation()
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    getRequest(`${match_detail}${id}`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
   return (
     <div>
       <PreviewBanner />
@@ -37,14 +50,16 @@ function Preview() {
                 }}
               >{t("Events")}</button>
             </Link>
-            <Link to={`/preview/live/${id}`} className={styles.link}>
-              <button
+            {/* <Link to={`/preview/live/${id}`} className={styles.link}> */}
+            <a href={data?.live_link} target="_blank"
+              rel="noopener noreferrer" className={styles.link}><button
                 style={{
                   color: location.pathname.includes("live") ? "#295FA7" : "#FFFFFF",
                   backgroundColor: location.pathname.includes("live") ? "#FFFFFF" : "#295FA7"
                 }}
-              >Live</button>
-            </Link>
+              >Live</button></a>
+
+            {/* </Link> */}
           </div>
         </div>
         <Outlet />

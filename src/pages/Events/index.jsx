@@ -3,13 +3,14 @@ import styles from "./style.module.scss";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 function Events() {
+  const {t} = useTranslation()
   const [data, setData] = useState(null);
   const pk = useParams();
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
-        console.log(response?.data);
         setData(response?.data);
       })
       .catch((error) => {
@@ -29,7 +30,7 @@ function Events() {
             <span>{data?.team1?.name}</span>
           </div>
           <div className={styles.title}>
-            <span>match events</span>
+            <span>{t("match events")}</span>
           </div>
           <div className={styles.club}>
             <span>{data?.team2?.name}</span>
