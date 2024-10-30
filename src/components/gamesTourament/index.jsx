@@ -1,59 +1,50 @@
-// import styles from './style.module.scss'
-// import logo from '../../assets/images/clublogoo.png'
-// function GamesTournament() {
-//     return (
-//         <div className={styles.games}>
-//             <div className='container'>
-//                 <div className={styles.table}>
-//                     <span className={styles.sana}>14 August 2024 </span>
-//                     <div className={styles.table_part}>
-//                         <div className={styles.left}>
-//                             <div className={styles.image_part}>
-//                                 <img src={logo} alt="club logosi" />
-//                             </div>
-//                             <div className={styles.name_part}>BELARUS NT</div>
-//                         </div>
-//                         <div className={styles.shot}>3:1</div>
-//                         <div className={styles.right}>
-//                             <div className={styles.name_part}>BELARUS NT</div>
-//                             <div className={styles.image_part}>
-//                                 <img src={logo} alt="club logosi" />
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
 
-// export default GamesTournament
 
-import styles from './style.module.scss';
-import logo from '../../assets/images/clublogoo.png';
+import styles from "./style.module.scss";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getRequest } from "../../utils/request";
+import { matchbyleague } from "../../utils/API_urls";
+import { formatDateToYMD } from "../../utils/dateFormat";
 
-function GamesTournament({ date = "14 August 2024", team1 = "BELARUS NT", team2 = "BELARUS NT", score = "3:1" }) {
+function GamesTournament() {
+  const [data, setData] = useState(null);
+  const { id } = useParams();
+  useEffect(() => {
+    getRequest(`${matchbyleague}${id}`)
+      .then((response) => {
+        console.log(response, "resposne");
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
   return (
     <div className={styles.games}>
       <div className="container">
-        <div className={styles.table}>
-          <span className={styles.sana}>{date}</span>
-          <div className={styles.table_part}>
-            <div className={styles.left}>
-              <div className={styles.image_part}>
-                <img src={logo} alt={`${team1} logo`} />
+        {data?.passed?.map((item, index) => {
+          return (
+            <div className={styles.table} key={index}>
+              <span className={styles.sana}>{formatDateToYMD(item?.date)}</span>
+              <div className={styles.table_part}>
+                <div className={styles.left}>
+                  <div className={styles.image_part}>
+                    <img src={item?.team1?.icon_url} alt={`logo`} />
+                  </div>
+                  <div className={styles.name_part}>{item?.team1?.name}</div>
+                </div>
+                <div className={styles.shot}>{item?.score?.team1_score}:{item?.score?.team2_score}</div>
+                <div className={styles.right}>
+                  <div className={styles.name_part}>{item?.team2?.name}</div>
+                  <div className={styles.image_part}>
+                    <img src={item?.team2?.icon_url} alt={` logo`} />
+                  </div>
+                </div>
               </div>
-              <div className={styles.name_part}>{team1}</div>
             </div>
-            <div className={styles.shot}>{score}</div>
-            <div className={styles.right}>
-              <div className={styles.name_part}>{team2}</div>
-              <div className={styles.image_part}>
-                <img src={logo} alt={`${team2} logo`} />
-              </div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

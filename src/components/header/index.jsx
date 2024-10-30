@@ -63,7 +63,7 @@ function Header() {
                     return (
                       <Link
                         className={styles.submenu_link}
-                        to="/tounament"
+                        to={`/tournament/pasted/${item?.uuid}`}
                         onClick={handleClick}
                         key={index}
                       >

@@ -1,8 +1,9 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, AboutUs, BannerDetail, BestPlayers, Events, Home, Kids, Live, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC, Protocol, Tounament } from './pages'
+import { AboutPlayer, AboutUs, BannerDetail, BestPlayers, Events, Home, Kids, Live, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC, Protocol } from './pages'
 import './App.css'
 import { Photo, Video } from './components'
+import Tournament from './pages/Tournament'
 function App() {
 
   return (
@@ -11,9 +12,10 @@ function App() {
         <Routes>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
-            <Route path='tounament' element={<Tounament/>}>
+            <Route path='tournament' element={<Tournament/>}>
               <Route index element={<PastedGames/>}/>
-              <Route path='planed' element={<PlanedGames/>}/>
+              <Route path='pasted/:id' element={<PastedGames/>}/>
+              <Route path='planed/:id' element={<PlanedGames/>}/>
             </Route>
             <Route path='players' element={<Players/>}/>
             <Route path="about-player/:id" element={<AboutPlayer/>}/>
