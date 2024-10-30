@@ -1,6 +1,7 @@
 .news_card {
     width: 100%;
     margin: 50px 0;
+
     .card {
         width: 100%;
         display: flex;
@@ -13,6 +14,7 @@
         background-size: 45%;
         margin-top: 40px;
         padding-bottom: 30px;
+
         .left {
             width: 40%;
             padding-top: 64px;
@@ -22,34 +24,132 @@
             flex-direction: column;
             gap: 30px;
             align-items: center;
+
             .club_part {
                 width: 100%;
                 display: flex;
                 gap: 20px;
                 align-items: center;
+
                 img {
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
                 }
+
                 span {
                     font-weight: 700;
                     font-size: 32px;
                 }
             }
+
             .vs {
                 font-size: 32px;
                 font-weight: 700;
             }
+
             .text {
                 font-size: 36px;
                 font-weight: 500;
             }
         }
+
         .right {
             width: 60%;
             img {
                 width: 100%;
+            }
+        }
+    }
+
+    /* Responsive adjustments */
+
+    /* Planshet (max-width: 1024px) */
+    @media (max-width: 1024px) {
+        .card {
+            flex-direction: column; /* Stack elements on tablet */
+            align-items: center; /* Center align items */
+            padding: 20px;
+
+            .left {
+                width: 100%; /* Full width */
+                padding: 20px 0; /* Adjust padding */
+                align-items: flex-start; /* Align left */
+            }
+
+            .right {
+                width: 100%; /* Full width */
+                img {
+                    height: auto; /* Maintain aspect ratio */
+                }
+            }
+        }
+    }
+
+    /* Mobil (max-width: 768px) */
+    @media (max-width: 768px) {
+        .card {
+            padding: 15px; /* Adjust padding */
+
+            .left {
+                padding-top: 30px; /* Less padding on top */
+                gap: 20px; /* Adjust gap */
+
+                .club_part {
+                    gap: 10px; /* Less gap between elements */
+                    span {
+                        font-size: 28px; /* Smaller font size */
+                    }
+                }
+
+                .vs {
+                    font-size: 28px; /* Smaller font size */
+                }
+
+                .text {
+                    font-size: 30px; /* Smaller font size */
+                }
+            }
+        }
+    }
+
+    /* Mobil (max-width: 480px) */
+    @media (max-width: 480px) {
+        .card {
+            flex-direction: column; /* Stack elements */
+            align-items: center; /* Center align items */
+            padding: 10px; /* Less padding */
+
+            .left {
+                width: 100%; /* Full width */
+                padding: 15px 0; /* Less padding */
+                display: flex;
+                justify-content: center;
+                .club_part {
+                    flex-direction: column; /* Stack club part */
+                    align-items: center; /* Center align club part */
+                    gap: 5px; /* Reduce gap */
+                    span {
+                        font-size: 24px; /* Smaller font size */
+                    }
+                }
+
+                .vs {
+                    font-size: 24px; /* Smaller font size */
+                }
+
+                .text {
+                    font-size: 26px; /* Smaller font size */
+                    text-align: center; /* Center align text */
+                }
+            }
+
+            .right {
+                width: 100%; /* Full width */
+                img {
+                    width: 100%; /* Make image responsive */
+                    height: auto; /* Maintain aspect ratio */
+                }
             }
         }
     }
