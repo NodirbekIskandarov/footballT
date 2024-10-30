@@ -46,7 +46,7 @@ function Header() {
       <div className="container">
         <div className={styles.header_main}>
           <div className={styles.img_part}>
-            <img src={logo} alt="logo" />
+            <a href="/"><img src={logo} alt="logo" /></a>
           </div>
 
           <FaBars className={styles.hamburger} onClick={toggleMenu} />

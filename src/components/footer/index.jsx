@@ -22,7 +22,7 @@ function Footer() {
           <div className={styles.logo_part}>
             <div className={styles.line_}></div>
             <div className={styles.logotip}>
-              <img src={logotip} alt="logotip" />
+              <a href="/"><img src={logotip} alt="logotip" /></a>
             </div>
             <div className={styles.line__}></div>
           </div>
