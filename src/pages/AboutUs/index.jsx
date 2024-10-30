@@ -25,6 +25,26 @@ function AboutUs() {
           <span>{data?.description}</span>
         </div>
       </div>
+      <div className={styles.contact}>
+        <div className="container">
+          <div className={styles.boxes}>
+            <div className={styles.text_part}>
+              <span className={styles.one}>Biz bilan bo’g’lanib  savolaringizga javob oling</span>
+              <br />
+              <br />
+              <span className={styles.two}>Aloqa nomeri</span>
+              <br />
+              <span className={styles.three}>+998945854512</span>
+            </div>
+            <div className={styles.form_part}>
+              <input type="text" placeholder="F.I.SH"/>
+              <input type="text" placeholder="Telefon raqam"/>
+              <textarea name="" id="" placeholder="Message"></textarea>
+              <button>Yuborish</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
