@@ -7,11 +7,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import { useTranslation } from "react-i18next";
 
 function BestPlayers() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   const [year, setYear] = useState("2024");
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(`${best_players}?year=${year}`)
@@ -50,8 +53,8 @@ function BestPlayers() {
             return (
               <div className={styles.box} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
                 <img src={player} alt="player" />
-                <span className={styles.name}>{item?.name}</span>
-                <span className={styles.position}>{item?.position}</span>
+                <span className={styles.name}>{item[`name_${lng}`]}</span>
+                <span className={styles.position}>{item[`position_${lng}`]}</span>
                 <button onClick={() => navigateFunc(item?.uuid)}>
                   View <FaArrowRightLong />
                 </button>

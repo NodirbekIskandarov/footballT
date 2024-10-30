@@ -4,9 +4,12 @@ import { getRequest } from "../../utils/request";
 import { last_media } from "../../utils/API_urls";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import { useTranslation } from "react-i18next";
 
 function HomeMedia() {
   const [data, setData] = useState(null);
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(last_media)
@@ -39,7 +42,7 @@ function HomeMedia() {
               <div className={styles.video}>
                 <img src={item?.photo} alt="video thumbnail" />
                 <b className={styles.playicon}>▶</b>
-                <span>{item?.description}</span>
+                <span>{item[`description_${lng}`]}</span>
               </div>
             </a>
           ))}

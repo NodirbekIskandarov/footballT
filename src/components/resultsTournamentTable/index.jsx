@@ -5,10 +5,13 @@ import { getRequest } from "../../utils/request";
 import { teamsbyleague } from "../../utils/API_urls";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     // Fetching data from API
@@ -53,7 +56,7 @@ function ResultsTournamentTable() {
                     }}
                   >
                     <img src={item?.icon} alt="team logo" />
-                    <span>{item?.name}</span>
+                    <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.matches}</td>
                   <td>{item?.points}</td>

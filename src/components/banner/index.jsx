@@ -19,7 +19,8 @@ import { useTranslation } from "react-i18next";
 
 export default function Banner() {
   const [data, setData] = useState([]);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(home_banner)
@@ -128,7 +129,7 @@ export default function Banner() {
                         textAlign: "center", // Mobil va tabletda matnni markazlashtirish
                       }}
                     >
-                      {item?.title}
+                      {item[`title_${lng}`]}
                     </span>
                     <Link to={item?.uuid}>
                       <button

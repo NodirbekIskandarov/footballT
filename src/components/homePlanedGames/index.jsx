@@ -11,9 +11,9 @@ import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 
 function HomePlanedGames() {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
   const [data, setData] = useState(null);
-
+const lng = i18n.language
   useEffect(() => {
     getRequest(expected_games)
       .then((response) => {
@@ -38,12 +38,12 @@ function HomePlanedGames() {
               <div className={styles.clubs}>
                 <div>
                   <img src={item?.team1?.icon_url} alt="club-logotip" />
-                  <span>{item?.team1?.name}</span>
+                  <span>{item?.team1[`name_${lng}`]}</span>
                 </div>
                 <span>VS</span>
                 <div>
                   <img src={item?.team2?.icon_url} alt="club-logotip" />
-                  <span>{item?.team2?.name}</span> {/* Team2 nomi to'g'ri berilsin */}
+                  <span>{item?.team2[`name_${lng}`]}</span> {/* Team2 nomi to'g'ri berilsin */}
                 </div>
               </div>
               <div className={styles.date}>

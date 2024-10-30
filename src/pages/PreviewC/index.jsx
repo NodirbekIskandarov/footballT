@@ -10,10 +10,11 @@ import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
 
 function PreviewC() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const pk = useParams();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  const lng = i18n.language
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
@@ -46,7 +47,7 @@ function PreviewC() {
             }}
           >
             <img src={data?.team1?.icon_url} alt="clublogo" />
-            <span>{data?.team1?.name}</span>
+            <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <div
             className={styles.club}
@@ -54,7 +55,7 @@ function PreviewC() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <span>{data?.team2?.name}</span>
+            <span>{data?.team2[`name_${lng}`]}</span>
             <img src={data?.team2?.icon_url} alt="clublogo" />
           </div>
         </div>
@@ -110,7 +111,7 @@ function PreviewC() {
                     }}
                   >
                     <img src={item?.team1?.icon_url} alt="clublogo" />
-                    <span>{item?.team1?.name}</span>
+                    <span>{item?.team1[`name_${lng}`]}</span>
                   </div>
                   <div className={styles.shot}>
                     <span>
@@ -123,7 +124,7 @@ function PreviewC() {
                       navigateFunc(data?.team2?.uuid);
                     }}
                   >
-                    <span>{item?.team2?.name}</span>
+                    <span>{item?.team2[`name_${lng}`]}</span>
                     <img src={item?.team2?.icon_url} alt="clublogo" />
                   </div>
                 </div>

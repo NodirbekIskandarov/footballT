@@ -6,10 +6,11 @@ import { banner_detail } from "../../utils/API_urls";
 import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 function BannerDetail() {
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
   const [data, setData] = useState(null);
   const pk = useParams();
   const navigate = useNavigate()
+  const lng = i18n.language
   useEffect(() => {
     getRequest(`${banner_detail}${pk.id}`)
       .then((response) => {
@@ -29,14 +30,14 @@ function BannerDetail() {
           <img src={data?.photo} alt="detail banner" />
         </div>
         <div className={styles.desc_part}>
-          <span className={styles.title}>{data?.title}</span>
+          <span className={styles.title}>{data[`title_${lng}`]}</span>
           <br />
           <div
             style={{
               marginTop: "30px",
             }}
           >
-            <span className={styles.desc}>{data?.body}</span>
+            <span className={styles.desc}>{data[`body_${lng}`]}</span>
           </div>
         </div>
         <div className={styles.table}>
@@ -58,14 +59,14 @@ function BannerDetail() {
               <div className={styles.image_part}>
                 <img src={data?.match?.team1?.icon_url} alt="club logosi" />
               </div>
-              <div className={styles.name_part}>{data?.match?.team1?.name}</div>
+              <div className={styles.name_part}>{data?.match?.team1[`name_${lng}`]}</div>
             </div>
             <div className={styles.shot}>
               {data?.match?.score?.team1_score}:
               {data?.match?.score?.team2_score}
             </div>
             <div className={styles.right} onClick={() => navigateFunc(data?.match?.team2?.uuid)}>
-              <div className={styles.name_part}>{data?.match?.team2?.name}</div>
+              <div className={styles.name_part}>{data?.match?.team2[`name_${lng}`]}</div>
               <div className={styles.image_part}>
                 <img src={data?.match?.team2?.icon_url} alt="club logosi" />
               </div>

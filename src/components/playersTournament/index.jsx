@@ -7,6 +7,7 @@ import { getRequest } from '../../utils/request';
 import { playerbyleague } from '../../utils/API_urls';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useTranslation } from 'react-i18next';
 
 const PlayerCard = ({ img, name, position, index, id }) => (
   <div className={styles.box} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
@@ -37,6 +38,8 @@ PlayerCard.propTypes = {
 function PlayersTournament() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(`${playerbyleague}${id}`)
@@ -58,7 +61,7 @@ function PlayersTournament() {
         <span className={styles.title}>Eng yaxshi futbolistlar</span>
         <div className={styles.boxes}>
           {data?.map((player, index) => (
-            <PlayerCard key={index} img={player.image} name={player.name} position={player.position} index={index} id={player?.uuid}/>
+            <PlayerCard key={index} img={player.image} name={player[`name_${lng}`]} position={player[`name_${lng}`]} index={index} id={player?.uuid}/>
           ))}
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>

@@ -4,9 +4,12 @@ import { getRequest } from "../../utils/request";
 import { all_news } from "../../utils/API_urls";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import { useTranslation } from "react-i18next";
 
 function NewsCard() {
   const [data, setData] = useState(null);
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(all_news)
@@ -34,15 +37,15 @@ function NewsCard() {
               <div className={styles.left}>
                 <div className={styles.club_part}>
                   <img src={item?.match?.team1?.icon_url} alt="club logotip" />
-                  <span>{item?.match?.team1?.name}</span>
+                  <span>{item?.match?.team1[`name_${lng}`]}</span>
                 </div>
                 <span className={styles.vs}>vs</span>
                 <div className={styles.club_part}>
                   <img src={item?.match?.team2?.icon_url} alt="club logotip" />
-                  <span>{item?.match?.team2?.name}</span>
+                  <span>{item?.match?.team2[`name_${lng}`]}</span>
                 </div>
                 <span className={styles.text}>
-                  {item?.body}
+                  {item[`body_${lng}`]}
                 </span>
               </div>
               <div className={styles.right}>

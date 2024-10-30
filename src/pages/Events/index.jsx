@@ -8,10 +8,11 @@ import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
 
 function Events() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
   const pk = useParams();
   const navigate = useNavigate();
+  const lng = i18n.language
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
@@ -47,7 +48,7 @@ function Events() {
             }}
           >
             <img src={data?.team1?.icon_url} alt="team1logotip" />
-            <span>{data?.team1?.name}</span>
+            <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <div className={styles.title}>
             <span>{t("match events")}</span>
@@ -58,7 +59,7 @@ function Events() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <span>{data?.team2?.name}</span>
+            <span>{data?.team2[`name_${lng}`]}</span>
             <img src={data?.team2?.icon_url} alt="logotip2" />
           </div>
         </div>
@@ -72,7 +73,7 @@ function Events() {
                   {/* Yangi animatsiya */}
                   <div className={styles.player}>
                     <span>
-                      {item?.team == team1 ? item?.player_name : ""}{" "}
+                      {item?.team == team1 ? item[`player_name_${lng}`] : ""}{" "}
                       {item?.team == team1 &&
                         (item?.type === "goal"
                           ? "⚽️"
@@ -90,7 +91,7 @@ function Events() {
                   </div>
                   <div className={styles.player}>
                     <span>
-                      {item?.team == team2 ? item?.player_name : ""}{" "}
+                      {item?.team == team2 ? item[`player_name_${lng}`] : ""}{" "}
                       {item?.team == team2 &&
                         (item?.type === "goal"
                           ? "⚽️"

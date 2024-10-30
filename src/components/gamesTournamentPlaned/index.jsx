@@ -6,10 +6,13 @@ import { matchbyleague } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 function GamesTournamentPlaned() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const {i18n} = useTranslation()
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(`${matchbyleague}${id}`)
@@ -42,11 +45,11 @@ function GamesTournamentPlaned() {
                   <div className={styles.image_part}>
                     <img src={item?.team1?.icon_url} alt="team1 logo" />
                   </div>
-                  <div className={styles.name_part}>{item?.team1?.name}</div>
+                  <div className={styles.name_part}>{item?.team1[`name_${lng}`]}</div>
                 </div>
                 <div className={styles.shot}>V</div>
                 <div className={styles.right}>
-                  <div className={styles.name_part}>{item?.team2?.name}</div>
+                  <div className={styles.name_part}>{item?.team2[`name_${lng}`]}</div>
                   <div className={styles.image_part}>
                     <img src={item?.team2?.icon_url} alt="team2 logo" />
                   </div>

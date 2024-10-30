@@ -6,10 +6,13 @@ import AOS from "aos"; // AOS import
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { playerbyteam } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 
 function PlayersTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const {i18n} = useTranslation()
+  const lng = i18n.language
   useEffect(() => {
     getRequest(playerbyteam + id)
       .then((response) => {
@@ -95,7 +98,7 @@ function PlayersTable() {
                   {/* Yangi animatsiya */}
                   <td>{index + 1}</td>
                   <td>
-                    <span>{item?.name}</span>
+                    <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.birthday}</td>
                   <td>{item?.events?.goals}</td>

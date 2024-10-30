@@ -7,11 +7,13 @@ import { formatDateToYMD } from "../../utils/dateFormat";
 import { useNavigate } from "react-router-dom";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import { useTranslation } from "react-i18next";
 
 export default function GameCar() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-
+  const {i18n} = useTranslation()
+const lng = i18n.language
   useEffect(() => {
     getRequest(home_last_match)
       .then((response) => {
@@ -63,11 +65,11 @@ export default function GameCar() {
                           <img src={item?.team1?.icon_url} alt="komonda logosi" />
                         </div>
                         <div>
-                          <span>{item?.team1?.name}</span>
+                          <span>{item?.team1[`name_${lng}`]}</span>
                         </div>
                         <div className="vs">VS</div>
                         <div>
-                          <span>{item?.team2?.name}</span>
+                          <span>{item?.team2[`name_${lng}`]}</span>
                         </div>
                         <div>
                           <img src={item?.team2?.icon_url} alt="komonda logosi" />

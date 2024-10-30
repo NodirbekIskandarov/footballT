@@ -10,10 +10,10 @@ import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 
 function PlayerBanner() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const pk = useParams();
   const [data, setData] = useState(null);
-
+const lng = i18n.language
   useEffect(() => {
     getRequest(`${about_player}${pk.id}`)
       .then(response => {
@@ -39,7 +39,7 @@ function PlayerBanner() {
             <img src={data?.image} alt="player detail image" />
           </div>
           <div className={styles.right}>
-            <span className={styles.name}>{data?.name}</span>
+            <span className={styles.name}>{data[`name_${lng}`]}</span>
             <div className={styles.date}>
               <span>{t("Date of birth")}:</span>
               <span>{data?.birthday}</span>
@@ -50,7 +50,7 @@ function PlayerBanner() {
             </div>
             <div className={styles.club}>
               <span>{t("Club")}:</span>
-              <span>{data?.current_team?.name}</span>
+              <span>{data?.current_team[`name_${lng}`]}</span>
             </div>
             <div className={styles.scores}>
               <div><img src={stadion} alt="stadion icon" /><span>{data?.events?.assists}</span></div>

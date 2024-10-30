@@ -9,7 +9,8 @@ import AOS from 'aos'; // AOS import
 
 function Photo() {
   const [data, setData] = useState(null);
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(gallery_photos)
@@ -36,7 +37,7 @@ function Photo() {
             <div className={styles.box} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
               <img src={item?.photo} alt="media photo" />
               <div className={styles.text}>
-                <span>{item?.description}</span>
+                <span>{item[`description_${lng}`]}</span>
                 <span>{formatDateToYMD(item?.updated_at)}</span>
               </div>
             </div>

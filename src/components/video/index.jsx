@@ -8,8 +8,9 @@ import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 
 function Video() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
+  const lng = i18n.language
 
   useEffect(() => {
     getRequest(gallery_videos)
@@ -45,7 +46,7 @@ function Video() {
                   <img src={item?.photo} alt="media photo" />
                   <b className={styles.playicon}>▶</b> {/* Play icon */}
                   <div className={styles.text}>
-                    <span>{item?.description}</span>
+                    <span>{item[`description_${lng}`]}</span>
                     <span>{formatDateToYMD(item?.updated_at)}</span>
                   </div>
                 </div>

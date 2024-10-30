@@ -8,7 +8,7 @@ import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 
 function AboutUs() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -16,7 +16,7 @@ function AboutUs() {
   const [loading, setLoading] = useState(false); // Yuborish jarayoni yuklanishi
   const [modalOpen, setModalOpen] = useState(false); // Modal ochiq yoki yo'q holati
   const [modalMessage, setModalMessage] = useState(""); // Modalda ko'rsatiladigan xabar
-
+const lng = i18n.language
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animatsiya davomiyligi
@@ -76,7 +76,7 @@ function AboutUs() {
         </div>
         <div className={styles.text_part} data-aos="fade-up"> {/* Animatsiya qo'shish */}
           <h3>Tashkilot haqida</h3>
-          <span>{data?.description}</span>
+          <span>{data[`description_${lng}`]}</span>
         </div>
       </div>
       <div className={styles.contact}>

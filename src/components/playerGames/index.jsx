@@ -7,11 +7,14 @@ import AOS from "aos"; // AOS import
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { playerseasons, playerteams } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 
 function PlayerGamesTable() {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [data2, setData2] = useState(null);
+  const {i18n} = useTranslation()
+  const lng = i18n.language
   useEffect(() => {
     getRequest(playerteams + id)
       .then((response) => {
@@ -152,8 +155,8 @@ function PlayerGamesTable() {
                 return (
                   <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{item?.name}</td>
-                    <td>{item?.league_name?.name}</td>
+                    <td>{item[`name_${lng}`]}</td>
+                    <td>{item?.league_name[`name_${lng}`]}</td>
                     <td>
                       <span>{item?.start_date}</span>
                     </td>
