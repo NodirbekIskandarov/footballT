@@ -13,7 +13,6 @@ function GamesTournament() {
   useEffect(() => {
     getRequest(`${matchbyleague}${id}`)
       .then((response) => {
-        console.log(response, "resposne");
         setData(response?.data);
       })
       .catch((error) => {

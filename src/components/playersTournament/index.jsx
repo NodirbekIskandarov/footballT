@@ -37,7 +37,6 @@ function PlayersTournament() {
   useEffect(() => {
     getRequest(`${playerbyleague}${id}`)
       .then((response) => {
-        console.log(response, "response");
         setData(response?.data);
       })
       .catch((error) => {

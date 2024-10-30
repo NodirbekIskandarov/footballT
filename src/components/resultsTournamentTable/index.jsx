@@ -12,7 +12,6 @@ function ResultsTournamentTable() {
   useEffect(() => {
     getRequest(`${teamsbyleague}${id}`)
       .then((response) => {
-        console.log(response, "resposne");
         setData(response?.data);
       })
       .catch((error) => {
