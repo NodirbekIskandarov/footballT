@@ -4,9 +4,13 @@ import { getRequest } from "../../utils/request";
 import { gallery_videos } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
+
 function Video() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const [data, setData] = useState(null);
+
   useEffect(() => {
     getRequest(gallery_videos)
       .then((response) => {
@@ -15,7 +19,15 @@ function Video() {
       .catch((error) => {
         console.log(error);
       });
-  },[]);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className={styles.video}>
       <div className="container">
@@ -23,21 +35,21 @@ function Video() {
           {data?.map((item, index) => {
             return (
               <a
-              href={item?.link} // Dynamic link for each video
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-              className={styles.boxLink}
-            >
-              <div className={styles.box}>
-                <img src={item?.photo} alt="media photo" />
-                <b className={styles.playicon}>▶</b> {/* Play icon */}
-                <div className={styles.text}>
-                  <span>{item?.description}</span>
-                  <span>{formatDateToYMD(item?.updated_at)}</span>
+                href={item?.link} // Dynamic link for each video
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                className={styles.boxLink}
+              >
+                <div className={styles.box} data-aos="zoom-in"> {/* Yangi animatsiya */}
+                  <img src={item?.photo} alt="media photo" />
+                  <b className={styles.playicon}>▶</b> {/* Play icon */}
+                  <div className={styles.text}>
+                    <span>{item?.description}</span>
+                    <span>{formatDateToYMD(item?.updated_at)}</span>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
             );
           })}
         </div>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { getRequest, postRequest } from "../../utils/request";
 import { about_us, postdata } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
 
 function AboutUs() {
   const { t } = useTranslation();
@@ -16,6 +18,11 @@ function AboutUs() {
   const [modalMessage, setModalMessage] = useState(""); // Modalda ko'rsatiladigan xabar
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animatsiya davomiyligi
+      once: true, // Faqat bir marta animatsiya
+    });
+
     getRequest(about_us)
       .then((response) => {
         setData(response?.data);
@@ -64,10 +71,10 @@ function AboutUs() {
   return (
     <div className={styles.about}>
       <div className="container">
-        <div className={styles.banner}>
+        <div className={styles.banner} data-aos="fade-up"> {/* Animatsiya qo'shish */}
           <img src={banner} alt="banner" />
         </div>
-        <div className={styles.text_part}>
+        <div className={styles.text_part} data-aos="fade-up"> {/* Animatsiya qo'shish */}
           <h3>Tashkilot haqida</h3>
           <span>{data?.description}</span>
         </div>

@@ -1,12 +1,23 @@
-import styles from './style.module.scss'
-import stadion from '../../assets/images/stadionicon.png'
-import krasovka from '../../assets/images/krasovka.png'
+import styles from './style.module.scss';
+import stadion from '../../assets/images/stadionicon.png';
+import krasovka from '../../assets/images/krasovka.png';
+import { useEffect } from 'react';
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
+
 function PlayerGamesTable() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animatsiya davomiyligi
+            once: true, // Faqat bir marta animatsiya
+        });
+    }, []);
+
     return (
         <div className={styles.player_games}>
             <div className='container'>
                 <span className={styles.title}>Futbolchining musobaqalari</span>
-                <div className={styles.table}>
+                <div className={styles.table} data-aos="fade-up"> {/* Animatsiya qo'shish */}
                     <table>
                         <thead>
                             <tr>
@@ -22,7 +33,6 @@ function PlayerGamesTable() {
                                         <span>Musobaqasi</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div style={{
                                         display: "flex",
@@ -33,7 +43,6 @@ function PlayerGamesTable() {
                                         <span>Goli</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div style={{
                                         display: "flex",
@@ -44,7 +53,6 @@ function PlayerGamesTable() {
                                         <span>Sariq karta</span>
                                     </div>
                                 </th>
-
                                 <th>
                                     <div style={{
                                         display: "flex",
@@ -72,7 +80,7 @@ function PlayerGamesTable() {
                     </table>
                 </div>
                 <span className={styles.title}>Futbolchining karyerasi</span>
-                <div className={styles.table}>
+                <div className={styles.table} data-aos="fade-up"> {/* Animatsiya qo'shish */}
                     <table>
                         <thead>
                             <tr>
@@ -94,7 +102,7 @@ function PlayerGamesTable() {
                 </div>          
             </div>
         </div>
-    )
+    );
 }
 
-export default PlayerGamesTable
+export default PlayerGamesTable;
