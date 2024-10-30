@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
@@ -9,7 +9,7 @@ function BannerDetail() {
   const {t} = useTranslation()
   const [data, setData] = useState(null);
   const pk = useParams();
-  console.log(pk, "pk");
+  const navigate = useNavigate()
   useEffect(() => {
     getRequest(`${banner_detail}${pk.id}`)
       .then((response) => {
@@ -19,6 +19,9 @@ function BannerDetail() {
         console.log(error);
       });
   }, [pk.id]);
+  function navigateFunc(id) {
+    navigate(`/players/${id}`)
+  }
   return (
     <div className={styles.banner_detail}>
       <div className="container">
@@ -51,7 +54,7 @@ function BannerDetail() {
             {formatDateToHMS(data?.match?.date)}
           </span>
           <div className={styles.table_part}>
-            <div className={styles.left}>
+            <div className={styles.left} onClick={() => navigateFunc(data?.match?.team1?.uuid)}>
               <div className={styles.image_part}>
                 <img src={data?.match?.team1?.icon_url} alt="club logosi" />
               </div>
@@ -61,7 +64,7 @@ function BannerDetail() {
               {data?.match?.score?.team1_score}:
               {data?.match?.score?.team2_score}
             </div>
-            <div className={styles.right}>
+            <div className={styles.right} onClick={() => navigateFunc(data?.match?.team2?.uuid)}>
               <div className={styles.name_part}>{data?.match?.team2?.name}</div>
               <div className={styles.image_part}>
                 <img src={data?.match?.team2?.icon_url} alt="club logosi" />

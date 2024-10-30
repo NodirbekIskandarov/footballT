@@ -1,12 +1,23 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
-import { Link } from 'react-router-dom';
-import navigateicon from '../../assets/images/navigateIcon.png';
-import clublogo from '../../assets/images/clublogoo.png';
+import { Link, useParams } from 'react-router-dom';
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import { getRequest } from '../../utils/request';
+import { playerbyteam } from '../../utils/API_urls';
 
 function PlayersBanner() {
+  const [data, setData] = useState(null)
+  const {id} = useParams()
+  useEffect(() => {
+    getRequest(playerbyteam+id)
+    .then(response => {
+      setData(response?.data)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }, [id])
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -19,18 +30,18 @@ function PlayersBanner() {
       <div className='container'>
         <div className={styles.banner_part}>
           <div className={styles.left} data-aos="fade-up"> {/* Yangi animatsiya */}
-            <img src={clublogo} alt="club logosi" />
+            <img src={data?.icon} alt="club logosi" />
             <div className={styles.text_part}>
-              <span>BELARUS NT</span>
-              <span>16 players in application</span>
-              <span>27.17 - average age</span>
+              <span>{data?.name}</span>
+              <span>{data?.players?.count} players </span>
+              <span>{data?.coach?.name}</span>
             </div>
           </div>
           <div className={styles.button_part} data-aos="fade-up"> {/* Yangi animatsiya */}
             <Link to="/" style={{ textDecoration: "none" }}>
-              <button>
+              {/* <button>
                 View team profile <img src={navigateicon} alt="navigate iconkasi" />
-              </button>
+              </button> */}
             </Link>
           </div>
         </div>
