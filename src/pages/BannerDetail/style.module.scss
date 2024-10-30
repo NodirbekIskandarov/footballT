@@ -1,48 +1,55 @@
 .banner_detail {
     margin-top: 50px;
+
     .banner {
         width: 100%;
         img {
             width: 100%;
             height: 600px;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
         }
     }
+
     .desc_part {
         width: 100%;
         text-align: center;
         margin-top: 50px;
+
         .title {
             font-size: 30px;
             font-weight: 500;
             color: #1E1E1E;
         }
+
         .desc {
             font-size: 24px;
             font-weight: 400;
             color: #0F132499;
         }
     }
+
     .table {
         width: 80%;
         margin: 30px auto;
         text-align: center;
-    
+
         .sana {
             font-size: 36px;
             font-weight: 500;
             color: #1E1E1E;
         }
-    
+
         .table_part {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 20px 0;
-            .left {
+
+            .left, .right {
                 position: relative;
                 width: 47%;
-    
+
                 .image_part {
                     position: absolute;
                     left: 0;
@@ -52,13 +59,13 @@
                     border-radius: 50%;
                     background-color: #295FA7;
                     padding: 20px;
-    
+
                     img {
                         width: 100%;
                         border-radius: 50%;
                     }
                 }
-    
+
                 .name_part {
                     width: 90%;
                     display: flex;
@@ -70,56 +77,26 @@
                     padding: 23px 0;
                 }
             }
-    
+
             .shot {
                 color: #295FA7;
                 font-size: 30px;
                 font-weight: 700;
             }
-    
-            .right {
-                position: relative;
-                width: 47%;
-    
-                .image_part {
-                    position: absolute;
-                    right: 0;
-                    bottom: -18px;
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-                    background-color: #295FA7;
-                    padding: 20px;
-    
-                    img {
-                        width: 100%;
-                        border-radius: 50%;
-                    }
-                }
-    
-                .name_part {
-                    width: 90%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #295FA7;
-                    color: white;
-                    border-radius: 56px;
-                    padding: 23px 0;
-                    float: right;
-                }
-            }
         }
     }
+
     .epizod {
         width: 100%;
         text-align: center;
         margin: 50px 0;
+
         span {
             font-size: 36px;
             font-weight: 500;
             color: #1E1E1E;
         }
+
         .boxes {
             width: 100%;
             display: flex;
@@ -127,16 +104,126 @@
             justify-content: space-between;
             align-items: center;
             margin: 30px 0;
+
             .box {
                 width: 48%;
                 display: flex;
                 justify-content: center;
                 margin-top: 15px;
+
                 img {
                     width: 100%;
                     height: 310px;
                     border-radius: 15px;
+                    object-fit: cover; /* Ensures images fit well */
                 }
+            }
+        }
+    }
+
+    /* Responsive adjustments */
+
+    /* Planshet (max-width: 1024px) */
+    @media (max-width: 1024px) {
+        .table {
+            width: 90%; /* Slightly wider on tablets */
+
+            .table_part {
+                flex-direction: column; /* Stack left and right sections */
+                align-items: center;
+
+                .left,
+                .right {
+                    width: 80%; /* Wider on tablet */
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        .epizod .boxes .box {
+            width: 100%; /* Make boxes full width on tablet */
+        }
+    }
+
+    /* Mobil (max-width: 768px) */
+    @media (max-width: 768px) {
+        .desc_part .title {
+            font-size: 24px; /* Smaller title */
+        }
+
+        .desc_part .desc {
+            font-size: 20px; /* Smaller description */
+        }
+
+        .table {
+            width: 95%; /* Nearly full width */
+
+            .sana {
+                font-size: 30px; /* Smaller date size */
+            }
+
+            .shot {
+                font-size: 24px; /* Smaller score size */
+            }
+
+            .table_part {
+                flex-direction: column; /* Stack elements */
+                align-items: center;
+
+                .left,
+                .right {
+                    width: 80%; /* Adjust width */
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        .epizod {
+            span {
+                font-size: 30px; /* Smaller episode title */
+            }
+        }
+    }
+
+    /* Mobil (max-width: 480px) */
+    @media (max-width: 480px) {
+        .banner img {
+            height: 400px; /* Smaller banner image */
+        }
+
+        .desc_part .title {
+            font-size: 20px; /* Smaller title */
+        }
+
+        .desc_part .desc {
+            font-size: 18px; /* Smaller description */
+        }
+
+        .table {
+            width: 100%; /* Full width */
+
+            .sana {
+                font-size: 24px; /* Smaller date size */
+            }
+
+            .shot {
+                font-size: 20px; /* Smaller score size */
+            }
+
+            .table_part {
+                flex-direction: column; /* Stack elements */
+                align-items: center;
+            }
+        }
+
+        .epizod {
+            span {
+                font-size: 24px; /* Smaller episode title */
+            }
+
+            .boxes .box {
+                width: 100%; /* Full width for boxes */
+                margin-top: 10px; /* Adjust spacing */
             }
         }
     }
