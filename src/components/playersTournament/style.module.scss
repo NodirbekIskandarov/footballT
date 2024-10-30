@@ -1,94 +1,3 @@
-// .players {
-//     width: 100%;
-//     margin-top: 50px;
-//     margin-bottom: 50px;
-//     .title {
-//         font-size: 36px;
-//         font-weight: 500;
-//         color: #1E1E1E;
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//     }
-//     .boxes {
-//         margin-top: 30px;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         width: 100%;
-//         .box {
-//             width: 24%;
-//             border-radius: 5px;
-//             background-color: #295FA7;
-//             padding: 17px;
-//             .star {
-//                 width: 100%;
-//                 display: flex;
-//                 justify-content: flex-start;
-//                 img {
-//                     width: 24px;
-//                     height: 24px;
-//                 }
-//             }
-//             .player_part {
-//                 width: 100%;
-//                 display: flex;
-//                 flex-direction: column;
-//                 gap: 10px;
-//                 align-items: center;
-//                 justify-content: center;
-//                 .player {
-//                     width: 100px;
-//                     height: 100px;
-//                     img {
-//                         width: 100%;
-//                         border-radius: 50%
-//                     };
-//                 }
-//                 .name {
-//                     font-size: 24px;
-//                     font-weight: 500;
-//                     color: #FFFFFF;
-//                 }
-//                 .position {
-//                     font-size: 20px;
-//                     font-weight: 400;
-//                     color: #FFFFFF;
-//                 }
-//             }
-//             .button_part {
-//                 width: 100%;
-//                 text-align: center;
-//                 margin: 20px 0;
-//                 .link {
-//                     width: 120px;
-//                     height: 44px;
-//                     border-radius: 8px;
-//                     background-color: #FFFFFF;
-//                     font-weight: 500;
-//                     font-size: 16px;
-//                     border: none;
-//                     cursor: pointer;
-//                 }
-//             }
-//         }
-//     }
-//     .link2 {
-//         margin-top: 50px;
-//         width: 150px;
-//         height: 45px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         background-color: #295FA7;
-//         color: #FFFFFF;
-//         font-size: 18px;
-//         font-weight: 400;
-//         border: none;
-//         border-radius: 8px;
-//         cursor: pointer;
-//     }
-// }
 
 .players {
     width: 100%;
@@ -126,6 +35,7 @@
                 img {
                     width: 24px;
                     height: 24px;
+                    border-radius: 50%;
                 }
             }
 
@@ -143,6 +53,7 @@
 
                     img {
                         width: 100%;
+                        border-radius: 50%;
                         border-radius: 50%;
                     }
                 }

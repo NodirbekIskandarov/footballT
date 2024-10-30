@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './style.module.scss';
 import star from '../../assets/images/yulduz.png';
 import { Link, useParams } from 'react-router-dom';
 import { getRequest } from '../../utils/request';
 import { playerbyleague } from '../../utils/API_urls';
 
-const PlayerCard = () => (
+const PlayerCard = ({ img, name, position }) => (
   <div className={styles.box}>
     <div className={styles.star}>
       <img src={star} alt="Star icon" />
     </div>
     <div className={styles.player_part}>
       <div className={styles.player}>
-        {/* <img src={img} alt={`${name} profile`} /> */}
+        <img src={img} alt={`${name} profile`} />
       </div>
       <span className={styles.name}>{name}</span>
-      {/* <span className={styles.position}>{position}</span> */}
+      <span className={styles.position}>{position}</span>
     </div>
     <div className={styles.button_part}>
       <Link to="/"><button className={styles.link}>View</button></Link>
@@ -23,15 +24,20 @@ const PlayerCard = () => (
   </div>
 );
 
+PlayerCard.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+};
+
 function PlayersTournament() {
-
-
   const [data, setData] = useState(null);
   const { id } = useParams();
+
   useEffect(() => {
     getRequest(`${playerbyleague}${id}`)
       .then((response) => {
-        console.log(response, "resposne");
+        console.log(response, "response");
         setData(response?.data);
       })
       .catch((error) => {

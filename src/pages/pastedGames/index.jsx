@@ -5,7 +5,7 @@ import ResultsTournamentTable from "../../components/resultsTournamentTable"
 function PastedGames() {
   return (
     <div>
-      <div className="container">
+      {/* <div className="container">
         <div style={{
           marginTop: "50px",
           display: "flex",
@@ -19,7 +19,7 @@ function PastedGames() {
           <input type="text"  placeholder="oy"/>
           <input type="text"  placeholder="yil"/>
         </div>
-      </div>
+      </div> */}
       <GamesTournament/>
       <ResultsTournamentTable/>
       <PlayersTournament/>
