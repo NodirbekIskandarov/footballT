@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { banner_detail } from "../../utils/API_urls";
 import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
+import { useTranslation } from "react-i18next";
 function BannerDetail() {
+  const {t} = useTranslation()
   const [data, setData] = useState(null);
   const pk = useParams();
   console.log(pk, "pk");
@@ -68,7 +70,7 @@ function BannerDetail() {
           </div>
         </div>
         <div className={styles.epizod}>
-          <span>O’yindagi epizodlar</span>
+          <span>{t("O’yindagi epizodlar")}</span>
           <div className={styles.boxes}>
             {data?.media?.map((item, index) => {
               return (

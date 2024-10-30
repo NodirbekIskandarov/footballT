@@ -1,28 +1,225 @@
 .about {
     width: 100%;
-    margin: 50px 0;
+    padding-top: 50px;
+
     .banner {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+
         img {
             width: 50%;
+            max-width: 600px; // Limit the max width for larger screens
+            height: auto; // Maintain aspect ratio
         }
     }
+
     .text_part {
         width: 100%;
         text-align: center;
         margin-top: 30px;
+
         h3 {
             font-size: 30px;
             font-weight: 500;
         }
+
         span {
             font-size: 24px;
             font-weight: 400;
             color: #0F132499;
             margin-top: 20px;
+        }
+    }
+
+    .contact {
+        width: 100%;
+        margin-top: 50px;
+        padding: 50px 0;
+        background-color: #295FA7;
+
+        .boxes {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start; // Align items at the start
+
+            .text_part {
+                width: 40%;
+                text-align: left;
+
+                .one {
+                    font-size: 48px;
+                    font-weight: 600;
+                    color: white;
+                }
+
+                .two,
+                .three {
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: white;
+                }
+            }
+
+            .form_part {
+                width: 60%;
+                display: flex;
+                flex-direction: column; // Stack inputs vertically on smaller screens
+                align-items: flex-start; // Align inputs to the left
+
+                input {
+                    width: 100%; // Full width for smaller screens
+                    max-width: 300px; // Limit width for larger screens
+                    outline: none;
+                    border: 1px solid gray;
+                    border-radius: 10px;
+                    padding: 10px;
+                    margin-bottom: 10px; // Add margin below inputs
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 150px;
+                    border-radius: 10px;
+                    outline: none;
+                    padding: 10px;
+                    margin-top: 10px; // Adjust margin
+                }
+
+                button {
+                    width: 100%; // Full width for button
+                    height: 50px;
+                    border-radius: 10px;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    margin-top: 10px; // Margin above the button
+
+                    &:hover {
+                        transition: 0.5s;
+                        background-color: rgba(206, 195, 195, 0.514);
+                    }
+                }
+            }
+        }
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modalContent {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .modalContent p {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .modalContent button {
+        background-color: #22376C;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #007acc;
+        }
+    }
+
+    // Responsive Styles
+    @media (max-width: 1024px) {
+        .banner img {
+            width: 70%; // Adjust width for tablets
+        }
+
+        .text_part h3 {
+            font-size: 28px; // Reduce title size for tablets
+        }
+
+        .text_part span {
+            font-size: 22px; // Reduce description size for tablets
+        }
+
+        .boxes {
+            flex-direction: column; // Stack text and form parts on top of each other
+            align-items: center;
+
+            .text_part {
+                width: 100%; // Full width on tablets
+                text-align: center; // Center align text
+                margin-bottom: 20px; // Add space below
+            }
+
+            .form_part {
+                width: 100%; // Full width for form
+                align-items: center; // Center align inputs
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .banner img {
+            width: 90%; // Adjust width for mobile
+        }
+
+        .text_part h3 {
+            font-size: 24px; // Further reduce title size
+        }
+
+        .text_part span {
+            font-size: 20px; // Further reduce description size
+        }
+
+        .boxes {
+            .text_part {
+                margin-bottom: 15px; // Adjust space below
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .banner img {
+            width: 100%; // Full width for mobile
+        }
+
+        .text_part h3 {
+            font-size: 20px; // Minimum title size for mobile
+        }
+
+        .text_part span {
+            font-size: 18px; // Minimum description size for mobile
+        }
+
+        .contact {
+            padding: 20px 0; // Adjust padding for mobile
+        }
+
+        .boxes {
+            .text_part {
+                margin-bottom: 10px; // Less space below on mobile
+            }
         }
     }
 }

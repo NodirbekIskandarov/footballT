@@ -1,83 +1,3 @@
-// .planed_games {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 15px;
-//     background-color: #7E9FCA;
-//     background-image: url('../../assets/images/planedback.png');
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: 500px;
-//     padding: 46px 0;
-//     border-radius: 10px;
-//     .game {
-//         width: 90%;
-//         margin: 0 auto;
-//         padding: 30px;
-//         background-color: #FFFFFF;
-//         border-radius: 5px;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         .clubs {
-//             width: 40%;
-//             display: flex;
-//             align-items: center;
-//             gap: 35px;
-//             div {
-//                 display: flex;
-//                 align-items: center;
-//                 gap: 5px;
-//                 img {
-//                     width: 43px;
-//                     height: 43px;
-//                     border: 1px solid gray;
-//                     border-radius: 50%;
-//                 }
-//             }
-//             span {
-//                 font-size: 17px;
-//                 font-weight: 400;
-//             }
-//         }
-//         .date {
-//             width: 30%;
-//             display: flex;
-//             gap: 25px;
-//             align-items: center;
-//             .time, .location {
-//                 display: flex;
-//                 gap: 5px;
-//                 align-items: center;
-//             }
-//             span {
-//                 font-size: 17px;
-//                 font-weight: 400;
-//             }
-//         }
-//         .details {
-//             width: 30%;
-//             display: flex;
-//             align-items: center;
-//             gap: 25px;
-//             .fav {
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//             }
-//             .view {
-//                 display: flex;
-//                 gap: 10px;
-//                 align-items: center;
-//             }
-//             span {
-//                 font-size: 17px;
-//                 font-weight: 400;
-//             }
-//         }
-//     }
-// }
-
 .planed_games {
     width: 100%;
     display: flex;
@@ -90,7 +10,7 @@
     background-size: 500px;
     padding: 46px 0;
     border-radius: 10px;
-    
+
     .game {
         width: 90%;
         margin: 0 auto;
@@ -106,12 +26,12 @@
             display: flex;
             align-items: center;
             gap: 35px;
-            
+
             div {
                 display: flex;
                 align-items: center;
                 gap: 5px;
-                
+
                 img {
                     width: 43px;
                     height: 43px;
@@ -119,6 +39,7 @@
                     border-radius: 50%;
                 }
             }
+
             span {
                 font-size: 17px;
                 font-weight: 400;
@@ -130,13 +51,14 @@
             display: flex;
             gap: 25px;
             align-items: center;
-            
-            .time, .location {
+
+            .time,
+            .location {
                 display: flex;
                 gap: 5px;
                 align-items: center;
             }
-            
+
             span {
                 font-size: 17px;
                 font-weight: 400;
@@ -148,19 +70,19 @@
             display: flex;
             align-items: center;
             gap: 25px;
-            
+
             .fav {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
-            
+
             .view {
                 display: flex;
                 gap: 10px;
                 align-items: center;
             }
-            
+
             span {
                 font-size: 17px;
                 font-weight: 400;
@@ -168,31 +90,77 @@
         }
     }
 
-    // Responsive adjustments
-    @media (max-width: 768px) {
+    /* Responsive adjustments */
+
+    /* Planshet (max-width: 1024px) */
+    @media (max-width: 1024px) {
         .game {
+            padding: 20px;
             flex-direction: column;
             gap: 20px;
-            text-align: center;
-            
-            .clubs, .date, .details {
+
+            .clubs,
+            .date,
+            .details {
                 width: 100%;
                 justify-content: center;
+                text-align: center;
+            }
+
+            .clubs {
+                gap: 20px;
             }
         }
     }
-    
-    @media (max-width: 576px) {
+
+    /* Mobil (max-width: 768px) */
+    @media (max-width: 768px) {
         .game {
-            padding: 20px;
-            
-            .clubs div img {
-                width: 35px;
-                height: 35px;
+            .clubs {
+                gap: 10px;
+
+                div {
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                span {
+                    font-size: 15px;
+                }
             }
-            
-            span {
-                font-size: 15px;
+        }
+    }
+
+    /* Mobil (max-width: 480px) */
+    @media (max-width: 480px) {
+        .game {
+            padding: 15px;
+
+            .clubs {
+                div {
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                span {
+                    font-size: 14px; /* Smaller font size */
+                }
+            }
+
+            .date {
+                span {
+                    font-size: 14px; /* Smaller font size */
+                }
+            }
+
+            .details {
+                span {
+                    font-size: 14px; /* Smaller font size */
+                }
             }
         }
     }

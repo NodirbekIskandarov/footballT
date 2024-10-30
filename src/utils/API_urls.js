@@ -1,4 +1,4 @@
-export const host = 'http://95.47.125.74:8080'
+export const host = 'https://api.llf.sohibnut.uz'
 export const home_banner = 'news/last4news/'
 export const home_last_match = "home/last10matches/"
 export const last_media = "news/last5media/"
@@ -13,6 +13,7 @@ export const about_us = "news/aboutus/"
 export const tournament_list = "home/leaguelist/"
 export const best_players = "home/top_players_by_year/"
 export const about_player = "home/player/"
+export const postdata = "news/comment/"
 export const matchbyleague = "home/matchbyleague/"
 export const teamsbyleague = "home/teamsbyleague/"
 export const playerbyleague = "home/playerbyleague/"

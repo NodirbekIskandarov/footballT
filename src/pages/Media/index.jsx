@@ -1,8 +1,11 @@
-import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 function Media() {
-    const location = useLocation()
+    const location = useLocation();
+    const { t } = useTranslation();
+
     return (
         <div>
             <div style={{
@@ -12,7 +15,8 @@ function Media() {
                 alignItems: "center",
                 justifyContent: "space-around",
                 backgroundColor: "#295FA7",
-                margin: "20px 0"
+                margin: "20px 0",
+                flexWrap: "nowrap"  // Prevents wrapping
             }}>
                 <Link to="/media" style={{
                     width: "45%",
@@ -22,17 +26,19 @@ function Media() {
                     <button style={{
                         width: "100%",
                         height: "44px",
-                        backgroundColor: `${location.pathname=="/media/video" ? "transparent" : "white"}`,
+                        backgroundColor: `${location.pathname === "/media/video" ? "transparent" : "white"}`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: "5px",
                         fontSize: "24px",
                         fontWeight: "500",
-                        color: `${location.pathname=="/media/video" ? "white" : "#295FA7"}`,
+                        color: `${location.pathname === "/media/video" ? "white" : "#295FA7"}`,
                         border: "none",
                         cursor: "pointer"
-                    }}>Photo</button>
+                    }}>
+                        {t("Photo")}
+                    </button>
                 </Link>
                 <Link to="video" style={{
                     width: "45%",
@@ -46,18 +52,20 @@ function Media() {
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: "5px",
-                        color: `${location.pathname!="/media/video" ? "white" : "#295FA7"}`,
+                        color: `${location.pathname !== "/media/video" ? "white" : "#295FA7"}`,
                         fontSize: "24px",
                         fontWeight: "500",
                         border: "none",
                         cursor: "pointer",
-                        backgroundColor: `${location.pathname!="/media/video" ? "transparent" : "white"}`
-                    }}>Video</button>
+                        backgroundColor: `${location.pathname !== "/media/video" ? "transparent" : "white"}`
+                    }}>
+                        {t("Video")}
+                    </button>
                 </Link>
             </div>
-            <Outlet/>
+            <Outlet />
         </div>
-    )
+    );
 }
 
-export default Media
+export default Media;

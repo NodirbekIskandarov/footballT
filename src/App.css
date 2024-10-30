@@ -1,42 +1,67 @@
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
-.container {
-  width: 100%;
-  max-width: 1370px;
-  margin: 0 auto;
-  padding: 0 20px;
+
+/* Umumiy Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif; /* Umumiy font family */
+}
+
+body {
+    background-color: #f8f9fa; /* Orqa fon rangi */
+    font-size: 16px; /* Asosiy font o'lchovi */
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1370px; /* Maksimal kenglik */
+    margin: 0 auto; /* Markazga joylashtirish */
+    padding: 0 20px; /* Yuqoridan va pastdan bo'sh joy */
+}
+
+/* Responsive O'lchovlar */
 @media (max-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
+    .container {
+        max-width: 1140px; /* 1200px dan kichik ekranlar uchun */
+    }
 }
 
 @media (max-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+    .container {
+        max-width: 960px; /* 992px dan kichik ekranlar uchun */
+    }
 }
 
 @media (max-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+    .container {
+        max-width: 720px; /* 768px dan kichik ekranlar uchun */
+    }
 }
 
 @media (max-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+    .container {
+        max-width: 540px; /* 576px dan kichik ekranlar uchun */
+    }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Hover Effekti */
+.card {
+    transition: transform 0.3s; /* Harakatlanish effekti */
 }
-html, body {
-  width: 100%;
-  height: 100%;
+
+.card:hover {
+    transform: scale(1.05); /* Hoverda kattalashtirish */
+}
+@media (max-width: 768px) {
+  body {
+      font-size: 14px; /* Kichik ekranlar uchun font o'lchovi */
+  }
 }

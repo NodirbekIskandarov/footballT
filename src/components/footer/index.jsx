@@ -5,12 +5,14 @@ import instagram from '../../assets/images/instagram.png';
 import telegram from '../../assets/images/telegram.png';
 import facebook from '../../assets/images/facebook.png';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
-  const [submenuOpen, setSubmenuOpen] = useState(false); // State to manage submenu visibility
+  const { t } = useTranslation();
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   const toggleSubmenu = () => {
-    setSubmenuOpen(!submenuOpen); // Toggle submenu visibility
+    setSubmenuOpen(!submenuOpen);
   };
 
   return (
@@ -20,14 +22,14 @@ function Footer() {
           <div className={styles.logo_part}>
             <div className={styles.line_}></div>
             <div className={styles.logotip}>
-              <img src={logotip} alt="logotip" />
+              <a href="/"><img src={logotip} alt="logo" /></a>
             </div>
             <div className={styles.line__}></div>
           </div>
           <div className={styles.menus}>
-            <Link className={styles.link} to="/">Home</Link>
+            <Link className={styles.link} to="/">{t("Home")}</Link>
             <div className={styles.tournament} onClick={toggleSubmenu}>
-              <span className={styles.link}>Tournaments</span>
+              <span className={styles.link}>{t("Tournaments")}</span>
               {submenuOpen && (
                 <div className={styles.submenu}>
                   <Link className={styles.submenu_link} to="/tournament/upcoming">Upcoming</Link>
@@ -36,21 +38,21 @@ function Footer() {
                 </div>
               )}
             </div>
-            <Link className={styles.link} to="/news">News</Link>
-            <Link className={styles.link} to="/media">Media</Link>
-            <Link className={styles.link} to="/">History</Link>
-            <Link className={styles.link} to="/about-us">About us</Link>
+            <Link className={styles.link} to="/news">{t("News")}</Link>
+            <Link className={styles.link} to="/media">{t("Media")}</Link>
+            <Link className={styles.link} to="/best-players">{t("History")}</Link>
+            <Link className={styles.link} to="/about-us">{t("About us")}</Link>
           </div>
           <div className={styles.socials}>
-            <div className={styles.social}>
-              <img src={instagram} alt="instagram" />
-            </div>
-            <div className={styles.social}>
-              <img src={telegram} alt="telegram" />
-            </div>
-            <div className={styles.social}>
-              <img src={facebook} alt="facebook" />
-            </div>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <img src={instagram} alt="Instagram" />
+            </a>
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+              <img src={telegram} alt="Telegram" />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <img src={facebook} alt="Facebook" />
+            </a>
           </div>
           <div className={styles.text}>
             <span>Super Leguage 2024</span>
