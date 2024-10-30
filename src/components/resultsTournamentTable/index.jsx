@@ -1,15 +1,17 @@
-
-
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { teamsbyleague } from "../../utils/API_urls";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+
   useEffect(() => {
+    // Fetching data from API
     getRequest(`${teamsbyleague}${id}`)
       .then((response) => {
         setData(response?.data);
@@ -18,6 +20,12 @@ function ResultsTournamentTable() {
         console.log(error);
       });
   }, [id]);
+
+  useEffect(() => {
+    // Initializing AOS animations
+    AOS.init({ duration: 1000 }); // 1000 ms duration for animation
+  }, []);
+
   return (
     <div className={styles.results_table}>
       <div className="container">
@@ -35,8 +43,8 @@ function ResultsTournamentTable() {
           <tbody>
             {data?.map((item, index) => {
               return (
-                <tr key={index}>
-                  <td>{index+1}</td>
+                <tr key={index} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
+                  <td>{index + 1}</td>
                   <td
                     style={{
                       display: "flex",
@@ -44,7 +52,7 @@ function ResultsTournamentTable() {
                       gap: "10px",
                     }}
                   >
-                    <img src={item?.icon} alt="Brlarus NT logo" />
+                    <img src={item?.icon} alt="team logo" />
                     <span>{item?.name}</span>
                   </td>
                   <td>{item?.matches}</td>

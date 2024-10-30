@@ -5,9 +5,11 @@ import star from '../../assets/images/yulduz.png';
 import { Link, useParams } from 'react-router-dom';
 import { getRequest } from '../../utils/request';
 import { playerbyleague } from '../../utils/API_urls';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const PlayerCard = ({ img, name, position }) => (
-  <div className={styles.box}>
+const PlayerCard = ({ img, name, position, index }) => (
+  <div className={styles.box} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
     <div className={styles.star}>
       <img src={star} alt="Star icon" />
     </div>
@@ -28,6 +30,7 @@ PlayerCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired, // Add index as a prop for delay
 };
 
 function PlayersTournament() {
@@ -44,13 +47,17 @@ function PlayersTournament() {
       });
   }, [id]);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className={styles.players}>
       <div className='container'>
         <span className={styles.title}>Eng yaxshi futbolistlar</span>
         <div className={styles.boxes}>
           {data?.map((player, index) => (
-            <PlayerCard key={index} img={player.image} name={player.name} position={player.position} />
+            <PlayerCard key={index} img={player.image} name={player.name} position={player.position} index={index} />
           ))}
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>

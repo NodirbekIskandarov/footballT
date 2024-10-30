@@ -1,16 +1,22 @@
-
-
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { matchbyleague } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
 
 function GamesTournament() {
   const [data, setData] = useState(null);
   const { id } = useParams();
+
   useEffect(() => {
+    AOS.init({
+      duration: 800, // Animatsiya davomiyligi
+      once: true,    // Faqat bir marta animatsiya
+    });
+    
     getRequest(`${matchbyleague}${id}`)
       .then((response) => {
         setData(response?.data);
@@ -19,12 +25,13 @@ function GamesTournament() {
         console.log(error);
       });
   }, [id]);
+
   return (
     <div className={styles.games}>
       <div className="container">
         {data?.passed?.map((item, index) => {
           return (
-            <div className={styles.table} key={index}>
+            <div className={styles.table} key={index} data-aos="fade-up"> {/* Animatsiya qo'shish */}
               <span className={styles.sana}>{formatDateToYMD(item?.date)}</span>
               <div className={styles.table_part}>
                 <div className={styles.left}>
@@ -33,7 +40,9 @@ function GamesTournament() {
                   </div>
                   <div className={styles.name_part}>{item?.team1?.name}</div>
                 </div>
-                <div className={styles.shot}>{item?.score?.team1_score}:{item?.score?.team2_score}</div>
+                <div className={styles.shot}>
+                  {item?.score?.team1_score}:{item?.score?.team2_score}
+                </div>
                 <div className={styles.right}>
                   <div className={styles.name_part}>{item?.team2?.name}</div>
                   <div className={styles.image_part}>
