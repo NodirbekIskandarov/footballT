@@ -1,371 +1,372 @@
 .preview {
+  width: 100%;
+  padding-bottom: 50px;
+  .one {
     width: 100%;
-    padding-bottom: 50px;
-    .one {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 30px;
 
-        .club {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+    .club {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
 
-            img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-
-            span {
-                font-size: 28px;
-                font-weight: 700;
-                color: #FFFFFF;
-            }
-        }
-
-        .center_text {
-            font-size: 28px;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
+      span {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+      }
     }
 
-    .two {
+    .center_text {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
+
+  .two {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .left,
+    .right {
+      width: 30%;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      span:nth-child(1) {
+        width: 150px;
+        font-size: 28px;
+        font-weight: 500;
+      }
+
+      span:nth-child(2) {
+        font-weight: 500;
+        font-size: 56px;
+      }
+
+      .line {
+        width: 160px;
+        border-bottom: 1px solid #ffffff;
+      }
+
+      .uch {
+        font-weight: 400;
+        font-size: 26px;
+      }
+
+      .turt {
+        font-weight: 500;
+        font-size: 56px;
+      }
+    }
+
+    .middle {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+
+      .boxes {
         width: 100%;
-        margin-top: 50px;
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+        background-color: #ffffff;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+
+        span {
+          font-size: 48px;
+          font-weight: 400;
+          width: 30%;
+          // padding: 32px 0;
+        }
+
+        .box {
+          width: 30%;
+          background-color: #295fa7;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 16px 0;
+
+          img {
+            width: 56px;
+            height: 56px;
+          }
+
+          span {
+            width: 100%;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-top: 20px;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .three {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 65px;
+    border: 1px solid #295fa7;
+    margin-top: 50px;
+
+    .left,
+    .right {
+      display: flex;
+      align-items: center;
+      width: 45%;
+
+      img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .text_part {
+        width: calc(100%);
         text-align: center;
 
-        .left,
-        .right {
-            width: 30%;
-            color: #FFFFFF;
+        .name {
+          height: 50px;
+          font-size: 24px;
+          font-weight: 500;
+          color: #295fa7;
+        }
+
+        .score {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          justify-content: space-around;
+          border-top: 1px solid black;
+
+          .games,
+          .goals {
+            width: 20%;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
 
             span:nth-child(1) {
-                width: 150px;
-                font-size: 28px;
-                font-weight: 500;
+              width: 100%;
+              text-align: center;
+              font-size: 18px;
+              font-weight: 400;
+              color: #295fa7;
             }
 
             span:nth-child(2) {
-                font-weight: 500;
-                font-size: 56px;
+              font-size: 24px;
+              font-weight: 500;
+              color: #295fa7;
             }
-
-            .line {
-                width: 160px;
-                border-bottom: 1px solid #FFFFFF;
-            }
-
-            .uch {
-                font-weight: 400;
-                font-size: 26px;
-            }
-
-            .turt {
-                font-weight: 500;
-                font-size: 56px;
-            }
+          }
         }
-
-        .middle {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            align-items: center;
-
-            .boxes {
-                width: 100%;
-                clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
-                background-color: #FFFFFF;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                span {
-                    font-size: 48px;
-                    font-weight: 400;
-                    width: 30%;
-                    // padding: 32px 0;
-                }
-
-                .box {
-                    width: 30%;
-                    background-color: #295FA7;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 16px 0;
-
-                    img {
-                        width: 56px;
-                        height: 56px;
-                    }
-
-                    span {
-                        width: 100%;
-                        font-size: 18px;
-                        font-weight: 500;
-                        color: #FFFFFF;
-                        margin-top: 20px;
-                        padding: 0;
-                    }
-                }
-            }
-        }
+      }
     }
 
-    .three {
-        width: 100%;
+    .middle {
+      width: 10%;
+      height: 130px;
+      background-color: #295fa7;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 56px;
+        height: 56px;
+      }
+
+      span {
+        font-size: 18px;
+        font-weight: 500;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .four {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+
+    .title {
+      font-size: 36px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .scores {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      .all,
+      .home,
+      .away {
+        width: 30%;
         display: flex;
+        flex-direction: column;
+        gap: 20px;
         align-items: center;
-        background-color: #FFFFFF;
-        border-radius: 65px;
-        border: 1px solid #295FA7;
-        margin-top: 50px;
 
-        .left,
-        .right {
-            display: flex;
-            align-items: center;
-            width: 45%;
-
-            img {
-                width: 130px;
-                height: 130px;
-            }
-
-            .text_part {
-                width: calc(100%);
-                text-align: center;
-
-                .name {
-                    height: 50px;
-                    font-size: 24px;
-                    font-weight: 500;
-                    color: #295FA7;
-                }
-
-                .score {
-                    width: 100%;
-                    height: 50px;
-                    display: flex;
-                    justify-content: space-around;
-                    border-top: 1px solid black;
-
-                    .games,
-                    .goals {
-                        width: 20%;
-                        display: flex;
-                        gap: 15px;
-                        align-items: center;
-
-                        span:nth-child(1) {
-                            width: 100%;
-                            text-align: center;
-                            font-size: 18px;
-                            font-weight: 400;
-                            color: #295FA7;
-                        }
-
-                        span:nth-child(2) {
-                            font-size: 24px;
-                            font-weight: 500;
-                            color: #295FA7;
-                        }
-                    }
-                }
-            }
+        span:nth-child(1) {
+          font-weight: 500;
+          font-size: 24px;
+          color: #ffffff;
         }
 
-        .middle {
-            width: 10%;
-            height: 130px;
-            background-color: #295FA7;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
-
-            img {
-                width: 56px;
-                height: 56px;
-            }
-
-            span {
-                font-size: 18px;
-                font-weight: 500;
-                color: #FFFFFF;
-            }
+        span:nth-child(2) {
+          font-size: 36px;
+          font-weight: 500;
+          color: #ffffff;
         }
+      }
     }
 
-    .four {
+    .middle {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      margin: 30px auto;
+
+      .boxes {
         width: 100%;
-        text-align: center;
-        margin-top: 50px;
+        clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        .title {
-            font-size: 36px;
-            font-weight: 500;
-            color: #FFFFFF;
+        span {
+          font-size: 48px;
+          font-weight: 400;
+          width: 30%;
+          // padding: 32px 0;
         }
-
-        .scores {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-
-            .all,
-            .home,
-            .away {
-                width: 30%;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-
-                span:nth-child(1) {
-                    font-weight: 500;
-                    font-size: 24px;
-                    color: #FFFFFF;
-                }
-
-                span:nth-child(2) {
-                    font-size: 36px;
-                    font-weight: 500;
-                    color: #FFFFFF;
-                }
-            }
-        }
-
-        .middle {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            align-items: center;
-            margin: 30px auto;
-
-            .boxes {
-                width: 100%;
-                clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
-                background-color: #FFFFFF;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                span {
-                    font-size: 48px;
-                    font-weight: 400;
-                    width: 30%;
-                    // padding: 32px 0;
-                }
-
-                .box {
-                    width: 30%;
-                    background-color: #295FA7;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 16px 0;
-
-                    img {
-                        width: 56px;
-                        height: 56px;
-                    }
-
-                    span {
-                        width: 100%;
-                        font-size: 18px;
-                        font-weight: 500;
-                        color: #FFFFFF;
-                        margin-top: 20px;
-                        padding: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    .five {
-        width: 100%;
 
         .box {
+          width: 30%;
+          background-color: #295fa7;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 16px 0;
+
+          img {
+            width: 56px;
+            height: 56px;
+          }
+
+          span {
             width: 100%;
-            height: 120px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
             margin-top: 20px;
-
-            .title {
-                width: 100%;
-                height: 60px;
-                background-color: #295FA799;
-                display: flex;
-                align-items: center;
-
-                span {
-                    font-size: 28px;
-                    font-weight: 500;
-                    color: #FFFFFF;
-                    margin-left: 24px;
-                }
-            }
-
-            .score_part {
-                width: 100%;
-                height: 60px;
-                background-color: #295FA7;
-                display: flex;
-                justify-content: center;
-
-                .club {
-                    width: 40%;
-                    height: 60px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 20px;
-
-                    img {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                    }
-
-                    span {
-                        font-weight: 500;
-                        font-size: 24px;
-                        color: #FFFFFF;
-                    }
-                }
-
-                .shot {
-                    width: 10%;
-                    height: 60px;
-                    background-color: #FFFFFF;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    span {
-                        font-size: 28px;
-                        font-weight: 500;
-                        color: #295FA7;
-                    }
-                }
-            }
+            padding: 0;
+          }
         }
+      }
     }
+  }
+
+  .five {
+    width: 100%;
+
+    .box {
+      width: 100%;
+      height: 120px;
+      margin-top: 20px;
+
+      .title {
+        width: 100%;
+        height: 60px;
+        background-color: #295fa799;
+        display: flex;
+        align-items: center;
+
+        span {
+          font-size: 28px;
+          font-weight: 500;
+          color: #ffffff;
+          margin-left: 24px;
+        }
+      }
+
+      .score_part {
+        width: 100%;
+        height: 60px;
+        background-color: #295fa7;
+        display: flex;
+        justify-content: center;
+
+        .club {
+          width: 40%;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          cursor: pointer;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+
+          span {
+            font-weight: 500;
+            font-size: 24px;
+            color: #ffffff;
+          }
+        }
+
+        .shot {
+          width: 10%;
+          height: 60px;
+          background-color: #ffffff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          span {
+            font-size: 28px;
+            font-weight: 500;
+            color: #295fa7;
+          }
+        }
+      }
+    }
+  }
 }

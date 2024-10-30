@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import styles from "./style.module.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
-import 'aos/dist/aos.css'; // AOS CSS import
-import AOS from 'aos'; // AOS import
+import "aos/dist/aos.css"; // AOS CSS import
+import AOS from "aos"; // AOS import
 
 function Events() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [data, setData] = useState(null);
   const pk = useParams();
-
+  const navigate = useNavigate();
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
@@ -29,19 +29,35 @@ function Events() {
 
   const team1 = data?.team1?.uuid;
   const team2 = data?.team2?.uuid;
-
+  function navigateFunc(id) {
+    navigate(`/players/${id}`);
+  }
   return (
-    <div className={styles.events} data-aos="fade-left"> {/* Yangi animatsiya */}
+    <div className={styles.events} data-aos="fade-left">
+      {" "}
+      {/* Yangi animatsiya */}
       <div className="container">
-        <div className={styles?.clubs} data-aos="fade-left"> {/* Yangi animatsiya */}
-          <div className={styles.club}>
+        <div className={styles?.clubs} data-aos="fade-left">
+          {" "}
+          {/* Yangi animatsiya */}
+          <div
+            className={styles.club}
+            onClick={() => {
+              navigateFunc(data?.team1?.uuid);
+            }}
+          >
             <img src={data?.team1?.icon_url} alt="team1logotip" />
             <span>{data?.team1?.name}</span>
           </div>
           <div className={styles.title}>
             <span>{t("match events")}</span>
           </div>
-          <div className={styles.club}>
+          <div
+            className={styles.club}
+            onClick={() => {
+              navigateFunc(data?.team2?.uuid);
+            }}
+          >
             <span>{data?.team2?.name}</span>
             <img src={data?.team2?.icon_url} alt="logotip2" />
           </div>
@@ -51,7 +67,9 @@ function Events() {
           <div className={styles.timeline}>
             {data?.events?.map((item, index) => {
               return (
-                <div className={styles.tr} key={index} data-aos="fade-left"> {/* Yangi animatsiya */}
+                <div className={styles.tr} key={index} data-aos="fade-left">
+                  {" "}
+                  {/* Yangi animatsiya */}
                   <div className={styles.player}>
                     <span>
                       {item?.team == team1 ? item?.player_name : ""}{" "}

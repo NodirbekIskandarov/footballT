@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './style.module.scss'
 import kid from '../../assets/images/kid.png'
 function KidsTable() {

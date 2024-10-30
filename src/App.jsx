@@ -18,7 +18,7 @@ function App() {
               <Route path='pasted/:id' element={<PastedGames/>}/>
               <Route path='planed/:id' element={<PlanedGames/>}/>
             </Route>
-            <Route path='players' element={<Players/>}/>
+            <Route path='players/:id' element={<Players/>}/>
             <Route path="about-player/:id" element={<AboutPlayer/>}/>
             <Route path='media' element={<Media/>}>
                 <Route index element={<Photo/>}/>
