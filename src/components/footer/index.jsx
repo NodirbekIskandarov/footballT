@@ -8,11 +8,11 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function Footer() {
-  const {t} = useTranslation()
-  const [submenuOpen, setSubmenuOpen] = useState(false); // State to manage submenu visibility
+  const { t } = useTranslation();
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   const toggleSubmenu = () => {
-    setSubmenuOpen(!submenuOpen); // Toggle submenu visibility
+    setSubmenuOpen(!submenuOpen);
   };
 
   return (
@@ -22,7 +22,7 @@ function Footer() {
           <div className={styles.logo_part}>
             <div className={styles.line_}></div>
             <div className={styles.logotip}>
-              <a href="/"><img src={logotip} alt="logotip" /></a>
+              <a href="/"><img src={logotip} alt="logo" /></a>
             </div>
             <div className={styles.line__}></div>
           </div>
@@ -44,15 +44,15 @@ function Footer() {
             <Link className={styles.link} to="/about-us">{t("About us")}</Link>
           </div>
           <div className={styles.socials}>
-            <div className={styles.social}>
-              <img src={instagram} alt="instagram" />
-            </div>
-            <div className={styles.social}>
-              <img src={telegram} alt="telegram" />
-            </div>
-            <div className={styles.social}>
-              <img src={facebook} alt="facebook" />
-            </div>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <img src={instagram} alt="Instagram" />
+            </a>
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+              <img src={telegram} alt="Telegram" />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <img src={facebook} alt="Facebook" />
+            </a>
           </div>
           <div className={styles.text}>
             <span>Super Leguage 2024</span>
