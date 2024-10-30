@@ -87,7 +87,7 @@ function Header() {
             <Link className={styles.link} to="/media" onClick={handleClick}>
               {t("Media")}
             </Link>
-            <Link className={styles.link} to="/" onClick={handleClick}>
+            <Link className={styles.link} to="/best-players" onClick={handleClick}>
               {t("History")}
             </Link>
             <Link className={styles.link} to="/about-us" onClick={handleClick}>

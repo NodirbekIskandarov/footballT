@@ -40,7 +40,7 @@ function Footer() {
             </div>
             <Link className={styles.link} to="/news">{t("News")}</Link>
             <Link className={styles.link} to="/media">{t("Media")}</Link>
-            <Link className={styles.link} to="/">{t("History")}</Link>
+            <Link className={styles.link} to="/best-players">{t("History")}</Link>
             <Link className={styles.link} to="/about-us">{t("About us")}</Link>
           </div>
           <div className={styles.socials}>
