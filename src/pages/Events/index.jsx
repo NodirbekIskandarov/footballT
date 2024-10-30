@@ -4,10 +4,14 @@ import { useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
+
 function Events() {
-  const {t} = useTranslation()
+  const {t} = useTranslation();
   const [data, setData] = useState(null);
   const pk = useParams();
+
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
@@ -16,15 +20,20 @@ function Events() {
       .catch((error) => {
         console.log(error);
       });
+
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, [pk.id]);
 
   const team1 = data?.team1?.uuid;
   const team2 = data?.team2?.uuid;
 
   return (
-    <div className={styles.events}>
+    <div className={styles.events} data-aos="fade-left"> {/* Yangi animatsiya */}
       <div className="container">
-        <div className={styles?.clubs}>
+        <div className={styles?.clubs} data-aos="fade-left"> {/* Yangi animatsiya */}
           <div className={styles.club}>
             <img src={data?.team1?.icon_url} alt="team1logotip" />
             <span>{data?.team1?.name}</span>
@@ -42,7 +51,7 @@ function Events() {
           <div className={styles.timeline}>
             {data?.events?.map((item, index) => {
               return (
-                <div className={styles.tr} key={index}>
+                <div className={styles.tr} key={index} data-aos="fade-left"> {/* Yangi animatsiya */}
                   <div className={styles.player}>
                     <span>
                       {item?.team == team1 ? item?.player_name : ""}{" "}
