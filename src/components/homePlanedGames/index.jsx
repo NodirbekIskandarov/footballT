@@ -1,6 +1,5 @@
 import styles from "./style.module.scss";
 import { IoTimeOutline } from "react-icons/io5";
-// import { CiLocationOn } from "react-icons/ci";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
