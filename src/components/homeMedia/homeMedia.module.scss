@@ -1,117 +1,141 @@
-
 .homeMedia {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  
-    .videos {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .videos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* O'zgartirildi */
+    align-items: center;
+    margin: 20px 0;
+
+    .videoLink {
+      width: 30%;
+      text-decoration: none; /* Remove default underline on anchor tag */
+      color: inherit; /* Inherit text color */
+    }
+
+    .video {
+      position: relative;
       width: 100%;
+      border-radius: 10px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px 0;
-      .videoLink {
-        width: 30%;
-        text-decoration: none; /* Remove default underline on anchor tag */
-        color: inherit; /* Inherit text color */
-      }
-      .video {
-        position: relative;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #FFFFFF;
+      padding-bottom: 20px;
+      cursor: pointer;
+
+      img {
         width: 100%;
         border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        background-color: #FFFFFF;
-        padding-bottom: 20px;
-        cursor: pointer;
+        height: 290px;
+        object-fit: cover; /* Keep aspect ratio */
+      }
+
+      .playicon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px; /* Adjust icon size */
+        color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+        pointer-events: none;
+      }
+
+      span {
+        margin-left: 20px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .images {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .image {
+      width: 48%;
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover; /* Keep aspect ratio */
+      }
+    }
+  }
+
+  /* Responsivlik qo'shimchalari */
+
+  /* Planshet (max-width: 1024px) */
+  @media (max-width: 1024px) {
+    .videos {
+      flex-direction: column;
+      align-items: center;
+
+      .video {
+        width: 90%;
         img {
-          width: 100%;
-          border-radius: 10px;
-          height: 290px;
-        }
-        .playicon {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 40px; /* Adjust icon size */
-          color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-          pointer-events: none;
-          
+          height: 250px;
         }
         span {
-          margin-left: 20px;
-          font-size: 24px;
-          font-weight: 500;
-        }
-  
-        .boldroq {
-          font-size: 28px;
+          font-size: 22px;
         }
       }
     }
-  
+
     .images {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
+      flex-direction: column;
       .image {
-        width: 48%;
-  
-        img {
-          width: 100%;
-          border-radius: 10px;
+        width: 90%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  /* Mobil (max-width: 768px) */
+  @media (max-width: 768px) {
+    .videos {
+      flex-direction: column; /* O'zgartirildi */
+      align-items: center; /* O'zgartirildi */
+      justify-content: center; /* Ekranning o'rtasiga joylashadi */
+      width: 100%;
+
+      .videoLink {
+        width: 90%; /* Video link kengligini 90% ga o'zgartirish */
+        margin-bottom: 20px; /* Har bir video orasiga bo'shliq qo'shish */
+      }
+
+      .video {
+        span {
+          font-size: 18px;
         }
       }
     }
-  
-    /* Responsivlik uchun qo'shimchalar */
-  
-    /* Planshet (max-width: 1024px) */
-    @media (max-width: 1024px) {
-      .videos {
-        flex-direction: column;
-        align-items: center;
-        .video {
-          width: 90%;
-          img {
-            height: 250px;
-          }
-          span {
-            font-size: 22px;
-          }
-          .boldroq {
-            font-size: 24px;
-          }
-        }
-      }
-  
-      .images {
-        flex-direction: column;
-        .image {
-          width: 90%;
-          margin-bottom: 20px;
-        }
+
+    .images {
+      .image {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 20px; /* Add margin for spacing */
       }
     }
-  
-    /* Mobil (max-width: 768px) */
-    @media (max-width: 768px) {
-      .videos {
-        .video {
-          img {
-            height: 200px;
-          }
-          span {
-            font-size: 18px;
-          }
-          .boldroq {
-            font-size: 20px;
-          }
+  }
+
+  /* Mobil (max-width: 480px) */
+  @media (max-width: 480px) {
+    .videos {
+      .videoLink {
+        width: 100%; /* 100% kenglikda bo'lsin */
+        margin-bottom: 20px;
+      }
+      .video {
+        span {
+          font-size: 16px; /* Smaller font size for smaller screens */
         }
       }
     }
   }
-  
+}
