@@ -5,6 +5,8 @@ import { getRequest } from "../../utils/request";
 import { home_last_match } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
 import { useNavigate } from "react-router-dom";
+import 'aos/dist/aos.css'; // AOS CSS import
+import AOS from 'aos'; // AOS import
 
 export default function GameCar() {
   const [data, setData] = useState(null);
@@ -18,6 +20,11 @@ export default function GameCar() {
       .catch((error) => {
         console.log(error);
       });
+
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   const settings = {
@@ -47,7 +54,7 @@ export default function GameCar() {
           <Slider {...settings}>
             {data?.map((item, index) => {
               return (
-                <div className="slide" key={index}>
+                <div className="slide" key={index} data-aos="fade-left"> {/* Yangi animatsiya */}
                   <div className="slidee" onClick={() => navigateFunc(item?.uuid)}>
                     <div className="slide-child">
                       <span className="game_date">{formatDateToYMD(item?.date)}</span>
