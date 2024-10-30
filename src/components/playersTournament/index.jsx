@@ -8,7 +8,7 @@ import { playerbyleague } from '../../utils/API_urls';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const PlayerCard = ({ img, name, position, index }) => (
+const PlayerCard = ({ img, name, position, index, id }) => (
   <div className={styles.box} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
     <div className={styles.star}>
       <img src={star} alt="Star icon" />
@@ -21,7 +21,7 @@ const PlayerCard = ({ img, name, position, index }) => (
       <span className={styles.position}>{position}</span>
     </div>
     <div className={styles.button_part}>
-      <Link to="/"><button className={styles.link}>View</button></Link>
+      <Link to={`/about-player/${id}`}><button className={styles.link}>View</button></Link>
     </div>
   </div>
 );
@@ -31,6 +31,7 @@ PlayerCard.propTypes = {
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired, // Add index as a prop for delay
+  id: PropTypes.number.isRequired
 };
 
 function PlayersTournament() {
@@ -57,11 +58,11 @@ function PlayersTournament() {
         <span className={styles.title}>Eng yaxshi futbolistlar</span>
         <div className={styles.boxes}>
           {data?.map((player, index) => (
-            <PlayerCard key={index} img={player.image} name={player.name} position={player.position} index={index} />
+            <PlayerCard key={index} img={player.image} name={player.name} position={player.position} index={index} id={player?.uuid}/>
           ))}
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to={`/`} style={{ textDecoration: "none" }}>
             <button className={styles.link2}>Ko’proq ko’rish</button>
           </Link>
         </div>
