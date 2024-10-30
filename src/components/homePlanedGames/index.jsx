@@ -7,7 +7,9 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { expected_games } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
+import { useTranslation } from "react-i18next";
 function HomePlanedGames() {
+  const {t} = useTranslation()
   const [data, setData] = useState(null);
   useEffect(() => {
     getRequest(expected_games)
@@ -50,7 +52,7 @@ function HomePlanedGames() {
                   <MdFavoriteBorder />
                 </div>
                 <div className={styles.view}>
-                  <span>View Details</span>
+                  <span>{t("View Details")}</span>
                   <FaArrowRightLong />
                 </div>
               </div>

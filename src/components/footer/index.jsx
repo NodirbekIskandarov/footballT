@@ -5,8 +5,10 @@ import instagram from '../../assets/images/instagram.png';
 import telegram from '../../assets/images/telegram.png';
 import facebook from '../../assets/images/facebook.png';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  const {t} = useTranslation()
   const [submenuOpen, setSubmenuOpen] = useState(false); // State to manage submenu visibility
 
   const toggleSubmenu = () => {
@@ -25,9 +27,9 @@ function Footer() {
             <div className={styles.line__}></div>
           </div>
           <div className={styles.menus}>
-            <Link className={styles.link} to="/">Home</Link>
+            <Link className={styles.link} to="/">{t("Home")}</Link>
             <div className={styles.tournament} onClick={toggleSubmenu}>
-              <span className={styles.link}>Tournaments</span>
+              <span className={styles.link}>{t("Tournaments")}</span>
               {submenuOpen && (
                 <div className={styles.submenu}>
                   <Link className={styles.submenu_link} to="/tournament/upcoming">Upcoming</Link>
@@ -36,10 +38,10 @@ function Footer() {
                 </div>
               )}
             </div>
-            <Link className={styles.link} to="/news">News</Link>
-            <Link className={styles.link} to="/media">Media</Link>
-            <Link className={styles.link} to="/">History</Link>
-            <Link className={styles.link} to="/about-us">About us</Link>
+            <Link className={styles.link} to="/news">{t("News")}</Link>
+            <Link className={styles.link} to="/media">{t("Media")}</Link>
+            <Link className={styles.link} to="/">{t("History")}</Link>
+            <Link className={styles.link} to="/about-us">{t("About us")}</Link>
           </div>
           <div className={styles.socials}>
             <div className={styles.social}>

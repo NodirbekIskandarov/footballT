@@ -7,10 +7,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { getRequest } from "../../utils/request";
 import { tournament_list } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State for menu open/close
   const [submenuOpen, setSubmenuOpen] = useState(false); // State for submenu open/close
   const [data, setData] = useState(null);
+  const { t, i18n } = useTranslation()
   const toggleMenu = () => {
     setMenuOpen(!menuOpen); // Toggles menu open/close
     setSubmenuOpen(false); // Close submenu when main menu is toggled
@@ -33,6 +35,12 @@ function Header() {
         console.log(error);
       });
   }, []);
+
+  const handleLanguageChange = (event) => {
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage); // Change the language using i18n
+  };
+
   return (
     <div className={styles.header}>
       <div className="container">
@@ -44,17 +52,16 @@ function Header() {
           <FaBars className={styles.hamburger} onClick={toggleMenu} />
 
           <div
-            className={`${styles.menu_part} ${
-              menuOpen ? styles.menu_open : ""
-            }`}
+            className={`${styles.menu_part} ${menuOpen ? styles.menu_open : ""
+              }`}
           >
             <FaTimes className={styles.close_icon} onClick={toggleMenu} />
             <Link className={styles.link} to="/" onClick={handleClick}>
-              Home
+              {t("Home")}
             </Link>
             <div className={styles.tournament} onClick={toggleSubmenu}>
               <span className={styles.link}>
-                Tournaments{" "}
+                {t("Tournaments")}{" "}
                 {submenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
               </span>
               {submenuOpen && (
@@ -75,21 +82,24 @@ function Header() {
               )}
             </div>
             <Link className={styles.link} to="/news" onClick={handleClick}>
-              News
+              {t("News")}
             </Link>
             <Link className={styles.link} to="/media" onClick={handleClick}>
-              Media
+              {t("Media")}
             </Link>
             <Link className={styles.link} to="/" onClick={handleClick}>
-              History
+              {t("History")}
             </Link>
             <Link className={styles.link} to="/about-us" onClick={handleClick}>
-              About us
+              {t("About us")}
             </Link>
           </div>
 
           <div className={styles.language_part}>
-            <select name="" id="">
+            <select
+              defaultValue={i18n.lng}
+              onChange={handleLanguageChange}
+            >
               <option value="uz">UZ</option>
               <option value="ru">RU</option>
               <option value="en">EN</option>

@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { gallery_videos } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
+import { useTranslation } from "react-i18next";
 function Video() {
+  const {t} = useTranslation()
   const [data, setData] = useState(null);
   useEffect(() => {
     getRequest(gallery_videos)
@@ -39,7 +41,7 @@ function Video() {
             );
           })}
         </div>
-        <button>See more video</button>
+        <button>{t("See more video")}</button>
       </div>
     </div>
   );

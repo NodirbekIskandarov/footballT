@@ -1,11 +1,12 @@
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { PreviewBanner } from "../../components";
 import styles from './style.module.scss';
+import { useTranslation } from "react-i18next";
 
 function Preview() {
   const location = useLocation();
   const { id } = useParams(); // Get the id from the URL params
-
+  const {t} = useTranslation()
   return (
     <div>
       <PreviewBanner />
@@ -18,7 +19,7 @@ function Preview() {
                   color: location.pathname.includes("preview/previ") ? "#295FA7" : "#FFFFFF",
                   backgroundColor: location.pathname.includes("preview/previ") ? "#FFFFFF" : "#295FA7"
                 }}
-              >Preview</button>
+              >{t("Preview")}</button>
             </Link>
             {/* <Link to={`/preview/protocol/${id}`} className={styles.link}>
               <button
@@ -34,7 +35,7 @@ function Preview() {
                   color: location.pathname.includes("events") ? "#295FA7" : "#FFFFFF",
                   backgroundColor: location.pathname.includes("events") ? "#FFFFFF" : "#295FA7"
                 }}
-              >Events</button>
+              >{t("Events")}</button>
             </Link>
             <Link to={`/preview/live/${id}`} className={styles.link}>
               <button

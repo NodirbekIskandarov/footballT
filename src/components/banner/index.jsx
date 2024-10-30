@@ -15,9 +15,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { home_banner } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 
 export default function Banner() {
   const [data, setData] = useState([]);
+  const {t} = useTranslation()
 
   useEffect(() => {
     getRequest(home_banner)
@@ -141,7 +143,7 @@ export default function Banner() {
                           alignSelf: "center", // Mobil va tabletda markaziy joylashuv
                         }}
                       >
-                        Ko’proq ma’lumot
+                        {t("Ko’proq ma’lumot")}
                       </button>
                     </Link>
                   </div>

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 function Media() {
     const location = useLocation()
+    const {t} = useTranslation()
     return (
         <div>
             <div style={{
@@ -32,7 +34,7 @@ function Media() {
                         color: `${location.pathname=="/media/video" ? "white" : "#295FA7"}`,
                         border: "none",
                         cursor: "pointer"
-                    }}>Photo</button>
+                    }}>{t("Photo")}</button>
                 </Link>
                 <Link to="video" style={{
                     width: "45%",
@@ -52,7 +54,7 @@ function Media() {
                         border: "none",
                         cursor: "pointer",
                         backgroundColor: `${location.pathname!="/media/video" ? "transparent" : "white"}`
-                    }}>Video</button>
+                    }}>{t("Video")}</button>
                 </Link>
             </div>
             <Outlet/>

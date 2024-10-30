@@ -3,8 +3,10 @@ import styles from "./style.module.scss";
 import { getRequest } from "../../utils/request";
 import { gallery_photos } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
+import { useTranslation } from "react-i18next";
 function Photo() {
   const [data, setData] = useState(null);
+  const {t} = useTranslation()
   useEffect(() => {
     getRequest(gallery_photos)
       .then((response) => {
@@ -30,7 +32,7 @@ function Photo() {
             );
           })}
         </div>
-        <button>See more video</button>
+        <button>{t("See more photo")}</button>
       </div>
     </div>
   );
