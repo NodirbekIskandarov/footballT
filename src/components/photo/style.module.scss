@@ -1,21 +1,29 @@
-.photo{
+.photo {
     width: 100%;
+
     .boxes {
         width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;  // Allow wrapping on all screen sizes
+        justify-content: space-between; // Align items to the left
+
         .box {
-            width: 32%;
+            width: 32%; // Default width for larger screens
             border-radius: 5px;
             background-color: white;
             box-shadow: 10px 10px 10px 10px #00000033;
             margin-bottom: 20px;
+            margin-right: 20px; // Space between boxes
+            &:last-child {
+                margin-right: 0; // Remove margin for the last box
+            }
+
             img {
                 width: 100%;
                 height: 288px;
+                border-radius: 5px 5px 0 0; // Round only top corners
             }
+
             .text {
                 display: flex;
                 flex-direction: column;
@@ -23,12 +31,14 @@
                 margin-left: 16px;
                 margin-bottom: 20px;
             }
+
             span {
                 font-size: 24px;
                 font-weight: 500;
             }
         }
     }
+
     button {
         width: 220px;
         height: 60px;
@@ -43,5 +53,39 @@
         font-weight: 400;
         margin: 50px auto;
         cursor: pointer;
+    }
+
+    // Responsive Styles
+    @media (max-width: 1024px) {
+        .box {
+            width: 48%; // Two boxes in a row for tablets
+        }
+    }
+
+    @media (max-width: 768px) {
+        .box {
+            width: 48%; // Two boxes in a row for smaller screens
+            // margin-right: 20px; // Add space between boxes
+        }
+
+        .boxes {
+            flex-wrap: wrap; // Allow wrapping for smaller screens
+        }
+    }
+
+    @media (max-width: 480px) {
+        .box {
+            width: 48%; // Two boxes per row on mobile
+            // margin-right: 20px; // Space between boxes
+        }
+
+        // .box:nth-child(2n) {
+        //     margin-right: 0; // Remove right margin for every second box
+        // }
+
+        button {
+            width: 80%; // Wider button for mobile
+            font-size: 16px; // Smaller font size for button
+        }
     }
 }
