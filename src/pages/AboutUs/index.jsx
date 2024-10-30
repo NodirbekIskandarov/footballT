@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { getRequest, postRequest } from "../../utils/request";
 import { about_us, postdata } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
-import 'aos/dist/aos.css'; // AOS CSS import
-import AOS from 'aos'; // AOS import
+import "aos/dist/aos.css"; // AOS CSS import
+import AOS from "aos"; // AOS import
 
 function AboutUs() {
   const { t, i18n } = useTranslation();
@@ -16,7 +16,7 @@ function AboutUs() {
   const [loading, setLoading] = useState(false); // Yuborish jarayoni yuklanishi
   const [modalOpen, setModalOpen] = useState(false); // Modal ochiq yoki yo'q holati
   const [modalMessage, setModalMessage] = useState(""); // Modalda ko'rsatiladigan xabar
-const lng = i18n.language
+  const lng = i18n.language;
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animatsiya davomiyligi
@@ -42,7 +42,7 @@ const lng = i18n.language
       setModalOpen(true);
       return; // Stop the submission
     }
-    
+
     setLoading(true); // Yuklanishni ko'rsatish
     const postData = {
       name: name,
@@ -68,22 +68,35 @@ const lng = i18n.language
       });
   };
 
+  const description =
+    lng === "uz"
+      ? data?.description_uz
+      : lng === "ru"
+      ? data?.description_ru
+      : data?.description_en;
+
   return (
     <div className={styles.about}>
       <div className="container">
-        <div className={styles.banner} data-aos="fade-up"> {/* Animatsiya qo'shish */}
+        <div className={styles.banner} data-aos="fade-up">
+          {" "}
+          {/* Animatsiya qo'shish */}
           <img src={banner} alt="banner" />
         </div>
-        <div className={styles.text_part} data-aos="fade-up"> {/* Animatsiya qo'shish */}
+        <div className={styles.text_part} data-aos="fade-up">
+          {" "}
+          {/* Animatsiya qo'shish */}
           <h3>Tashkilot haqida</h3>
-          <span>{data[`description_${lng}`]}</span>
+          <span>{description}</span>
         </div>
       </div>
       <div className={styles.contact}>
         <div className="container">
           <div className={styles.boxes}>
             <div className={styles.text_part}>
-              <span className={styles.one}>Biz bilan bo’g’lanib savolaringizga javob oling</span>
+              <span className={styles.one}>
+                Biz bilan bo’g’lanib savolaringizga javob oling
+              </span>
               <br />
               <br />
               <span className={styles.two}>Aloqa nomeri</span>
@@ -91,10 +104,26 @@ const lng = i18n.language
               <span className={styles.three}>+998945854512</span>
             </div>
             <div className={styles.form_part}>
-              <input type="text" placeholder="F.I.SH" value={name} onChange={(e) => setName(e.target.value)} />
-              <input type="text" placeholder="Telefon raqam" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-              <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-              <button onClick={handleSubmit} disabled={loading}>{loading ? t("Yuborilmoqda...") : t("Yuborish")}</button>
+              <input
+                type="text"
+                placeholder="F.I.SH"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Telefon raqam"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+              <textarea
+                placeholder="Message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+              <button onClick={handleSubmit} disabled={loading}>
+                {loading ? t("Yuborilmoqda...") : t("Yuborish")}
+              </button>
             </div>
           </div>
         </div>

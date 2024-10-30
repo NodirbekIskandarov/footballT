@@ -67,12 +67,12 @@
             .form_part {
                 width: 60%;
                 display: flex;
-                flex-direction: column; // Stack inputs vertically on smaller screens
-                align-items: flex-start; // Align inputs to the left
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
 
                 input {
-                    width: 100%; // Full width for smaller screens
-                    max-width: 300px; // Limit width for larger screens
+                    width: 48%; // Full width for smaller screens
                     outline: none;
                     border: 1px solid gray;
                     border-radius: 10px;
