@@ -3,7 +3,9 @@ import banner from "../../assets/images/planedback.png";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { about_us } from "../../utils/API_urls";
+import { useTranslation } from "react-i18next";
 function AboutUs() {
+  const {t} = useTranslation()
   const [data, setData] = useState(null);
   useEffect(() => {
     getRequest(about_us)
@@ -40,7 +42,7 @@ function AboutUs() {
               <input type="text" placeholder="F.I.SH"/>
               <input type="text" placeholder="Telefon raqam"/>
               <textarea name="" id="" placeholder="Message"></textarea>
-              <button>Yuborish</button>
+              <button>{t("Yuborish")}</button>
             </div>
           </div>
         </div>
