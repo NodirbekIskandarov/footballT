@@ -81,14 +81,14 @@
 
   @media (max-width: 768px) {
       .boxLink {
-          width: 48%; // Two boxes in a row for smaller screens
+          width: 48%!important; // Two boxes in a row for smaller screens
           margin-right: 20px; // Space between boxes
       }
   }
 
   @media (max-width: 480px) {
       .boxLink {
-          width: 48%; // Two boxes per row on mobile
+          width: 100%!important; // Two boxes per row on mobile
           margin-right: 20px; // Space between boxes
       }
 
