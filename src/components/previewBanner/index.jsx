@@ -51,7 +51,7 @@ function PreviewBanner() {
             }}
           >
             <img src={data?.team1?.icon_url} alt="clublogo" />
-            <span>{data?.team1[`name_${lng}`]}</span>
+            <span>{data?.team1?.name}</span>
           </div>
           <span className={styles.shot}>
             {data?.score?.team1_score}:{data?.score?.team2_score}
@@ -63,7 +63,7 @@ function PreviewBanner() {
             }}
           >
             <img src={data?.team2?.icon_url} alt="clublogo" />
-            <span>{data?.team2[`name_${lng}`]}</span>
+            <span>{data?.team2?.name}</span>
           </div>
         </div>
       </div>
