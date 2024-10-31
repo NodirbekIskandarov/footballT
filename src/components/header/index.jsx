@@ -97,7 +97,7 @@ function Header() {
             </div>
 
             <div className={styles.language_part}>
-              <select defaultValue="uz" onChange={handleLanguageChange}>
+              <select defaultValue={i18n.language} onChange={handleLanguageChange}>
                 <option value="uz">UZ</option>
                 <option value="ru">RU</option>
                 <option value="en">EN</option>

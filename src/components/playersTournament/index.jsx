@@ -51,6 +51,16 @@ function PlayersTournament() {
       });
   }, [id]);
 
+  function handleClick () {
+    getRequest(`${playerbyleague}${id}/?size=20`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -65,9 +75,9 @@ function PlayersTournament() {
           ))}
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Link to={`/`} style={{ textDecoration: "none" }}>
-            <button className={styles.link2}>{t("Ko’proq ko’rish")}</button>
-          </Link>
+          {/* <Link to={`/best-players`} style={{ textDecoration: "none" }}> */}
+            <button className={styles.link2} onClick={handleClick}>{t("Ko’proq ko’rish")}</button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

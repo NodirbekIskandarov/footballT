@@ -106,18 +106,18 @@ function AboutUs() {
             <div className={styles.form_part}>
               <input
                 type="text"
-                placeholder="F.I.SH"
+                placeholder={t("F.I.SH")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 type="text"
-                placeholder="Telefon raqam"
+                placeholder={t("Telefon raqam")}
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <textarea
-                placeholder="Message"
+                placeholder={t("Message")}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
