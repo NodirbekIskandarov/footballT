@@ -12,6 +12,14 @@
         justify-content: space-between;
         align-items: center;
 
+        .father {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            float: right;
+        }
+
         .img_part {
             width: 60px;
 
@@ -145,6 +153,9 @@
 
     @media (max-width: 768px) {
         .header_main {
+            .father {
+                width: 100px;
+            }
             .img_part {
                 width: 50px;
             }
