@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 function PlayersTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
-  const {i18n} = useTranslation()
+  const {t,i18n} = useTranslation()
   const lng = i18n.language
   useEffect(() => {
     getRequest(playerbyteam + id)
@@ -42,8 +42,8 @@ function PlayersTable() {
               {" "}
               {/* Yangi animatsiya */}
               <th></th>
-              <th>Player</th>
-              <th>Date of Birth</th>
+              <th>{t("Player")}</th>
+              <th>{t("Date of Birth")}</th>
               <th>
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "10px" }}
@@ -52,7 +52,7 @@ function PlayersTable() {
                   {" "}
                   {/* Yangi animatsiya */}
                   <img src={krasovka} alt="krasovka" />
-                  <span>Goli</span>
+                  <span>{t("Goli")}</span>
                 </div>
               </th>
               <th>
@@ -63,7 +63,7 @@ function PlayersTable() {
                   {" "}
                   {/* Yangi animatsiya */}
                   <img src={krasovka} alt="krasovka" />
-                  <span>Assist</span>
+                  <span>{t("Assist")}</span>
                 </div>
               </th>
               <th>
@@ -74,7 +74,7 @@ function PlayersTable() {
                   {" "}
                   {/* Yangi animatsiya */}
                   <div className={styles.yellow}></div>
-                  <span>Sariq karta</span>
+                  <span>{t("Sariq karta")}</span>
                 </div>
               </th>
               <th>
@@ -85,7 +85,7 @@ function PlayersTable() {
                   {" "}
                   {/* Yangi animatsiya */}
                   <div className={styles.red}></div>
-                  <span>Qizil karta</span>
+                  <span>{t("Qizil karta")}</span>
                 </div>
               </th>
             </tr>

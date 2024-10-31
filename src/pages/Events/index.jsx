@@ -73,7 +73,7 @@ function Events() {
                   {/* Yangi animatsiya */}
                   <div className={styles.player}>
                     <span>
-                      {item?.team == team1 ? item[`player_name_${lng}`] : ""}{" "}
+                      {item?.team == team1 ? item?.player[`name_${lng}`] : ""}{" "}
                       {item?.team == team1 &&
                         (item?.type === "goal"
                           ? "⚽️"
@@ -91,7 +91,7 @@ function Events() {
                   </div>
                   <div className={styles.player}>
                     <span>
-                      {item?.team == team2 ? item[`player_name_${lng}`] : ""}{" "}
+                      {item?.team == team2 ? item?.player[`name_${lng}`] : ""}{" "}
                       {item?.team == team2 &&
                         (item?.type === "goal"
                           ? "⚽️"

@@ -13,7 +13,7 @@ function PlayerGamesTable() {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [data2, setData2] = useState(null);
-  const {i18n} = useTranslation()
+  const {t,i18n} = useTranslation()
   const lng = i18n.language
   useEffect(() => {
     getRequest(playerteams + id)
@@ -44,7 +44,7 @@ function PlayerGamesTable() {
   return (
     <div className={styles.player_games}>
       <div className="container">
-        <span className={styles.title}>Futbolchining oynagan jamoalari</span>
+        <span className={styles.title}>{t("Futbolchining o'ynagan jamoalari")}</span>
         <div className={styles.table} data-aos="fade-up">
           {" "}
           {/* Animatsiya qo'shish */}
@@ -52,8 +52,8 @@ function PlayerGamesTable() {
             <thead>
               <tr>
                 <th></th>
-                <th>Jamoa nomi</th>
-                <th>Transfer sanasi</th>
+                <th>{t("Jamoa nomi")}</th>
+                <th>{t("Transfer sanasi")}</th>
                 <th>
                   <div
                     style={{
@@ -63,7 +63,7 @@ function PlayerGamesTable() {
                     }}
                   >
                     <img src={stadion} alt="stadion" />
-                    <span>Oyinlari</span>
+                    <span>{t("O'yinlari")}</span>
                   </div>
                 </th>
                 <th>
@@ -75,7 +75,7 @@ function PlayerGamesTable() {
                     }}
                   >
                     <img src={krasovka} alt="krasovka" />
-                    <span>Goli</span>
+                    <span>{t("Goli")}</span>
                   </div>
                 </th>
                 <th>
@@ -87,7 +87,7 @@ function PlayerGamesTable() {
                     }}
                   >
                     <img src={krasovka} alt="krasovka" />
-                    <span>Assist</span>
+                    <span>{t("Assist")}</span>
                   </div>
                 </th>
                 <th>
@@ -99,7 +99,7 @@ function PlayerGamesTable() {
                     }}
                   >
                     <div className={styles.yellow}></div>
-                    <span>Sariq karta</span>
+                    <span>{t("Sariq karta")}</span>
                   </div>
                 </th>
                 <th>
@@ -111,7 +111,7 @@ function PlayerGamesTable() {
                     }}
                   >
                     <div className={styles.red}></div>
-                    <span>Qizil karta</span>
+                    <span>{t("Qizil karta")}</span>
                   </div>
                 </th>
               </tr>
@@ -136,7 +136,7 @@ function PlayerGamesTable() {
             </tbody>
           </table>
         </div>
-        <span className={styles.title}>Futbolchining karyerasi</span>
+        <span className={styles.title}>{t("Futbolchining karyerasi")}</span>
         <div className={styles.table} data-aos="fade-up">
           {" "}
           {/* Animatsiya qo'shish */}
@@ -144,10 +144,10 @@ function PlayerGamesTable() {
             <thead>
               <tr>
                 <th></th>
-                <th>Mavsum</th>
-                <th>Liga</th>
-                <th>Boshlanish sanasi</th>
-                <th>Tugash sanasi</th>
+                <th>{t("Mavsum")}</th>
+                <th>{t("Liga")}</th>
+                <th>{t("Boshlanish sanasi")}</th>
+                <th>{t("Tugash sanasi")}</th>
               </tr>
             </thead>
             <tbody>

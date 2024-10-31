@@ -86,7 +86,7 @@ function AboutUs() {
         <div className={styles.text_part} data-aos="fade-up">
           {" "}
           {/* Animatsiya qo'shish */}
-          <h3>Tashkilot haqida</h3>
+          <h3>{t("Tashkilot haqida")}</h3>
           <span>{description}</span>
         </div>
       </div>
@@ -95,11 +95,11 @@ function AboutUs() {
           <div className={styles.boxes}>
             <div className={styles.text_part}>
               <span className={styles.one}>
-                Biz bilan bo’g’lanib savolaringizga javob oling
+                {t("Biz bilan bo’g’lanib savolaringizga javob oling")}
               </span>
               <br />
               <br />
-              <span className={styles.two}>Aloqa nomeri</span>
+              <span className={styles.two}>{t("Aloqa nomeri")}</span>
               <br />
               <span className={styles.three}>+998945854512</span>
             </div>

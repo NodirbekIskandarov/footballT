@@ -9,17 +9,17 @@ import { useTranslation } from 'react-i18next';
 
 function PlayersBanner() {
   const [data, setData] = useState(null)
-  const {id} = useParams()
-  const {i18n} = useTranslation()
+  const { id } = useParams()
+  const { t, i18n } = useTranslation()
   const lng = i18n.language
   useEffect(() => {
-    getRequest(playerbyteam+id)
-    .then(response => {
-      setData(response?.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    getRequest(playerbyteam + id)
+      .then(response => {
+        setData(response?.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }, [id])
   useEffect(() => {
     AOS.init({
@@ -28,6 +28,19 @@ function PlayersBanner() {
     });
   }, []);
 
+  const name =
+    lng === "uz"
+      ? data?.name_uz
+      : lng === "ru"
+        ? data?.name_ru
+        : data?.name_en;
+  const coachname =
+    lng === "uz"
+      ? data?.coach?.name_uz
+      : lng === "ru"
+        ? data?.coach?.name_ru
+        : data?.coach?.name_en;
+
   return (
     <div className={styles.banner} data-aos="fade-up"> {/* Yangi animatsiya */}
       <div className='container'>
@@ -35,9 +48,9 @@ function PlayersBanner() {
           <div className={styles.left} data-aos="fade-up"> {/* Yangi animatsiya */}
             <img src={data?.icon} alt="club logosi" />
             <div className={styles.text_part}>
-              <span>{data[`name_${lng}`]}</span>
-              <span>{data?.players?.count} players </span>
-              <span>{data?.coach[`name_${lng}`]}</span>
+              <span>{name}</span>
+              <span>{data?.players?.count} {t("players")} </span>
+              <span>{coachname}</span>
             </div>
           </div>
           <div className={styles.button_part} data-aos="fade-up"> {/* Yangi animatsiya */}

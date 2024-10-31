@@ -40,7 +40,7 @@ function BestPlayers() {
     <div className={styles.players}>
       <div className="container">
         <div className={styles.title_part}>
-          <span>Eng yaxshi futbolistlar</span>
+          <span>{t("Eng yaxshi futbolistlar")}</span>
           <select value={year} onChange={(e) => setYear(e.target.value)}>
             <option value="2024">2024</option>
             <option value="2023">2023</option>

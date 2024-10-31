@@ -38,7 +38,7 @@ PlayerCard.propTypes = {
 function PlayersTournament() {
   const [data, setData] = useState(null);
   const { id } = useParams();
-  const {i18n} = useTranslation()
+  const {t,i18n} = useTranslation()
   const lng = i18n.language
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function PlayersTournament() {
   return (
     <div className={styles.players}>
       <div className='container'>
-        <span className={styles.title}>Eng yaxshi futbolistlar</span>
+        <span className={styles.title}>{t("Eng yaxshi futbolistlar")}</span>
         <div className={styles.boxes}>
           {data?.map((player, index) => (
             <PlayerCard key={index} img={player.image} name={player[`name_${lng}`]} position={player[`name_${lng}`]} index={index} id={player?.uuid}/>
@@ -66,7 +66,7 @@ function PlayersTournament() {
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <Link to={`/`} style={{ textDecoration: "none" }}>
-            <button className={styles.link2}>Ko’proq ko’rish</button>
+            <button className={styles.link2}>{t("Ko’proq ko’rish")}</button>
           </Link>
         </div>
       </div>

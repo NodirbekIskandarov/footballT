@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
-  const {i18n} = useTranslation()
+  const {t, i18n} = useTranslation()
   const lng = i18n.language
 
   useEffect(() => {
@@ -32,15 +32,15 @@ function ResultsTournamentTable() {
   return (
     <div className={styles.results_table}>
       <div className="container">
-        <span className={styles.title}>Futbol jamoa natijalari</span>
+        <span className={styles.title}>{t("Futbol jamoa natijalari")}</span>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>O’rni</th>
-              <th>Futbol jamoa</th>
-              <th>O&apos;yinlar soni</th>
-              <th>Achko</th>
-              <th>Goli</th>
+              <th>{t("O'rni")}</th>
+              <th>{t("Jamoa nomi")}</th>
+              <th>{t("O'yinlar soni")}</th>
+              <th>{t("Achko")}</th>
+              <th>{t("Goli")}</th>
             </tr>
           </thead>
           <tbody>

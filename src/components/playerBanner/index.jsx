@@ -13,7 +13,7 @@ function PlayerBanner() {
   const { t, i18n } = useTranslation();
   const pk = useParams();
   const [data, setData] = useState(null);
-const lng = i18n.language
+  const lng = i18n.language
   useEffect(() => {
     getRequest(`${about_player}${pk.id}`)
       .then(response => {
@@ -30,7 +30,19 @@ const lng = i18n.language
       once: true,
     });
   }, []);
+  const name =
+    lng === "uz"
+      ? data?.name_uz
+      : lng === "ru"
+        ? data?.name_ru
+        : data?.name_en;
 
+  const teamname =
+    lng === "uz"
+      ? data?.current_team?.name_uz
+      : lng === "ru"
+        ? data?.current_team?.name_ru
+        : data?.current_team?.name_en;
   return (
     <div className={styles.player_banner}>
       <div className='container'>
@@ -39,7 +51,7 @@ const lng = i18n.language
             <img src={data?.image} alt="player detail image" />
           </div>
           <div className={styles.right}>
-            <span className={styles.name}>{data[`name_${lng}`]}</span>
+            <span className={styles.name}>{name}</span>
             <div className={styles.date}>
               <span>{t("Date of birth")}:</span>
               <span>{data?.birthday}</span>
@@ -50,7 +62,7 @@ const lng = i18n.language
             </div>
             <div className={styles.club}>
               <span>{t("Club")}:</span>
-              <span>{data?.current_team[`name_${lng}`]}</span>
+              <span>{teamname}</span>
             </div>
             <div className={styles.scores}>
               <div><img src={stadion} alt="stadion icon" /><span>{data?.events?.assists}</span></div>
