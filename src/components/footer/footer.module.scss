@@ -42,10 +42,10 @@
     }
 
     .menus {
-      width: 100%;
+      width: 80%;
       display: flex;
-      flex-direction: column; // Stack the menu items on mobile
       align-items: center;
+      justify-content: space-between;
       margin-top: 30px;
 
       .link {
@@ -58,7 +58,7 @@
     }
 
     .socials {
-      width: 50%; // Adjust width for better alignment
+      width: 30%; // Adjust width for better alignment
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -164,14 +164,16 @@
   align-items: center;
   cursor: pointer;
 }
-
+.tournament {
+  position: relative;
+}
 .submenu {
   min-width: 100px;
-  // position: absolute; // Position submenu absolutely
+  position: absolute; // Position submenu absolutely
   top: 100%; // Position it below the parent link
   left: 25%; // Align it with the left edge of the parent
   background-color: #295FA7; // Match header background
-  // z-index: 1001; // Ensure it appears above other elements
+  z-index: 1001; // Ensure it appears above other elements
   display: flex;
   flex-direction: column;
   margin-top: 5px; // Space between main menu and submenu
