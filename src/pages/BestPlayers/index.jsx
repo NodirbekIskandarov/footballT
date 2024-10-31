@@ -55,7 +55,7 @@ function BestPlayers() {
                 <span className={styles.name}>{item[`name_${lng}`]}</span>
                 <span className={styles.position}>{item[`position_${lng}`]}</span>
                 <button onClick={() => navigateFunc(item?.uuid)}>
-                  View <FaArrowRightLong />
+                  {t("View")} <FaArrowRightLong />
                 </button>
               </div>
             );
