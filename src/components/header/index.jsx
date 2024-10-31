@@ -76,7 +76,7 @@ function Header() {
                         onClick={() => handleClick(item.name)}
                         key={item.uuid}
                       >
-                        {item?.name}
+                        {item[`name_${i18n.language}`]}
                       </Link>
                     ))}
                   </div>
