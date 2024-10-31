@@ -1,8 +1,6 @@
-
 .players {
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px 0; // Combined margin for top and bottom
 
     .title {
         font-size: 36px;
@@ -11,14 +9,17 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-bottom: 20px; // Added margin for spacing below the title
     }
 
     .boxes {
+        width: 100%;
         margin-top: 30px;
         display: flex;
+        flex-wrap: wrap; // Allow wrapping on smaller screens
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap; // Allow wrapping on smaller screens
+        //   align-items: flex-start; // Changed to flex-start to improve alignment
 
         .box {
             width: 24%;
@@ -26,6 +27,11 @@
             background-color: #295FA7;
             padding: 17px;
             margin-bottom: 20px; // Space between rows
+            transition: transform 0.3s; // Added transition for hover effect
+
+            &:hover {
+                transform: scale(1.05); // Scale effect on hover
+            }
 
             .star {
                 width: 100%;
@@ -45,7 +51,6 @@
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
-                justify-content: center;
 
                 .player {
                     width: 100px;
@@ -53,8 +58,9 @@
 
                     img {
                         width: 100%;
+                        height: 100%;
                         border-radius: 50%;
-                        border-radius: 50%;
+                        object-fit: cover; // Ensure images are scaled properly
                     }
                 }
 
@@ -62,12 +68,14 @@
                     font-size: 24px;
                     font-weight: 500;
                     color: #FFFFFF;
+                    text-align: center; // Center-align text
                 }
 
                 .position {
                     font-size: 20px;
                     font-weight: 400;
                     color: #FFFFFF;
+                    text-align: center; // Center-align text
                 }
             }
 
@@ -85,6 +93,11 @@
                     font-size: 16px;
                     border: none;
                     cursor: pointer;
+                    transition: background-color 0.3s; // Added transition for hover effect
+
+                    &:hover {
+                        background-color: #e0e0e0; // Change background on hover
+                    }
                 }
             }
         }
@@ -104,22 +117,57 @@
         border: none;
         border-radius: 8px;
         cursor: pointer;
+        transition: background-color 0.3s; // Added transition for hover effect
+
+        &:hover {
+            background-color: #1e4c78; // Change background on hover
+        }
     }
 }
 
 // Responsive Design
 @media (max-width: 768px) {
+    .title {
+        font-size: 32px; // Slightly smaller title font on tablets
+    }
+
     .boxes {
+        width: 100%;
+
         .box {
-            width: 48%; // Make boxes take half width on smaller screens
+            width: 48% !important; // Make boxes take almost half width on smaller screens
         }
     }
 }
 
 @media (max-width: 480px) {
+    .title {
+        font-size: 28px; // Further reduce title size for small screens
+    }
+
     .boxes {
+        width: 100%;
+
         .box {
-            width: 100%; // Make boxes take full width on very small screens
+            width: 100% !important; // Make boxes take full width on very small screens
         }
+
+        .player {
+            width: 80px; // Smaller player image size on small screens
+            height: 80px;
+        }
+
+        .name {
+            font-size: 20px; // Smaller name font size
+        }
+
+        .position {
+            font-size: 16px; // Smaller position font size
+        }
+    }
+
+    .link2 {
+        width: 100px; // Smaller link button on small screens
+        font-size: 16px; // Adjust font size for button
     }
 }
