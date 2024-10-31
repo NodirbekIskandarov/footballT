@@ -9,10 +9,15 @@ import { formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import { useNavigate } from "react-router-dom";
 
 function HomePlanedGames() {
   const {t, i18n} = useTranslation();
   const [data, setData] = useState(null);
+  const navigate = useNavigate()
+  function navigateFunc(id) {
+    navigate(`/tournament/planed/${id}`)
+  }
 const lng = i18n.language
   useEffect(() => {
     getRequest(expected_games)
@@ -54,9 +59,9 @@ const lng = i18n.language
               </div>
               <div className={styles.details}>
                 <div className={styles.fav}>
-                  <MdFavoriteBorder />
+                  {/* <MdFavoriteBorder /> */}
                 </div>
-                <div className={styles.view}>
+                <div className={styles.view} onClick={() => navigateFunc(item?.uuid)} style={{cursor: "pointer"}}>
                   <span>{t("View Details")}</span>
                   <FaArrowRightLong />
                 </div>
