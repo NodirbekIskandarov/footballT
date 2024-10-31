@@ -67,7 +67,7 @@ function PreviewC() {
               <span>{data?.total_goals_in_season?.team1_goals}</span>
               <div className={styles.box}>
                 <img src={top} alt="top" />
-                <span>Goals scored</span>
+                <span>{t("Goals scored")}</span>
               </div>
               <span>{data?.total_goals_in_season?.team2_goals}</span>
             </div>

@@ -16,7 +16,7 @@ function HomePlanedGames() {
   const [data, setData] = useState(null);
   const navigate = useNavigate()
   function navigateFunc(id) {
-    navigate(`/tournament/planed/${id}`)
+    navigate(`/preview/previ/${id}`)
   }
 const lng = i18n.language
   useEffect(() => {
