@@ -21,7 +21,15 @@ function Video() {
         console.log(error);
       });
   }, []);
-
+  function handleClick() {
+    getRequest(`${gallery_videos}?size=20`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -54,7 +62,7 @@ function Video() {
             );
           })}
         </div>
-        <button>{t("See more video")}</button>
+        <button onClick={handleClick}>{t("See more video")}</button>
       </div>
     </div>
   );

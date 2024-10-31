@@ -9,7 +9,7 @@ import AOS from 'aos'; // AOS import
 
 function Photo() {
   const [data, setData] = useState(null);
-  const { t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const lng = i18n.language
 
   useEffect(() => {
@@ -21,6 +21,16 @@ function Photo() {
         console.log(error);
       });
   }, []);
+
+  function handleClick() {
+    getRequest(`${gallery_photos}?size=20`)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   useEffect(() => {
     AOS.init({
@@ -43,7 +53,7 @@ function Photo() {
             </div>
           ))}
         </div>
-        <button>{t("See more photo")}</button>
+        <button onClick={handleClick}>{t("See more photo")}</button>
       </div>
     </div>
   );
