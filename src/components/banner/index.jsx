@@ -31,15 +31,7 @@ export default function Banner() {
         console.log(error);
       });
   }, []);
-  function handleClick() {
-    getRequest(`${home_banner}?size=20`)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+
   return (
     <>
       <Swiper
@@ -142,7 +134,6 @@ export default function Banner() {
                     </span>
                     <Link to={item?.uuid}>
                       <button
-                        onClick={handleClick}
                         style={{
                           padding: "12px 16px",
                           backgroundColor: "#FFFFFF",
