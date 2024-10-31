@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 function HomeMedia() {
   const [data, setData] = useState(null);
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation()
   const lng = i18n.language
 
   useEffect(() => {
