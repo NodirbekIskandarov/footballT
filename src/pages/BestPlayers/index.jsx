@@ -12,7 +12,7 @@ function BestPlayers() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   const [year, setYear] = useState("2024");
-  const {i18n} = useTranslation()
+  const {t, i18n} = useTranslation()
   const lng = i18n.language
 
   useEffect(() => {

@@ -33,7 +33,30 @@
                 display: flex;
                 align-items: center;
                 cursor: pointer;
+            
+                &:hover {
+                    border-bottom: 2px solid #f0f0f0; // Style for active link
+                font-weight: bold; // Optional: Make active link bold
+                }
             }
+            
+            .active {
+                border-bottom: 2px solid #f0f0f0; // Style for active link
+                font-weight: bold; // Optional: Make active link bold
+            }
+            
+            .submenu_link {
+                padding: 5px 10px; 
+                color: #FFFFFF; 
+                text-decoration: none; 
+                transition: background-color 0.3s ease; 
+            
+                &:hover {
+                    background-color: #f0f0f0; 
+                    color: #333; 
+                }
+            }
+            
 
             .submenu {
                 min-width: 100px;
