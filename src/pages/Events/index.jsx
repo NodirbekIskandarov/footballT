@@ -48,7 +48,7 @@ function Events() {
             }}
           >
             <img src={data?.team1?.icon_url} alt="team1logotip" />
-            <span>{data?.team1[`name_${lng}`]}</span>
+            <span>{data?.team1?.name}</span>
           </div>
           <div className={styles.title}>
             <span>{t("match events")}</span>
@@ -59,7 +59,7 @@ function Events() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <span>{data?.team2[`name_${lng}`]}</span>
+            <span>{data?.team2?.name}</span>
             <img src={data?.team2?.icon_url} alt="logotip2" />
           </div>
         </div>
