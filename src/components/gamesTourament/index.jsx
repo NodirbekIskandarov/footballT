@@ -44,6 +44,9 @@ function GamesTournament() {
   function navigateFunc (id) {
       navigate(`/players/${id}`)
   }
+  function navigateFunc2 (id) {
+    navigate(`/preview/previ/${id}`)
+  }
   return (
     <div className={styles.games}>
       <div className="container">
@@ -57,7 +60,7 @@ function GamesTournament() {
                 </div>
                 <div className={styles.name_part}>{item?.team1[`name_${lng}`]}</div>
               </div>
-              <div className={styles.shot}>
+              <div className={styles.shot} onClick={() => navigateFunc2(item?.uuid)} style={{cursor: "pointer"}}>
                 {item?.score?.team1_score}:{item?.score?.team2_score}
               </div>
               <div className={styles.right} onClick={() => navigateFunc(item?.team2?.uuid)} style={{cursor: "pointer"}}>
