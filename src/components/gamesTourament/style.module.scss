@@ -1,129 +1,125 @@
-
-
 .games {
-    width: 100%;
-    margin-top: 30px;
-  
-    .table {
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-  
-      .sana {
-        font-size: 36px;
-        font-weight: 500;
-        color: #1E1E1E;
-        margin-bottom: 10px;
-      }
-  
-      .table_part {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
-  
-        .left {
-          position: relative;
-          width: 47%;
-  
-          .image_part {
-            position: absolute;
-            bottom: -18px;
-            width: 100px;
-            height: 100px;
+  width: 100%;
+  margin-top: 30px;
+
+  .table {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    .sana {
+      font-size: 36px;
+      font-weight: 500;
+      color: #1E1E1E;
+      margin-bottom: 10px;
+    }
+
+    .table_part {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+
+      .left {
+        position: relative;
+        width: 47%;
+        .image_part {
+          position: absolute;
+          bottom: -18px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: #295FA7;
+          padding: 20px;
+
+          img {
+            width: 100%;
             border-radius: 50%;
-            background-color: #295FA7;
-            padding: 20px;
-  
-            img {
-              width: 100%;
-              border-radius: 50%;
-            }
-          }
-  
-          .name_part {
-            width: 90%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #295FA7;
-            color: white;
-            border-radius: 56px;
-            padding: 23px 0;
-            text-align: center;
           }
         }
-        .right {
-          position: relative;
-          width: 47%;
+
+        .name_part {
+          width: 90%;
           display: flex;
-          justify-content: flex-end;
-          .image_part {
-            position: absolute;
-            bottom: -18px;
-            right: 0;
-            width: 100px;
-            height: 100px;
+          justify-content: center;
+          align-items: center;
+          background-color: #295FA7;
+          color: white;
+          border-radius: 56px;
+          padding: 23px 0;
+          text-align: center;
+        }
+      }
+
+      .right {
+        position: relative;
+        width: 47%;
+        display: flex;
+        justify-content: flex-end;
+        .image_part {
+          position: absolute;
+          bottom: -18px;
+          right: 0;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: #295FA7;
+          padding: 20px;
+
+          img {
+            width: 100%;
             border-radius: 50%;
-            background-color: #295FA7;
-            padding: 20px;
-  
-            img {
-              width: 100%;
-              border-radius: 50%;
-            }
           }
-  
-          .name_part {
-            width: 90%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #295FA7;
-            color: white;
-            border-radius: 56px;
-            padding: 23px 0;
-            text-align: center;
-          }
-  
         }
-  
-        .shot {
-          color: #295FA7;
-          font-size: 30px;
-          font-weight: 700;
+
+        .name_part {
+          width: 90%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #295FA7;
+          color: white;
+          border-radius: 56px;
+          padding: 23px 0;
+          text-align: center;
         }
+      }
+
+      .shot {
+        color: #295FA7;
+        font-size: 30px;
+        font-weight: 700;
       }
     }
   }
-  
+
   // Responsive Design
   @media (max-width: 768px) {
     .games .table .sana {
       font-size: 28px;
     }
-  
+
     .games .table .table_part {
       flex-direction: column;
       gap: 20px;
-  
+
       .left, .right {
         width: 100%;
-  
+
         .image_part {
           position: relative;
           margin: auto; /* Center the logo */
         }
-  
+
         .name_part {
           padding: 15px 0;
         }
       }
-  
+
       .shot {
         font-size: 24px;
       }
     }
   }
-  
+}

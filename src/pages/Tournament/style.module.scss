@@ -4,30 +4,44 @@
   justify-content: center;
   width: 100%;
   background-color: #fff; // background for the whole container
+  
   .left,
   .right {
     width: 50%;
     padding: 10px 0;
   }
+
   .left {
     background-color: transparent;
     display: flex;
     justify-content: center;
+
     .link {
       color: black;
     }
   }
+
   .right {
     background-color: #295fa7;
     display: flex;
     justify-content: center;
+
     .link {
       color: white;
     }
   }
+
   .link {
     text-decoration: none;
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 24px; // Default font size
+    font-weight: 400; // Default font weight
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .link {
+      font-size: 20px; // Smaller font size for mobile
+      font-weight: 500; // Slightly bolder font weight for emphasis
+    }
   }
 }

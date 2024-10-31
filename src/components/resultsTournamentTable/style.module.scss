@@ -1,104 +1,81 @@
-// .results_table {
-//     width: 100%;
-//     margin-top: 50px;
-//     .title {
-//         width: 100%;
-//         font-weight: 500;
-//         font-size: 36px;
-//         display: flex;
-//         justify-content: center;
-//     }
-//     table {
-//         margin-top: 30px;
-//         border-collapse: collapse;
-//         width: 100%;
-//         th {
-//             background-color: #F7F7F8;
-//             font-size: 14px;
-//             padding-top: 20px;
-//             padding-bottom: 20px;
-//             text-align: left;
-//             color: #0F132499;
-//             border-bottom: 1px solid #ddd;
-//             padding-left: 12px;
-//         }
-
-//         td {
-//             border-bottom: 1px solid #ddd;
-//             padding-left: 12px;
-//             padding-top: 20px;
-//             padding-bottom: 20px;
-//             img {
-//                 width: 40px;
-//                 height: 40px;
-//             }
-//         }
-//     }
-
-// }
-
 .results_table {
+  width: 100%;
+  margin-top: 50px;
+
+  .title {
     width: 100%;
-    margin-top: 50px;
-  
+    font-weight: 500;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; // Added margin for better spacing
+  }
+
+  table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+
+    th {
+      background-color: #F7F7F8;
+      font-size: 14px;
+      padding: 20px 12px; // Consistent padding
+      text-align: left;
+      color: #0F132499;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 12px; // Consistent padding
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .results_table {
     .title {
-      width: 100%;
-      font-weight: 500;
-      font-size: 36px;
-      display: flex;
-      justify-content: center;
+      font-size: 28px; // Adjust title size for smaller screens
     }
-  
+
     table {
-      margin-top: 30px;
-      border-collapse: collapse;
-      width: 100%;
-  
-      th {
-        background-color: #F7F7F8;
-        font-size: 14px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-align: left;
-        color: #0F132499;
-        border-bottom: 1px solid #ddd;
-        padding-left: 12px;
+      th, td {
+        font-size: 12px; // Smaller text for smaller screens
+        padding: 10px 8px; // Reduced padding for space saving
       }
-  
-      td {
-        border-bottom: 1px solid #ddd;
-        padding-left: 12px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-  
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-        }
+
+      img {
+        width: 30px; // Adjust image size for smaller screens
+        height: 30px;
+        border-radius: 50%;
       }
     }
   }
-  
-  // Responsive Design
-  @media (max-width: 768px) {
-    .results_table {
-      .title {
-        font-size: 28px; // Adjust title size
+}
+
+@media (max-width: 480px) {
+  .results_table {
+    .title {
+      font-size: 24px; // Further reduce title size for very small screens
+    }
+
+    table {
+      th, td {
+        font-size: 10px; // Further reduce font size for very small screens
+        padding: 8px; // Reduce padding for very small screens
       }
-  
-      table {
-        th, td {
-          font-size: 12px; // Smaller text for smaller screens
-          padding: 10px; // Reduce padding
-        }
-  
-        img {
-          width: 30px; // Adjust image size
-          height: 30px;
-          border-radius: 50%;
-        }
+
+      img {
+        width: 24px; // Further adjust image size for very small screens
+        height: 24px;
       }
     }
   }
-  
+}
