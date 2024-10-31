@@ -200,3 +200,56 @@
         }
     }
 }
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px; // Space between main menu and submenu
+  }
+  
+  .submenu_link {
+    padding: 5px 10px; // Add some padding
+    color: #FFFFFF; // Change color as needed
+    text-decoration: none; // Remove underline
+  }
+  
+  .submenu_link:hover {
+    background-color: #f0f0f0; // Add hover effect
+  }
+  .link {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .tournament {
+    position: relative;
+  }
+  .submenu {
+    min-width: 100px;
+    position: absolute; // Position submenu absolutely
+    top: 100%; // Position it below the parent link
+    left: 25%; // Align it with the left edge of the parent
+    background-color: #295FA7; // Match header background
+    z-index: 1001; // Ensure it appears above other elements
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px; // Space between main menu and submenu
+    padding: 10px 0; // Add some padding for better spacing
+    border-radius: 10px;
+    border: 1px solid white;
+    .submenu_link {
+        padding: 5px 10px; // Add some padding
+        color: #FFFFFF; // Change color as needed
+        text-decoration: none; // Remove underline
+        transition: background-color 0.3s ease; // Smooth hover effect
+  
+        &:hover {
+            background-color: #f0f0f0; // Add hover effect
+            color: #333; // Change text color on hover for contrast
+        }
+    }
+  }
