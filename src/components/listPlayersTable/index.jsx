@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import krasovka from "../../assets/images/krasovka.png";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { playerbyteam } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ function PlayersTable() {
   const { id } = useParams();
   const {t,i18n} = useTranslation()
   const lng = i18n.language
+  const navigate = useNavigate()
   useEffect(() => {
     getRequest(playerbyteam + id)
       .then((response) => {
@@ -28,6 +29,10 @@ function PlayersTable() {
       once: true,
     });
   }, []);
+
+  function navigateFunc (id) {
+    navigate(`/about-player/${id}`)
+  }
 
   return (
     <div className={styles.players_table} data-aos="fade-up">
@@ -97,7 +102,7 @@ function PlayersTable() {
                   {" "}
                   {/* Yangi animatsiya */}
                   <td>{index + 1}</td>
-                  <td>
+                  <td onClick={() => navigateFunc(item?.uuid)} style={{cursor: "pointer"}}>
                     <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.birthday}</td>

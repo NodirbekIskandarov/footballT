@@ -4,7 +4,7 @@ import krasovka from "../../assets/images/krasovka.png";
 import { useEffect, useState } from "react";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { playerseasons, playerteams } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ function PlayerGamesTable() {
   const [data2, setData2] = useState(null);
   const {t,i18n} = useTranslation()
   const lng = i18n.language
+  const navigate = useNavigate()
   useEffect(() => {
     getRequest(playerteams + id)
       .then((response) => {
@@ -40,6 +41,10 @@ function PlayerGamesTable() {
       once: true, // Faqat bir marta animatsiya
     });
   }, []);
+
+  function navigateFunc (id) {
+    navigate(`/players/${id}`)
+  }
 
   return (
     <div className={styles.player_games}>
@@ -121,7 +126,7 @@ function PlayerGamesTable() {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>
+                    <td style={{cursor: "pointer"}} onClick={() => navigateFunc(item?.current_team?.uuid)}>
                       <span>{item?.current_team?.name}</span>
                     </td>
                     <td>{item?.start_date}</td>

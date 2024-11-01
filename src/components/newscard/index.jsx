@@ -5,11 +5,13 @@ import { all_news } from "../../utils/API_urls";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 function NewsCard() {
   const [data, setData] = useState(null);
   const {i18n} = useTranslation()
   const lng = i18n.language
+  const navigate = useNavigate()
 
   useEffect(() => {
     getRequest(all_news)
@@ -28,12 +30,16 @@ function NewsCard() {
     });
   }, []);
 
+  function navigateFunc (id) {
+    navigate(`/${id}`)
+  }
+
   return (
     <div className={styles.news_card} data-aos="fade-left"> {/* Yangi animatsiya */}
       <div className="container">
         {data?.map((item, index) => {
           return (
-            <div className={styles.card} key={index} data-aos="fade-left"> {/* Yangi animatsiya */}
+            <div className={styles.card} key={index} data-aos="fade-left" onClick={() => navigateFunc(item?.uuid)} style={{cursor: "pointer"}}> {/* Yangi animatsiya */}
               <div className={styles.left}>
                 <div className={styles.club_part}>
                   <img src={item?.match?.team1?.icon_url} alt="club logotip" />
