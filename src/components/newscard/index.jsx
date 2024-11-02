@@ -51,7 +51,7 @@ function NewsCard() {
                   <span>{item?.match?.team2[`name_${lng}`]}</span>
                 </div>
                 <span className={styles.text}>
-                  {item[`body_${lng}`]}
+                  {item[`title_${lng}`]}
                 </span>
               </div>
               <div className={styles.right}>

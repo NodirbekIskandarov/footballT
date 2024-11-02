@@ -1,6 +1,7 @@
 import styles from "./style.module.scss";
 import stadion from "../../assets/images/stadionicon.png";
 import krasovka from "../../assets/images/krasovka.png";
+import ball from "../../assets/images/top.png";
 import { useEffect, useState } from "react";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
@@ -79,7 +80,7 @@ function PlayerGamesTable() {
                       gap: "10px",
                     }}
                   >
-                    <img src={krasovka} alt="krasovka" />
+                    <img src={ball} alt="ball" />
                     <span>{t("Goli")}</span>
                   </div>
                 </th>

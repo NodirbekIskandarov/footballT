@@ -1,7 +1,6 @@
 import styles from "./style.module.scss";
 import { IoTimeOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { expected_games } from "../../utils/API_urls";
@@ -34,6 +33,10 @@ const lng = i18n.language
     });
   }, []);
 
+  function navigateFuncc(id) {
+    navigate(`/players/${id}`)
+  }
+
   return (
     <div className="container">
       <div className={styles.planed_games}>
@@ -41,12 +44,12 @@ const lng = i18n.language
           return (
             <div className={styles.game} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
               <div className={styles.clubs}>
-                <div>
+                <div className={styles.single_club} onClick={() => navigateFuncc(item?.team1?.uuid)}>
                   <img src={item?.team1?.icon_url} alt="club-logotip" />
                   <span>{item?.team1[`name_${lng}`]}</span>
                 </div>
                 <span>VS</span>
-                <div>
+                <div className={styles.single_club} onClick={() => navigateFuncc(item?.team2?.uuid)}>
                   <img src={item?.team2?.icon_url} alt="club-logotip" />
                   <span>{item?.team2[`name_${lng}`]}</span> {/* Team2 nomi to'g'ri berilsin */}
                 </div>

@@ -1,6 +1,6 @@
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { teamsbyleague } from "../../utils/API_urls";
 import AOS from "aos";
@@ -12,7 +12,7 @@ function ResultsTournamentTable() {
   const { id } = useParams();
   const {t, i18n} = useTranslation()
   const lng = i18n.language
-
+  const navigate = useNavigate()
   useEffect(() => {
     // Fetching data from API
     getRequest(`${teamsbyleague}${id}`)
@@ -28,7 +28,9 @@ function ResultsTournamentTable() {
     // Initializing AOS animations
     AOS.init({ duration: 1000 }); // 1000 ms duration for animation
   }, []);
-
+function navigateFunc (id) {
+  navigate(`/players/${id}`)
+}
   return (
     <div className={styles.results_table}>
       <div className="container">
@@ -53,7 +55,9 @@ function ResultsTournamentTable() {
                       display: "flex",
                       alignItems: "center",
                       gap: "10px",
+                      cursor: "pointer"
                     }}
+                    onClick={() => navigateFunc(item?.uuid)}
                   >
                     <img src={item?.icon} alt="team logo" />
                     <span>{item[`name_${lng}`]}</span>

@@ -19,8 +19,8 @@ import { useTranslation } from "react-i18next";
 
 export default function Banner() {
   const [data, setData] = useState([]);
-  const { t, i18n } = useTranslation()
-  const lng = i18n.language
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
 
   useEffect(() => {
     getRequest(home_banner)
@@ -52,53 +52,6 @@ export default function Banner() {
           data?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
-                {/* <div
-                  style={{
-                    width: "100%",
-                    height: "800px",
-                    backgroundImage: `url(${item?.photo})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "800px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "20px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: "500",
-                        fontSize: "48px",
-                        color: "#FFFFFF",
-                      }}
-                    >
-                      {item?.title}
-                    </span>
-                    <Link to={item?.uuid}>
-                      <button
-                        style={{
-                          padding: "12px 16px",
-                          backgroundColor: "#FFFFFF",
-                          borderRadius: "8px",
-                          border: "none",
-                          fontSize: "18px",
-                          fontWeight: "#1E1E1E",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Ko’proq ma’lumot
-                      </button>
-                    </Link>
-                  </div>
-                </div> */}
                 <div
                   style={{
                     width: "100%",
@@ -119,7 +72,7 @@ export default function Banner() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "10px",
-                      padding: "20px",
+                      padding: "20px"
                     }}
                   >
                     <span
@@ -150,7 +103,6 @@ export default function Banner() {
                     </Link>
                   </div>
                 </div>
-
               </SwiperSlide>
             );
           })}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import krasovka from "../../assets/images/krasovka.png";
+import ball from "../../assets/images/top.png";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
 import { useNavigate, useParams } from "react-router-dom";
@@ -56,7 +57,7 @@ function PlayersTable() {
                 >
                   {" "}
                   {/* Yangi animatsiya */}
-                  <img src={krasovka} alt="krasovka" />
+                  <img src={ball} alt="ball" />
                   <span>{t("Goli")}</span>
                 </div>
               </th>
