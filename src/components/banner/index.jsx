@@ -72,7 +72,9 @@ export default function Banner() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "10px",
-                      padding: "20px"
+                      padding: "20px",
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                      backdropFilter: "blur(5px)"
                     }}
                   >
                     <span
