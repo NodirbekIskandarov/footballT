@@ -48,7 +48,10 @@
                 align-items: center;
                 gap: 50px;
                 margin-top: 200px;
-
+                img {
+                    width: 36px;
+                    height: 36px;
+                }
                 .yellow,
                 .red {
                     width: 30px;

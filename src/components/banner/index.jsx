@@ -74,7 +74,8 @@ export default function Banner() {
                       gap: "10px",
                       padding: "20px",
                       backgroundColor: "rgba(0, 0, 0, 0.5)",
-                      backdropFilter: "blur(5px)"
+                      backdropFilter: "blur(5px)",
+                      borderRadius: "10px"
                     }}
                   >
                     <span

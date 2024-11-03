@@ -1,6 +1,6 @@
 import styles from './style.module.scss';
 import stadion from '../../assets/images/stadionicon.png';
-import krasovka from '../../assets/images/krasovka.png';
+import top from '../../assets/images/top.png';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getRequest } from '../../utils/request';
@@ -66,7 +66,7 @@ function PlayerBanner() {
             </div>
             <div className={styles.scores}>
               <div><img src={stadion} alt="stadion icon" /><span>{data?.events?.assists}</span></div>
-              <div><img src={krasovka} alt="krasovka icon" /><span>{data?.events?.goals}</span></div>
+              <div><img src={top} alt="krasovka icon" /><span>{data?.events?.goals}</span></div>
               <div><div className={styles.yellow}></div><span>{data?.events?.yellows}</span></div>
               <div><div className={styles.red}></div><span>{data?.events?.reds}</span></div>
             </div>
