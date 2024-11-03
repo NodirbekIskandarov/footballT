@@ -64,12 +64,12 @@ function PreviewC() {
           {/* Yangi animatsiya */}
           <div className={styles.middle}>
             <div className={styles.boxes}>
-              <span>{data?.total_goals_in_season?.team1_goals}</span>
+              <span style={{marginLeft: "50px"}}>{data?.total_goals_in_season?.team1_goals}</span>
               <div className={styles.box}>
                 <img src={top} alt="top" />
                 <span>{t("Goals scored")}</span>
               </div>
-              <span>{data?.total_goals_in_season?.team2_goals}</span>
+              <span style={{marginRight: "50px"}}>{data?.total_goals_in_season?.team2_goals}</span>
             </div>
           </div>
         </div>

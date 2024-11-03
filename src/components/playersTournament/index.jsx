@@ -76,7 +76,7 @@ function PlayersTournament() {
               key={index} 
               img={player.image} 
               name={player[`name_${lng}`]} 
-              position={player[`position_${lng}`]} // Assuming `position` has a language key
+              position={player?.position[`position_${lng}`]} // Assuming `position` has a language key
               index={index} 
               id={player.uuid} 
               viewText={t("View")}

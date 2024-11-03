@@ -53,7 +53,7 @@ function BestPlayers() {
               <div className={styles.box} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
                 <img src={item?.image} alt="player" />
                 <span className={styles.name}>{item[`name_${lng}`]}</span>
-                <span className={styles.position}>{item[`position_${lng}`]}</span>
+                <span className={styles.position}>{item.position[`position_${lng}`]}</span>
                 <button onClick={() => navigateFunc(item?.uuid)}>
                   {t("View")} <FaArrowRightLong />
                 </button>

@@ -5,13 +5,10 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
 import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
-import { useTranslation } from "react-i18next";
 function PreviewBanner() {
   const pk = useParams();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const {i18n} = useTranslation()
-  const lng = i18n.language
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
