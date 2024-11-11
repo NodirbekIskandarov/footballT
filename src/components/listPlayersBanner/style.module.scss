@@ -1,6 +1,8 @@
+/* PlayersBanner Responsive Styles */
 .banner {
     width: 100%;
     padding-top: 30px;
+
     .banner_part {
         width: 100%;
         padding: 54px;
@@ -8,19 +10,25 @@
         background-color: #1E1E1E99;
         display: flex;
         justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+
         .left {
             display: flex;
             gap: 20px;
             align-items: center;
+
             img {
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
             }
+
             .text_part {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
                 span {
                     font-weight: 700;
                     font-size: 28px;
@@ -28,10 +36,12 @@
                 }
             }
         }
+
         .button_part {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+
             button {
                 width: 326px;
                 height: 56px;
@@ -44,9 +54,98 @@
                 font-size: 24px;
                 font-weight: 400;
                 cursor: pointer;
+
                 img {
                     width: 18px;
                     height: 18px;
+                }
+            }
+        }
+    }
+
+    /* Tablet and Mobile Responsive Adjustments */
+    @media (max-width: 992px) {
+        .banner_part {
+            padding: 40px;
+            flex-direction: column;
+            align-items: center;
+
+            .left {
+                gap: 15px;
+
+                img {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                .text_part {
+                    span {
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .button_part {
+                button {
+                    width: 280px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .banner_part {
+            padding: 30px;
+
+            .left {
+                gap: 10px;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .text_part {
+                    span {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .button_part {
+                button {
+                    width: 100%;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .banner_part {
+            padding: 20px;
+
+            .left {
+                flex-direction: column;
+                text-align: center;
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .text_part {
+                    span {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .button_part {
+                button {
+                    width: 100%;
+                    font-size: 18px;
                 }
             }
         }
