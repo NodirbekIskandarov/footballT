@@ -22,7 +22,7 @@ function Video() {
       });
   }, []);
   function handleClick() {
-    getRequest(`${gallery_videos}?size=20`)
+    getRequest(`${gallery_videos}?size=100`)
       .then((response) => {
         setData(response?.data);
       })

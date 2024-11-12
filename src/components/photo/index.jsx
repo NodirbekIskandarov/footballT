@@ -23,7 +23,7 @@ function Photo() {
   }, []);
 
   function handleClick() {
-    getRequest(`${gallery_photos}?size=20`)
+    getRequest(`${gallery_photos}?size=100`)
       .then((response) => {
         setData(response?.data);
       })

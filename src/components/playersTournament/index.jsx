@@ -53,7 +53,7 @@ function PlayersTournament() {
   }, [id]);
 
   const handleClick = () => {
-    getRequest(`${playerbyleague}${id}?size=20`)
+    getRequest(`${playerbyleague}${id}?size=100`)
       .then((response) => {
         setData(response?.data);
       })
