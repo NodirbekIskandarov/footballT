@@ -34,7 +34,6 @@ function Footer() {
     getRequest(socials)
       .then((response) => {
         setSocialss(response?.data);
-        console.log(response?.data, "socials");
       })
       .catch((error) => {
         console.log(error);
