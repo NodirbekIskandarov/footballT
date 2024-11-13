@@ -28,7 +28,7 @@ function App() {
             <Route path='preview' element={<Preview/>}>
               <Route index element={<PreviewC/>}/> 
               <Route path='previ/:id' element={<PreviewC/>}/>
-              <Route path='protocol/:id' element={<Protocol/>}/>
+              {/* <Route path='protocol/:id' element={<Protocol/>}/> */}
               <Route path='events/:id' element={<Events/>}/>
               {/* <Route path='live/:id' element={<Live/>}/> */}
             </Route>
