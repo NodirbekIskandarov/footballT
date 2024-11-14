@@ -59,20 +59,22 @@ function PreviewC() {
             <img src={data?.team2?.icon_url} alt="clublogo" />
           </div>
         </div>
+
         <div className={styles.two} data-aos="fade-up">
           {" "}
           {/* Yangi animatsiya */}
           <div className={styles.middle}>
             <div className={styles.boxes}>
-              <span style={{marginLeft: "50px"}}>{data?.total_goals_in_season?.team1_goals}</span>
+              <span style={{ marginLeft: "50px" }}>{data?.total_goals_in_season?.team1_goals}</span>
               <div className={styles.box}>
                 <img src={top} alt="top" />
                 <span>{t("Goals scored")}</span>
               </div>
-              <span style={{marginRight: "50px"}}>{data?.total_goals_in_season?.team2_goals}</span>
+              <span style={{ marginRight: "50px" }}>{data?.total_goals_in_season?.team2_goals}</span>
             </div>
           </div>
         </div>
+
         <div className={styles.four} data-aos="fade-up">
           {" "}
           {/* Yangi animatsiya */}
@@ -94,6 +96,7 @@ function PreviewC() {
             </div>
           </div>
         </div>
+
         <div className={styles.five} data-aos="fade-up">
           {" "}
           {/* Yangi animatsiya */}
