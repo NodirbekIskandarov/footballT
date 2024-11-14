@@ -48,7 +48,6 @@
           color: white;
           border-radius: 56px;
           padding: 23px 0;
-          text-align: center;
         }
       }
 
@@ -96,29 +95,29 @@
 
   // Responsive Design
   @media (max-width: 768px) {
-    .games .table .sana {
-      font-size: 28px;
+    .table .sana {
+      font-size: 24px;
     }
-
-    .games .table .table_part {
-      flex-direction: column;
+   
+    .table .table_part {
       gap: 20px;
-
+      display: flex;
+      flex-direction: column;
       .left, .right {
         width: 100%;
-
         .image_part {
-          position: relative;
-          margin: auto; /* Center the logo */
+          width: 60px;
+          height: 60px;
+          padding: 5px;
+          bottom: -7px;
         }
-
         .name_part {
           padding: 15px 0;
         }
       }
 
       .shot {
-        font-size: 24px;
+        font-size: 20px;
       }
     }
   }
