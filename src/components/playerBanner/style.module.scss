@@ -7,55 +7,50 @@
         background-color: #172C41;
         border-radius: 10px;
         display: flex;
-        flex-direction: row; // Default to row for larger screens
+        flex-direction: row; // Horizontal layout by default
 
         .image {
-            width: 40%; // Image takes 40% of the container
+            width: 40%;
             img {
                 width: 100%;
-                border-radius: 10px; // Optional: add border-radius to image
+                border-radius: 10px;
             }
         }
 
         .right {
-            width: 60%; // Right part takes 60% of the container
+            width: 60%;
             padding: 40px;
 
             .name {
                 font-weight: 700;
-                font-size: 36px;
+                font-size: 2.25rem; // Responsive font size
                 color: #FFFFFF;
             }
 
             .date,
             .age,
             .club {
-                width: 100%;
                 display: flex;
-                gap: 100px;
-                margin-top: 14px;
+                gap: 2rem;
+                margin-top: 1rem;
 
                 span {
-                    width: 250px; // Fixed width for labels
+                    width: 100%;
                     color: #FFFFFF;
-                    font-size: 28px;
+                    font-size: 1.75rem;
                     font-weight: 400;
                 }
             }
 
             .scores {
                 display: flex;
+                gap: 1.5rem;
+                margin-top: 3rem;
                 align-items: center;
-                gap: 50px;
-                margin-top: 200px;
-                img {
-                    width: 36px;
-                    height: 36px;
-                }
-                .yellow,
-                .red {
-                    width: 30px;
-                    height: 36px;
+
+                img, .yellow, .red {
+                    width: 1.75rem;
+                    height: 1.75rem;
                 }
 
                 .yellow {
@@ -68,12 +63,12 @@
 
                 div {
                     display: flex;
-                    gap: 10px;
+                    gap: 0.5rem;
                     align-items: center;
 
                     span {
                         font-weight: 400;
-                        font-size: 36px;
+                        font-size: 1.75rem;
                         color: #FFFFFF;
                     }
                 }
@@ -81,71 +76,63 @@
         }
     }
 
-    // Responsive Styles
+    // Tablet
     @media (max-width: 1024px) {
         .image_part {
-            flex-direction: column; // Stack vertically on tablets
-            align-items: center; // Center the contents
+            flex-direction: column;
+            align-items: center;
 
-            .image {
-                width: 80%; // Image takes more width on smaller screens
+            .image, .right {
+                width: 80%;
             }
 
             .right {
-                width: 80%; // Right part takes more width on smaller screens
-                padding: 20px; // Reduce padding for smaller screens
-                text-align: center; // Center the text
+                padding: 2rem;
+                text-align: center;
             }
         }
     }
 
+    // Large Mobile
     @media (max-width: 768px) {
         .image_part {
-            .date,
-            .age,
-            .club {
-                gap: 50px; // Reduce gap for mobile
-                flex-direction: column; // Stack labels vertically
+            .date, .age, .club {
+                gap: 1rem;
+                flex-direction: column;
                 span {
-                    width: auto; // Allow labels to take auto width
-                    text-align: left; // Align text to the left
+                    font-size: 1.25rem;
                 }
             }
 
             .scores {
-                flex-direction: column; // Stack scores vertically
-                gap: 20px; // Reduce gap between scores
+                flex-direction: column;
+                gap: 1rem;
+                div span {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
 
+    // Small Mobile
     @media (max-width: 480px) {
         .image_part {
             .image {
-                width: 100%; // Full width on mobile
+                width: 100%;
             }
 
             .right {
-                padding: 10px; // Further reduce padding
+                padding: 1rem;
                 .name {
-                    font-size: 24px; // Smaller font size for mobile
+                    font-size: 1.5rem;
                 }
 
-                .date,
-                .age,
-                .club {
-                    span {
-                        font-size: 20px; // Smaller font size for mobile
-                    }
+                .date, .age, .club, .scores div span {
+                    font-size: 1rem;
                 }
 
                 .scores {
-                    gap: 10px; // Reduce gap between score elements
-                    div {
-                        span {
-                            font-size: 24px; // Smaller font size for score numbers
-                        }
-                    }
+                    gap: 0.5rem;
                 }
             }
         }
