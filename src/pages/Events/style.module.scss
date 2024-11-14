@@ -1,35 +1,41 @@
 .events {
   width: 100%;
   margin: 50px 0;
+
   .clubs {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
     .club {
       width: 25%;
       display: flex;
       gap: 20px;
       align-items: center;
       cursor: pointer;
+
       img {
         width: 100px;
         height: 100px;
         border-radius: 50%;
         border: 1px solid gray;
       }
+
       span {
         font-size: 28px;
         font-weight: 700;
         color: #37517e;
       }
     }
+
     .title {
       width: 25%;
       display: flex;
       align-items: center;
       justify-content: center;
+
       span {
         font-size: 28px;
         font-weight: 700;
@@ -37,29 +43,119 @@
       }
     }
   }
+
   .events_part {
     width: 100%;
     text-align: center;
+
     .tr {
       width: 60%;
       margin: 50px auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       .player {
         width: 30%;
+
         span {
           font-size: 24px;
           font-weight: 500;
         }
       }
+
       .time {
         width: 30%;
+
         span {
           font-size: 44px;
           font-weight: 500;
         }
       }
+    }
+  }
+
+  /* Responsive Design */
+
+  @media (max-width: 1024px) {
+    .clubs .club img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .clubs .club span, .clubs .title span {
+      font-size: 24px;
+    }
+
+    .events_part .tr .player span {
+      font-size: 20px;
+    }
+
+    .events_part .tr .time span {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .clubs {
+      flex-direction: column;
+      gap: 20px;
+
+      .club,
+      .title {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .club img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .club span, .title span {
+        font-size: 20px;
+      }
+    }
+
+    .events_part .tr {
+      width: 80%;
+      flex-direction: column;
+      gap: 10px;
+
+      .player,
+      .time {
+        width: 100%;
+      }
+
+      .player span,
+      .time span {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .clubs .club img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .clubs .club span,
+    .clubs .title span {
+      font-size: 18px;
+    }
+
+    .events_part .tr .player span,
+    .events_part .tr .time span {
+      font-size: 18px;
+    }
+
+    .events_part .tr {
+      width: 100%;
+      margin: 20px auto;
+      padding: 10px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     }
   }
 }
