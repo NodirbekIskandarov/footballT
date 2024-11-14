@@ -31,7 +31,7 @@ const lng = i18n.language
 
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3, // Katta ekranlarda ko'rinishi
     slidesToScroll: 1,
