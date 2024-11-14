@@ -1,45 +1,76 @@
-.players_table{
+.players_table {
     width: 100%;
     margin-top: 50px;
     padding-bottom: 50px;
-    table {
-        margin-top: 30px;
-        border-collapse: collapse;
-        width: 100%;
-        background-color: white;
-        th {
-            background-color: #F7F7F8;
-            font-size: 14px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            text-align: left;
-            color: #0F132499;
-            border-bottom: 1px solid #ddd;
-            padding-left: 12px;
-            img {
-                width: 40px;
-            }
-            .yellow {
-                width: 24px;
-                height: 24px;
-                background-color: #FFFF00;
-            }
-            .red {
-                width: 24px;
-                height: 24px;
-                background-color: #FF0000 ;
-            }
-        }
-
-        td {
-            border-bottom: 1px solid #ddd;
-            padding-left: 12px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            img {
-                width: 40px;
-                height: 40px;
-            }
-        }
+  
+    .tableWrapper {
+      overflow-x: auto; // Enables horizontal scroll
+      -webkit-overflow-scrolling: touch; // Smooth scrolling on mobile
     }
-}
+  
+    table {
+      margin-top: 30px;
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+      min-width: 800px; // Ensures horizontal scrolling if content overflows
+  
+      th, td {
+        padding: 15px;
+        text-align: left;
+        white-space: nowrap; // Prevents content from wrapping in smaller screens
+        border-bottom: 1px solid #ddd;
+      }
+  
+      th {
+        background-color: #f7f7f8;
+        font-size: 14px;
+        color: #0f132499;
+        img {
+          width: 40px;
+        }
+  
+        .yellow, .red {
+          width: 24px;
+          height: 24px;
+        }
+  
+        .yellow {
+          background-color: #ffff00;
+        }
+  
+        .red {
+          background-color: #ff0000;
+        }
+      }
+  
+      td {
+        font-size: 14px;
+        color: #333;
+      }
+    }
+  
+    // Media queries for responsiveness
+    @media (max-width: 768px) {
+      th, td {
+        font-size: 12px;
+        padding: 10px;
+      }
+  
+      table {
+        min-width: 600px;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      th, td {
+        font-size: 10px;
+        padding: 8px;
+      }
+  
+      table {
+        min-width: 500px;
+      }
+    }
+  }
+  

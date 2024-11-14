@@ -12,9 +12,10 @@ import { useTranslation } from "react-i18next";
 function PlayersTable() {
   const [data, setData] = useState(null);
   const { id } = useParams();
-  const {t,i18n} = useTranslation()
-  const lng = i18n.language
-  const navigate = useNavigate()
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
+  const navigate = useNavigate();
+
   useEffect(() => {
     getRequest(playerbyteam + id)
       .then((response) => {
@@ -24,6 +25,7 @@ function PlayersTable() {
         console.log(error);
       });
   }, [id]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -31,79 +33,51 @@ function PlayersTable() {
     });
   }, []);
 
-  function navigateFunc (id) {
-    navigate(`/about-player/${id}`)
+  function navigateFunc(id) {
+    navigate(`/about-player/${id}`);
   }
 
   return (
     <div className={styles.players_table} data-aos="fade-up">
-      {" "}
-      {/* Yangi animatsiya */}
       <div className="container">
-        <table data-aos="fade-up">
-          {" "}
-          {/* Yangi animatsiya */}
-          <thead>
-            <tr data-aos="fade-up">
-              {" "}
-              {/* Yangi animatsiya */}
-              <th></th>
-              <th>{t("Player")}</th>
-              <th>{t("Date of Birth")}</th>
-              <th>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                  data-aos="fade-up"
-                >
-                  {" "}
-                  {/* Yangi animatsiya */}
-                  <img src={ball} alt="ball" />
-                  <span>{t("Goli")}</span>
-                </div>
-              </th>
-              <th>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                  data-aos="fade-up"
-                >
-                  {" "}
-                  {/* Yangi animatsiya */}
-                  <img src={krasovka} alt="krasovka" />
-                  <span>{t("Assist")}</span>
-                </div>
-              </th>
-              <th>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                  data-aos="fade-up"
-                >
-                  {" "}
-                  {/* Yangi animatsiya */}
-                  <div className={styles.yellow}></div>
-                  <span>{t("Sariq karta")}</span>
-                </div>
-              </th>
-              <th>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
-                  data-aos="fade-up"
-                >
-                  {" "}
-                  {/* Yangi animatsiya */}
-                  <div className={styles.red}></div>
-                  <span>{t("Qizil karta")}</span>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {data?.players?.data?.map((item, index) => {
-              return (
-                <tr data-aos="fade-up" key={index}>
-                  {" "}
-                  {/* Yangi animatsiya */}
+        <div className={styles.tableWrapper}>
+          <table data-aos="fade-up">
+            <thead>
+              <tr>
+                <th></th>
+                <th>{t("Player")}</th>
+                <th>{t("Date of Birth")}</th>
+                <th>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <img src={ball} alt="ball" />
+                    <span>{t("Goli")}</span>
+                  </div>
+                </th>
+                <th>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <img src={krasovka} alt="krasovka" />
+                    <span>{t("Assist")}</span>
+                  </div>
+                </th>
+                <th>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div className={styles.yellow}></div>
+                    <span>{t("Sariq karta")}</span>
+                  </div>
+                </th>
+                <th>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div className={styles.red}></div>
+                    <span>{t("Qizil karta")}</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.players?.data?.map((item, index) => (
+                <tr key={index}>
                   <td>{index + 1}</td>
-                  <td onClick={() => navigateFunc(item?.uuid)} style={{cursor: "pointer"}}>
+                  <td onClick={() => navigateFunc(item?.uuid)} style={{ cursor: "pointer" }}>
                     <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.birthday}</td>
@@ -112,10 +86,10 @@ function PlayersTable() {
                   <td>{item?.events?.yellows}</td>
                   <td>{item?.events?.reds}</td>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
