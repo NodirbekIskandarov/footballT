@@ -5,10 +5,12 @@
     display: flex;
     // border: 1px solid #295FA7;
     position: relative;
-        z-index: 1;
+    z-index: 1;
+
     .link {
         text-decoration: none;
         width: calc(100%/3);
+
         button {
             width: 100%;
             border: none;
@@ -18,9 +20,16 @@
             padding: 15px 0;
         }
     }
+    @media (max-width: 576px) {
+        .link {
+            font-size: 14px;
+        }
+    }
 }
+
 .backimage {
     position: relative;
+
     &::before {
         content: '';
         position: absolute;
@@ -32,10 +41,8 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        filter: blur(30px); 
+        filter: blur(30px);
         -webkit-filter: blur(50px);
-        z-index: -1; 
+        z-index: -1;
     }
-
- 
 }
