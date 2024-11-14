@@ -103,14 +103,8 @@
 
     @media (max-width: 480px) {
         .title_part {
-            flex-direction: column; // Stack the title and select box on mobile
-            align-items: flex-start; // Align items to the left
             span {
                 font-size: 20px; // Smaller font size for mobile
-            }
-            select {
-                width: 100%; // Full width for select box
-                margin-top: 10px; // Space above the select box
             }
         }
 
