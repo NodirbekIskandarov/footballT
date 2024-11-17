@@ -46,6 +46,7 @@ function Header() {
   const handleLanguageChange = (event) => {
     const selectedLanguage = event.target.value;
     i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("selectedLanguage", selectedLanguage);
   };
 
   return (

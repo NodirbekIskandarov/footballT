@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
       translation: ru,
     }
   },
-  lng: "uz", // Default language
+  lng: localStorage.getItem("selectedLanguage") || "uz", // Default language
   fallbackLng: "uz", // Fallback language if the current language is not available
   interpolation: {
     escapeValue: false, // React already escapes by default
