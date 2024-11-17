@@ -64,11 +64,11 @@ const lng = i18n.language
                         <div>
                           <img src={item?.team1?.icon_url} alt="komonda logosi" />
                         </div>
-                        <div>
+                        <div className="span">
                           <span>{item?.team1[`name_${lng}`]}</span>
                         </div>
                         <div className="vs">VS</div>
-                        <div>
+                        <div className="span">
                           <span>{item?.team2[`name_${lng}`]}</span>
                         </div>
                         <div>

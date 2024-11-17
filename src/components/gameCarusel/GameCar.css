@@ -46,7 +46,9 @@
   margin: 20px 0;
 }
 
-.slide .clubs_part span {
+.slide .clubs_part .span {
+  /* background-color: red; */
+  width: 100px;
   font-size: 12px;
   font-weight: 400;
 }
