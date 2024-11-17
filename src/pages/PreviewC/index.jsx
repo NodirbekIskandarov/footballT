@@ -47,7 +47,7 @@ function PreviewC() {
             }}
           >
             <img src={data?.team1?.icon_url} alt="clublogo" />
-            <span>{data?.team1?.name}</span>
+            <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <div
             className={styles.club}
@@ -55,7 +55,7 @@ function PreviewC() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <span>{data?.team2?.name}</span>
+            <span>{data?.team2[`name_${lng}`]}</span>
             <img src={data?.team2?.icon_url} alt="clublogo" />
           </div>
         </div>

@@ -1,5 +1,4 @@
-export const host = 'http://95.47.125.74:8080'
-// export const host = 'http://192.168.0.106:8000'
+export const host = import.meta.env.VITE_API_URL;
 export const home_banner = 'news/last4news/'
 export const home_last_match = "home/last10matches/"
 export const last_media = "news/last5media/"
