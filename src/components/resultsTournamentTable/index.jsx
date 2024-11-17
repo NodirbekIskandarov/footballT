@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);
+  const [league_name, setLeagueName] = useState("")
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const lng = i18n.language;
@@ -19,11 +20,13 @@ function ResultsTournamentTable() {
       .then((response) => {
         setData(response?.data);
         console.log(response?.data, "kdjfbkd");
+        const name = lng=="ru" ? response?.data?.league_name_ru : lng=="en" ? response?.data?.league_name_en : response?.data?.league_name_uz
+        setLeagueName(name)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, lng]);
 
   useEffect(() => {
     // Initializing AOS animations
@@ -32,10 +35,11 @@ function ResultsTournamentTable() {
   function navigateFunc(id) {
     navigate(`/players/${id}`);
   }
+
   return (
     <div className={styles.results_table}>
       <div className="container">
-        <span className={styles.title}>{t("Futbol jamoa natijalari")}</span>
+        <span className={styles.title}>{league_name}{t(" JADVALI")}</span>
         <div className={styles["table-wrapper"]}>
           <table className={styles.table}>
             <thead>
@@ -51,7 +55,7 @@ function ResultsTournamentTable() {
               </tr>
             </thead>
             <tbody>
-              {data?.map((item, index) => (
+              {data?.data?.map((item, index) => (
                 <tr
                   key={index}
                   data-aos="fade-up"
