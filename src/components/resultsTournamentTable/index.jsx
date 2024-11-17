@@ -18,6 +18,7 @@ function ResultsTournamentTable() {
     getRequest(`${teamsbyleague}${id}`)
       .then((response) => {
         setData(response?.data);
+        console.log(response?.data, "kdjfbkd");
       })
       .catch((error) => {
         console.log(error);
@@ -39,10 +40,15 @@ function navigateFunc (id) {
           <thead>
             <tr>
               <th>{t("O'rni")}</th>
-              <th>{t("Jamoa nomi")}</th>
+              <th style={{
+                textAlign: "start"
+              }}>{t("Jamoa nomi")}</th>
               <th>{t("O'yinlar soni")}</th>
+              <th>{t("G'alaba")}</th>
+              <th>{t("Durang")}</th>
+              <th>{t("Mag'lubiyat")}</th>
+              <th>{t("Gollar nisbati")}</th>
               <th>{t("Achko")}</th>
-              <th>{t("Goli")}</th>
             </tr>
           </thead>
           <tbody>
@@ -62,9 +68,12 @@ function navigateFunc (id) {
                     <img src={item?.icon} alt="team logo" />
                     <span>{item[`name_${lng}`]}</span>
                   </td>
-                  <td>{item?.matches}</td>
-                  <td>{item?.points}</td>
-                  <td>{item?.goals}</td>
+                  <td>{item?.data?.matches}</td>
+                  <td>{item?.data?.wins}</td>
+                  <td>{item?.data?.draws}</td>
+                  <td>{item?.data?.loses}</td>
+                  <td>{item?.data?.my_goals}-{item?.data?.your_goals}</td>
+                  <td>{item?.data?.points}</td>
                 </tr>
               );
             })}
