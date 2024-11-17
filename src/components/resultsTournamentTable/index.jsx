@@ -34,15 +34,14 @@ function navigateFunc (id) {
 }
   return (
     <div className={styles.results_table}>
-      <div className="container">
-        <span className={styles.title}>{t("Futbol jamoa natijalari")}</span>
+    <div className="container">
+      <span className={styles.title}>{t("Futbol jamoa natijalari")}</span>
+      <div className={styles["table-wrapper"]}>
         <table className={styles.table}>
           <thead>
             <tr>
               <th>{t("O'rni")}</th>
-              <th style={{
-                textAlign: "start"
-              }}>{t("Jamoa nomi")}</th>
+              <th style={{ textAlign: "start" }}>{t("Jamoa nomi")}</th>
               <th>{t("O'yinlar soni")}</th>
               <th>{t("G'alaba")}</th>
               <th>{t("Durang")}</th>
@@ -52,35 +51,41 @@ function navigateFunc (id) {
             </tr>
           </thead>
           <tbody>
-            {data?.map((item, index) => {
-              return (
-                <tr key={index} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
-                  <td>{index + 1}</td>
-                  <td
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                      cursor: "pointer"
-                    }}
-                    onClick={() => navigateFunc(item?.uuid)}
-                  >
-                    <img src={item?.icon} alt="team logo" />
-                    <span>{item[`name_${lng}`]}</span>
-                  </td>
-                  <td>{item?.data?.matches}</td>
-                  <td>{item?.data?.wins}</td>
-                  <td>{item?.data?.draws}</td>
-                  <td>{item?.data?.loses}</td>
-                  <td>{item?.data?.my_goals}-{item?.data?.your_goals}</td>
-                  <td>{item?.data?.points}</td>
-                </tr>
-              );
-            })}
+            {data?.map((item, index) => (
+              <tr
+                key={index}
+                data-aos="fade-up"
+                data-aos-delay={`${index * 100}`}
+              >
+                <td>{index + 1}</td>
+                <td
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => navigateFunc(item?.uuid)}
+                >
+                  <img src={item?.icon} alt="team logo" />
+                  <span>{item[`name_${lng}`]}</span>
+                </td>
+                <td>{item?.data?.matches}</td>
+                <td>{item?.data?.wins}</td>
+                <td>{item?.data?.draws}</td>
+                <td>{item?.data?.loses}</td>
+                <td>
+                  {item?.data?.my_goals}-{item?.data?.your_goals}
+                </td>
+                <td>{item?.data?.points}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </div>
+  </div>
+  
   );
 }
 

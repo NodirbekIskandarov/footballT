@@ -11,17 +11,23 @@
     margin-bottom: 20px; // Added margin for better spacing
   }
 
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto; // Enable horizontal scrolling
+  }
+
   table {
     margin-top: 30px;
     border-collapse: collapse;
     width: 100%;
+    min-width: 800px; // Set a minimum width to ensure scrolling on smaller screens
 
     th {
-      background-color: #F7F7F8;
+      background-color: #f7f7f8;
       font-size: 14px;
       padding: 20px 12px; // Consistent padding
       text-align: left;
-      color: #0F132499;
+      color: #0f132499;
       border-bottom: 1px solid #ddd;
       text-align: center;
     }
@@ -31,6 +37,7 @@
       padding: 20px 12px; // Consistent padding
       font-size: 16px;
       text-align: center;
+
       img {
         width: 40px;
         height: 40px;
