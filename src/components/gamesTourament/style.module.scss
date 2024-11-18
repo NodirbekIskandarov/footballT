@@ -68,10 +68,13 @@
           height: 100px;
           border-radius: 50%;
           background-color: #295FA7;
-          padding: 20px;
-
+          // padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           img {
-            width: 100%;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
           }
         }
