@@ -17,6 +17,7 @@ function Events() {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
         setData(response?.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -48,7 +49,7 @@ function Events() {
             }}
           >
             <img src={data?.team1?.icon_url ?? clublogo} alt="team1logotip" />
-            <span>{data?.team1?.name}</span>
+            <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <div className={styles.title}>
             <span>{t("match events")}</span>
@@ -59,7 +60,7 @@ function Events() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <span>{data?.team2?.name}</span>
+            <span>{data?.team2[`name_${lng}`]}</span>
             <img src={data?.team2?.icon_url ?? clublogo} alt="logotip2" />
           </div>
         </div>
