@@ -1,6 +1,7 @@
 .results_table {
   width: 100%;
   margin-top: 50px;
+  overflow-y: hidden;
 
   .title {
     width: 100%;
@@ -14,6 +15,7 @@
   .table-wrapper {
     width: 100%;
     overflow-x: auto; // Enable horizontal scrolling
+    overflow-y: hidden;
   }
 
   table {
