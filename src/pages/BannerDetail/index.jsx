@@ -7,7 +7,7 @@ import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import clublogo from '../../assets/images/club-logo2.png'
 function BannerDetail() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
@@ -68,7 +68,7 @@ function BannerDetail() {
               data-aos="fade-right"
             >
               <div className={styles.image_part}>
-                <img src={data?.match?.team1?.icon_url} alt="club logosi" />
+                <img src={data?.match?.team1?.icon_url ?? clublogo} alt="club logosi" />
               </div>
               <div className={styles.name_part}>
                 {data?.match?.team1[`name_${lng}`]}
@@ -90,7 +90,7 @@ function BannerDetail() {
                 {data?.match?.team2[`name_${lng}`]}
               </div>
               <div className={styles.image_part}>
-                <img src={data?.match?.team2?.icon_url} alt="club logosi" />
+                <img src={data?.match?.team2?.icon_url ?? clublogo} alt="club logosi" />
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ import { formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-
+import clublogo from '../../assets/images/club-logo2.png'
 function PreviewC() {
   const { t, i18n } = useTranslation();
   const pk = useParams();
@@ -46,7 +46,7 @@ function PreviewC() {
               navigateFunc(data?.team1?.uuid);
             }}
           >
-            <img src={data?.team1?.icon_url} alt="clublogo" />
+            <img src={data?.team1?.icon_url ?? clublogo} alt="clublogo" />
             <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <div
@@ -56,7 +56,7 @@ function PreviewC() {
             }}
           >
             <span>{data?.team2[`name_${lng}`]}</span>
-            <img src={data?.team2?.icon_url} alt="clublogo" />
+            <img src={data?.team2?.icon_url ?? clublogo} alt="clublogo" />
           </div>
         </div>
 
@@ -113,7 +113,7 @@ function PreviewC() {
                       navigateFunc(data?.team1?.uuid);
                     }}
                   >
-                    <img src={item?.team1?.icon_url} alt="clublogo" />
+                    <img src={item?.team1?.icon_url ?? clublogo} alt="clublogo" />
                     <span>{item?.team1[`name_${lng}`]}</span>
                   </div>
                   <div className={styles.shot}>
@@ -128,7 +128,7 @@ function PreviewC() {
                     }}
                   >
                     <span>{item?.team2[`name_${lng}`]}</span>
-                    <img src={item?.team2?.icon_url} alt="clublogo" />
+                    <img src={item?.team2?.icon_url ?? clublogo} alt="clublogo" />
                   </div>
                 </div>
               </div>

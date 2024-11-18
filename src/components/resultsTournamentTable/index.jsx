@@ -6,6 +6,7 @@ import { teamsbyleague } from "../../utils/API_urls";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
+import clublogo from '../../assets/images/club-logo2.png'
 
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);
@@ -19,7 +20,6 @@ function ResultsTournamentTable() {
     getRequest(`${teamsbyleague}${id}`)
       .then((response) => {
         setData(response?.data);
-        console.log(response?.data, "kdjfbkd");
         const name = lng=="ru" ? response?.data?.league_name_ru : lng=="en" ? response?.data?.league_name_en : response?.data?.league_name_uz
         setLeagueName(name)
       })
@@ -71,7 +71,7 @@ function ResultsTournamentTable() {
                     }}
                     onClick={() => navigateFunc(item?.uuid)}
                   >
-                    <img src={item?.icon} alt="team logo" />
+                    <img src={item?.icon ?? clublogo} alt="team logo" />
                     <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.data?.matches}</td>

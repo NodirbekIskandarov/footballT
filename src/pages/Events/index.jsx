@@ -6,7 +6,7 @@ import { match_detail } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-
+import clublogo from '../../assets/images/club-logo2.png'
 function Events() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
@@ -47,7 +47,7 @@ function Events() {
               navigateFunc(data?.team1?.uuid);
             }}
           >
-            <img src={data?.team1?.icon_url} alt="team1logotip" />
+            <img src={data?.team1?.icon_url ?? clublogo} alt="team1logotip" />
             <span>{data?.team1?.name}</span>
           </div>
           <div className={styles.title}>
@@ -60,7 +60,7 @@ function Events() {
             }}
           >
             <span>{data?.team2?.name}</span>
-            <img src={data?.team2?.icon_url} alt="logotip2" />
+            <img src={data?.team2?.icon_url ?? clublogo} alt="logotip2" />
           </div>
         </div>
 
@@ -78,12 +78,12 @@ function Events() {
                         (item?.type === "goal"
                           ? "⚽️"
                           : item?.type === "red"
-                          ? "🟥"
-                          : item?.type === "yellow"
-                          ? "🟨"
-                          : item?.type === "assist"
-                          ? "👟"
-                          : "")}
+                            ? "🟥"
+                            : item?.type === "yellow"
+                              ? "🟨"
+                              : item?.type === "assist"
+                                ? "👟"
+                                : "")}
                     </span>
                   </div>
                   <div className={styles.time}>
@@ -96,12 +96,12 @@ function Events() {
                         (item?.type === "goal"
                           ? "⚽️"
                           : item?.type === "red"
-                          ? "🟥"
-                          : item?.type === "yellow"
-                          ? "🟨"
-                          : item?.type === "assist"
-                          ? "👟"
-                          : "")}
+                            ? "🟥"
+                            : item?.type === "yellow"
+                              ? "🟨"
+                              : item?.type === "assist"
+                                ? "👟"
+                                : "")}
                     </span>
                   </div>
                 </div>

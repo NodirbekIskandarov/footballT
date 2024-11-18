@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
+import clublogo from '../../assets/images/club-logo2.png'
 
 export default function GameCar() {
   const [data, setData] = useState(null);
@@ -62,7 +63,7 @@ const lng = i18n.language
                       <span className="game_date">{formatDateToYMD(item?.date)}</span>
                       <div className="clubs_part">
                         <div>
-                          <img src={item?.team1?.icon_url} alt="komonda logosi" />
+                          <img src={item?.team1?.icon_url ?? clublogo} alt="komonda logosi" />
                         </div>
                         <div className="span">
                           <span>{item?.team1[`name_${lng}`]}</span>
@@ -72,7 +73,7 @@ const lng = i18n.language
                           <span>{item?.team2[`name_${lng}`]}</span>
                         </div>
                         <div>
-                          <img src={item?.team2?.icon_url} alt="komonda logosi" />
+                          <img src={item?.team2?.icon_url ?? clublogo} alt="komonda logosi" />
                         </div>
                       </div>
                       <span className="game_date">{item?.score?.team1_score} : {item?.score?.team2_score}</span>

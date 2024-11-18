@@ -6,6 +6,7 @@ import AOS from 'aos'; // AOS import
 import { getRequest } from '../../utils/request';
 import { playerbyteam } from '../../utils/API_urls';
 import { useTranslation } from 'react-i18next';
+import clublogo from '../../assets/images/club-logo2.png'
 
 function PlayersBanner() {
   const [data, setData] = useState(null)
@@ -46,7 +47,7 @@ function PlayersBanner() {
       <div className='container'>
         <div className={styles.banner_part}>
           <div className={styles.left} data-aos="fade-up"> {/* Yangi animatsiya */}
-            <img src={data?.icon} alt="club logosi" />
+            <img src={data?.icon ?? clublogo} alt="club logosi" />
             <div className={styles.text_part}>
               <span>{name}</span>
               <span>{data?.players?.count} {t("players")} </span>

@@ -7,12 +7,13 @@ import { formatDateToYMD } from "../../utils/dateFormat";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
+import clublogo from '../../assets/images/club-logo2.png'
 
 function GamesTournamentPlaned() {
   const navigate = useNavigate()
   const [data, setData] = useState(null);
   const { id } = useParams();
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation()
   const lng = i18n.language
 
   useEffect(() => {
@@ -28,12 +29,12 @@ function GamesTournamentPlaned() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-  function navigateFunc (id) {
+  function navigateFunc(id) {
     navigate(`/players/${id}`)
-}
-function navigateFunc2 (id) {
-  navigate(`/preview/previ/${id}`)
-}
+  }
+  function navigateFunc2(id) {
+    navigate(`/preview/previ/${id}`)
+  }
   return (
     <div className={styles.games}>
       <div className="container">
@@ -47,17 +48,17 @@ function navigateFunc2 (id) {
             >
               <span className={styles.sana}>{formatDateToYMD(item?.date)}</span>
               <div className={styles.table_part}>
-                <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{cursor: "pointer"}}>
+                <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{ cursor: "pointer" }}>
                   <div className={styles.image_part}>
-                    <img src={item?.team1?.icon_url} alt="team1 logo" />
+                    <img src={item?.team1?.icon_url ?? clublogo} alt="team1 logo" />
                   </div>
                   <div className={styles.name_part}>{item?.team1[`name_${lng}`]}</div>
                 </div>
-                <div className={styles.shot} onClick={() => navigateFunc2(item?.uuid)} style={{cursor: "pointer"}}>V</div>
-                <div className={styles.right} onClick={() => navigateFunc(item?.team2?.uuid)} style={{cursor: "pointer"}}>
+                <div className={styles.shot} onClick={() => navigateFunc2(item?.uuid)} style={{ cursor: "pointer" }}>V</div>
+                <div className={styles.right} onClick={() => navigateFunc(item?.team2?.uuid)} style={{ cursor: "pointer" }}>
                   <div className={styles.name_part}>{item?.team2[`name_${lng}`]}</div>
                   <div className={styles.image_part}>
-                    <img src={item?.team2?.icon_url} alt="team2 logo" />
+                    <img src={item?.team2?.icon_url ?? clublogo} alt="team2 logo" />
                   </div>
                 </div>
               </div>

@@ -6,11 +6,12 @@ import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
 import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
+import clublogo from '../../assets/images/club-logo2.png'
 function PreviewBanner() {
   const pk = useParams();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation()
   const lng = i18n.language
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
@@ -50,7 +51,7 @@ function PreviewBanner() {
               navigateFunc(data?.team1?.uuid);
             }}
           >
-            <img src={data?.team1?.icon_url} alt="clublogo" />
+            <img src={data?.team1?.icon_url ?? clublogo} alt="clublogo" />
             <span>{data?.team1[`name_${lng}`]}</span>
           </div>
           <span className={styles.shot}>
@@ -62,7 +63,7 @@ function PreviewBanner() {
               navigateFunc(data?.team2?.uuid);
             }}
           >
-            <img src={data?.team2?.icon_url} alt="clublogo" />
+            <img src={data?.team2?.icon_url ?? clublogo} alt="clublogo" />
             <span>{data?.team2[`name_${lng}`]}</span>
           </div>
         </div>

@@ -9,15 +9,16 @@ import { useTranslation } from "react-i18next";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useNavigate } from "react-router-dom";
+import clublogo from '../../assets/images/club-logo2.png'
 
 function HomePlanedGames() {
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
   const navigate = useNavigate()
   function navigateFunc(id) {
     navigate(`/preview/previ/${id}`)
   }
-const lng = i18n.language
+  const lng = i18n.language
   useEffect(() => {
     getRequest(expected_games)
       .then((response) => {
@@ -45,12 +46,12 @@ const lng = i18n.language
             <div className={styles.game} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
               <div className={styles.clubs}>
                 <div className={styles.single_club} onClick={() => navigateFuncc(item?.team1?.uuid)}>
-                  <img src={item?.team1?.icon_url} alt="club-logotip" />
+                  <img src={item?.team1?.icon_url ?? clublogo} alt="club-logotip" />
                   <span>{item?.team1[`name_${lng}`]}</span>
                 </div>
                 <span>VS</span>
                 <div className={styles.single_club} onClick={() => navigateFuncc(item?.team2?.uuid)}>
-                  <img src={item?.team2?.icon_url} alt="club-logotip" />
+                  <img src={item?.team2?.icon_url ?? clublogo} alt="club-logotip" />
                   <span>{item?.team2[`name_${lng}`]}</span> {/* Team2 nomi to'g'ri berilsin */}
                 </div>
               </div>
@@ -64,7 +65,7 @@ const lng = i18n.language
                 <div className={styles.fav}>
                   {/* <MdFavoriteBorder /> */}
                 </div>
-                <div className={styles.view} onClick={() => navigateFunc(item?.uuid)} style={{cursor: "pointer"}}>
+                <div className={styles.view} onClick={() => navigateFunc(item?.uuid)} style={{ cursor: "pointer" }}>
                   <span>{t("View Details")}</span>
                   <FaArrowRightLong />
                 </div>
