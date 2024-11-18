@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { matchbyleague } from "../../utils/API_urls";
-import { formatDateToYMD } from "../../utils/dateFormat";
+import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
@@ -53,7 +53,7 @@ function GamesTournament() {
       <div className="container">
         {data?.passed?.map((item) => (
           <div className={styles.table} key={item.id} data-aos="fade-up">
-            <span className={styles.sana}>{formatDateToYMD(item?.date)}</span>
+            <span className={styles.sana}>{formatDateToYMD(item?.date)}, {formatDateToHMS(item?.date)}</span>
             <div className={styles.table_part}>
               <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{ cursor: "pointer" }}>
                 <div className={styles.image_part}>
