@@ -27,13 +27,13 @@
             border-radius: 5px;
             background-color: #295FA7;
             padding: 17px;
-            margin-bottom: 20px; // Space between rows
-            transition: transform 0.3s; // Added transition for hover effect
+            margin-bottom: 20px; 
+            transition: transform 0.3s; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             &:hover {
-                transform: scale(1.05); // Scale effect on hover
+                transform: scale(1.05); 
             }
 
             .star {
