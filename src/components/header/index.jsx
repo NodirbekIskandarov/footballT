@@ -1,13 +1,12 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import { useTranslation } from "react-i18next";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import styles from "./header.module.scss";
-import { FaTimes, FaBars } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
+import logo from "../../assets/images/logo.png";
 import { getRequest } from "../../utils/request";
 import { sub_tournament_list, tournament_list } from "../../utils/API_urls";
-import { useTranslation } from "react-i18next";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,27 +15,61 @@ function Header() {
   const [data, setData] = useState(null);
   const [subsubmenulist, setSubsubmenulist] = useState([]);
   const { t, i18n } = useTranslation();
-  const [activeMenu, setActiveMenu] = useState(""); // State to track active menu item
+  const [activeMenu, setActiveMenu] = useState("");
+  const menuRef = useRef(null); // Reference for outside click detection
 
+  // Toggle main menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     setSubmenuOpen(false);
+    setSubsubmenuOpen(false);
   };
 
+  // Toggle submenu
   const toggleSubmenu = () => {
-    setSubmenuOpen(true);
+    setSubmenuOpen((prev) => !prev);
+    setSubsubmenuOpen(false);
   };
 
+  // Handle outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setSubmenuOpen(false);
+        setSubsubmenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Fetch tournament data on component mount
+  useEffect(() => {
+    getRequest(tournament_list)
+      .then((response) => {
+        setData(response?.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  // Handle menu item click
   const handleClick = (menu) => {
-    setActiveMenu(menu); // Set the active menu item
+    setActiveMenu(menu);
     setMenuOpen(false);
     setSubmenuOpen(false);
+    setSubsubmenuOpen(false);
   };
 
+  // Fetch submenu data when a submenu item is clicked
   const handleMenuClick = (id) => {
     getRequest(sub_tournament_list + id)
       .then((response) => {
-        if (response?.data.length !== 0) {
+        if (response?.data.length > 0) {
           setSubsubmenulist(response?.data);
           setSubsubmenuOpen(true);
         } else {
@@ -45,20 +78,11 @@ function Header() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
-  useEffect(() => {
-    getRequest(tournament_list)
-      .then((response) => {
-        setData(response?.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
+  // Handle language change
   const handleLanguageChange = (event) => {
     const selectedLanguage = event.target.value;
     i18n.changeLanguage(selectedLanguage);
@@ -68,7 +92,7 @@ function Header() {
   return (
     <div className={styles.header}>
       <div className="container">
-        <div className={styles.header_main}>
+        <div className={styles.header_main} ref={menuRef}>
           <div className={styles.img_part}>
             <a href="/">
               <img src={logo} alt="logo" />
@@ -108,6 +132,8 @@ function Header() {
                         onClick={() => {
                           handleClick(item.name);
                           handleMenuClick(item.uuid);
+                          setSubmenuOpen(false); // Submenu yopiladi
+                          setSubsubmenuOpen(false); // Subsubmenu yopiladi
                         }}
                         key={item.uuid}
                       >
@@ -118,18 +144,20 @@ function Header() {
                 )}
                 {subsubmenuOpen && (
                   <div className={styles.subsubmenu}>
-                    {subsubmenulist?.map((item) => {
-                      return (
-                        <Link
-                          to={`/tournament/pasted/${item?.uuid}`}
-                          className={styles.subsubmenu_link}
-                          onClick={() => handleClick(item.name)}
-                          key={item.uuid}
-                        >
-                          {item[`name_${i18n.language}`]}
-                        </Link>
-                      );
-                    })}
+                    {subsubmenulist?.map((item) => (
+                      <Link
+                        to={`/tournament/pasted/${item?.uuid}`}
+                        className={styles.subsubmenu_link}
+                        onClick={() => {
+                          handleClick(item.name); // Aktiv menyu nomini o'rnating
+                          setSubmenuOpen(false); // Submenu yopiladi
+                          setSubsubmenuOpen(false); // Subsubmenu yopiladi
+                        }}
+                        key={item.uuid}
+                      >
+                        {item[`name_${i18n.language}`]}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
@@ -170,7 +198,6 @@ function Header() {
                 {t("About us")}
               </Link>
             </div>
-
             <div className={styles.language_part}>
               <select
                 defaultValue={i18n.language}
