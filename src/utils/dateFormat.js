@@ -4,7 +4,7 @@ export function formatDateToYMD(dateString) {
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Oy 0 dan boshlanadi
     const day = date.getDate().toString().padStart(2, '0');
   
-    return `${year}.${month}.${day}`;
+    return `${day}.${month}.${year}`;
 }
 export function formatDateToHMS(dateString) {
     const date = new Date(dateString);
