@@ -67,7 +67,7 @@ function Events() {
 
         <div className={styles.events_part}>
           <div className={styles.timeline}>
-            {data?.events?.map((item, index) => {
+            {data?.events[0]?.player!==null && data?.events?.map((item, index) => {
               return (
                 <div className={styles.tr} key={index} data-aos="fade-left">
                   {" "}
