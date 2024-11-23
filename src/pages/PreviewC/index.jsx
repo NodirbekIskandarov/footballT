@@ -8,13 +8,13 @@ import { formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from "../../assets/images/club-logo2.png";
 function PreviewC() {
   const { t, i18n } = useTranslation();
   const pk = useParams();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const lng = i18n.language
+  const lng = i18n.language;
   useEffect(() => {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
@@ -65,12 +65,16 @@ function PreviewC() {
           {/* Yangi animatsiya */}
           <div className={styles.middle}>
             <div className={styles.boxes}>
-              <span style={{ marginLeft: "50px" }}>{data?.total_goals_in_season?.team1_goals}</span>
+              <span style={{ marginLeft: "50px" }}>
+                {data?.total_goals_in_season?.team1_goals}
+              </span>
               <div className={styles.box}>
                 <img src={top} alt="top" />
                 <span>{t("Goals scored")}</span>
               </div>
-              <span style={{ marginRight: "50px" }}>{data?.total_goals_in_season?.team2_goals}</span>
+              <span style={{ marginRight: "50px" }}>
+                {data?.total_goals_in_season?.team2_goals}
+              </span>
             </div>
           </div>
         </div>
@@ -97,16 +101,12 @@ function PreviewC() {
           </div>
         </div>
 
-            <div className={styles.hakam} data-aos="fade-up">
-              <span className={styles.title}>{t("Hakamlar")}</span>
-              {
-                data?.referee?.map((item, index) => {
-                  return (
-                    <span key={index}>{item[`name_${lng}`]}</span>
-                  )
-                })
-              }
-            </div>
+        <div className={styles.hakam} data-aos="fade-up">
+          <span className={styles.title}>{t("Hakamlar")}</span>
+          {data?.referee?.map((item, index) => {
+            return <span key={index}>{item[`name_${lng}`]}</span>;
+          })}
+        </div>
 
         <div className={styles.five} data-aos="fade-up">
           {" "}
@@ -124,7 +124,10 @@ function PreviewC() {
                       navigateFunc(data?.team1?.uuid);
                     }}
                   >
-                    <img src={item?.team1?.icon_url ?? clublogo} alt="clublogo" />
+                    <img
+                      src={item?.team1?.icon_url ?? clublogo}
+                      alt="clublogo"
+                    />
                     <span>{item?.team1[`name_${lng}`]}</span>
                   </div>
                   <div className={styles.shot}>
@@ -139,7 +142,10 @@ function PreviewC() {
                     }}
                   >
                     <span>{item?.team2[`name_${lng}`]}</span>
-                    <img src={item?.team2?.icon_url ?? clublogo} alt="clublogo" />
+                    <img
+                      src={item?.team2?.icon_url ?? clublogo}
+                      alt="clublogo"
+                    />
                   </div>
                 </div>
               </div>
