@@ -15,8 +15,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 // Component for Menu Items with Submenu using Accordion
-const MenuItemWithSubMenuAccordion = ({ data, name, lng, onClose }) => {
-
+const MenuItemWithSubMenuAccordion = ({
+  data,
+  name,
+  lng,
+  onClose,
+  setMenuOpen,
+}) => {
   const { children } = data || {};
 
   return (
@@ -47,7 +52,18 @@ const MenuItemWithSubMenuAccordion = ({ data, name, lng, onClose }) => {
             }}
           >
             {children.map((subMenuItem, i) => (
-              <MenuItem key={i}><Link to={`/tournament/pasted/${subMenuItem?.uuid}`} style={{textDecoration: "none", color: "black"}} onClick={onClose}>{subMenuItem?.[`name_${lng}`]}</Link></MenuItem>
+              <MenuItem key={i}>
+                <Link
+                  to={`/tournament/pasted/${subMenuItem?.uuid}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                  onClick={() => {
+                    onClose();
+                    setMenuOpen(false); // Close the menu when a submenu item is clicked
+                  }}
+                >
+                  {subMenuItem?.[`name_${lng}`]}
+                </Link>
+              </MenuItem>
             ))}
           </AccordionDetails>
         </Accordion>
@@ -65,16 +81,17 @@ MenuItemWithSubMenuAccordion.propTypes = {
     ).isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired, // Validate `name` prop
-  lng: PropTypes.string.isRequired,  // Validate `lng` prop
+  lng: PropTypes.string.isRequired, // Validate `lng` prop
   onClose: PropTypes.func.isRequired,
+  setMenuOpen: PropTypes.func.isRequired,
 };
 // Main Menu Component
-export default function BasicMenu() {
+export default function BasicMenu({ setMenuOpen }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [data, setData] = useState(null);
-  const {t, i18n} = useTranslation()
-  const lng = i18n.language
+  const { t, i18n } = useTranslation();
+  const lng = i18n.language;
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -140,9 +157,20 @@ export default function BasicMenu() {
         }}
       >
         {data?.map((data, i) => (
-          <MenuItemWithSubMenuAccordion key={i} data={data} name={data?.[`name_${lng}`]} lng={lng} onClose={handleClose}/>
+          <MenuItemWithSubMenuAccordion
+            key={i}
+            data={data}
+            name={data?.[`name_${lng}`]}
+            lng={lng}
+            onClose={handleClose}
+            setMenuOpen={setMenuOpen}
+          />
         ))}
       </Menu>
     </div>
   );
 }
+BasicMenu.propTypes = {
+  setMenuOpen: PropTypes.func.isRequired, // Added validation for `setMenuOpen` prop here
+};
+

@@ -56,7 +56,7 @@ function Header() {
               >
                 {t("Home")}
               </Link>
-              <BasicMenu />
+              <BasicMenu setMenuOpen={setMenuOpen} />
               <Link
                 className={`${styles.link} ${
                   activeMenu === "news" ? styles.active : ""
