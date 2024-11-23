@@ -1,7 +1,23 @@
 .home {
+    position: relative;
     padding: 100px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('../../assets/images/bbb.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    filter: blur(10px); /* Adjust blur intensity */
+    z-index: -1; /* Place it behind the content */
 }
