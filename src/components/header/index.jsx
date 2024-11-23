@@ -57,52 +57,6 @@ function Header() {
                 {t("Home")}
               </Link>
               <BasicMenu />
-              {/* <div className={styles.tournament} onClick={toggleSubmenu}>
-                <span
-                  className={`${styles.link} ${
-                    activeMenu === "tournaments" ? styles.active : ""
-                  }`}
-                >
-                  {t("Tournaments")}{" "}
-                  {submenuOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
-                </span>
-                {submenuOpen && (
-                  <div className={styles.submenu}>
-                    {data?.map((item) => (
-                      <span
-                        className={styles.submenu_link}
-                        onClick={() => {
-                          handleClick(item.name);
-                          handleMenuClick(item.uuid);
-                          setSubmenuOpen(false); // Submenu yopiladi
-                          setSubsubmenuOpen(false); // Subsubmenu yopiladi
-                        }}
-                        key={item.uuid}
-                      >
-                        {item[`name_${i18n.language}`]}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {subsubmenuOpen && (
-                  <div className={styles.subsubmenu}>
-                    {subsubmenulist?.map((item) => (
-                      <Link
-                        to={`/tournament/pasted/${item?.uuid}`}
-                        className={styles.subsubmenu_link}
-                        onClick={() => {
-                          handleClick(item.name); // Aktiv menyu nomini o'rnating
-                          setSubmenuOpen(false); // Submenu yopiladi
-                          setSubsubmenuOpen(false); // Subsubmenu yopiladi
-                        }}
-                        key={item.uuid}
-                      >
-                        {item[`name_${i18n.language}`]}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div> */}
               <Link
                 className={`${styles.link} ${
                   activeMenu === "news" ? styles.active : ""

@@ -15,8 +15,9 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 // Component for Menu Items with Submenu using Accordion
-const MenuItemWithSubMenuAccordion = ({ data }) => {
-  const { name, children } = data || {};
+const MenuItemWithSubMenuAccordion = ({ data, name, lng, onClose }) => {
+
+  const { children } = data || {};
 
   return (
     <MenuItem>
@@ -46,7 +47,7 @@ const MenuItemWithSubMenuAccordion = ({ data }) => {
             }}
           >
             {children.map((subMenuItem, i) => (
-              <MenuItem key={i}><Link to={`/tournament/pasted/${subMenuItem?.uuid}`} style={{textDecoration: "none", color: "black"}}>{subMenuItem.name}</Link></MenuItem>
+              <MenuItem key={i}><Link to={`/tournament/pasted/${subMenuItem?.uuid}`} style={{textDecoration: "none", color: "black"}} onClick={onClose}>{subMenuItem?.[`name_${lng}`]}</Link></MenuItem>
             ))}
           </AccordionDetails>
         </Accordion>
@@ -63,13 +64,17 @@ MenuItemWithSubMenuAccordion.propTypes = {
       })
     ).isRequired,
   }).isRequired,
+  name: PropTypes.string.isRequired, // Validate `name` prop
+  lng: PropTypes.string.isRequired,  // Validate `lng` prop
+  onClose: PropTypes.func.isRequired,
 };
 // Main Menu Component
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [data, setData] = useState(null);
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const lng = i18n.language
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -135,7 +140,7 @@ export default function BasicMenu() {
         }}
       >
         {data?.map((data, i) => (
-          <MenuItemWithSubMenuAccordion key={i} data={data} />
+          <MenuItemWithSubMenuAccordion key={i} data={data} name={data?.[`name_${lng}`]} lng={lng} onClose={handleClose}/>
         ))}
       </Menu>
     </div>
