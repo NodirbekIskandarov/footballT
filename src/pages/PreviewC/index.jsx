@@ -97,6 +97,17 @@ function PreviewC() {
           </div>
         </div>
 
+            <div className={styles.hakam} data-aos="fade-up">
+              <span className={styles.title}>{t("Hakamlar")}</span>
+              {
+                data?.referee?.map((item, index) => {
+                  return (
+                    <span key={index}>{item[`name_${lng}`]}</span>
+                  )
+                })
+              }
+            </div>
+
         <div className={styles.five} data-aos="fade-up">
           {" "}
           {/* Yangi animatsiya */}
