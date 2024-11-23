@@ -1,19 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import styles from "./header.module.scss";
 import logo from "../../assets/images/logo.png";
-import { getRequest } from "../../utils/request";
-import { sub_tournament_list, tournament_list } from "../../utils/API_urls";
+import BasicMenu from "./cod";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
-  const [subsubmenuOpen, setSubsubmenuOpen] = useState(false);
-  const [data, setData] = useState(null);
-  const [subsubmenulist, setSubsubmenulist] = useState([]);
   const { t, i18n } = useTranslation();
   const [activeMenu, setActiveMenu] = useState("");
   const menuRef = useRef(null); // Reference for outside click detection
@@ -21,65 +15,12 @@ function Header() {
   // Toggle main menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    setSubmenuOpen(false);
-    setSubsubmenuOpen(false);
   };
-
-  // Toggle submenu
-  const toggleSubmenu = () => {
-    setSubmenuOpen((prev) => !prev);
-    setSubsubmenuOpen(false);
-  };
-
-  // Handle outside click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setSubmenuOpen(false);
-        setSubsubmenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  // Fetch tournament data on component mount
-  useEffect(() => {
-    getRequest(tournament_list)
-      .then((response) => {
-        setData(response?.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
   // Handle menu item click
   const handleClick = (menu) => {
     setActiveMenu(menu);
     setMenuOpen(false);
-    setSubmenuOpen(false);
-    setSubsubmenuOpen(false);
-  };
-
-  // Fetch submenu data when a submenu item is clicked
-  const handleMenuClick = (id) => {
-    getRequest(sub_tournament_list + id)
-      .then((response) => {
-        if (response?.data.length > 0) {
-          setSubsubmenulist(response?.data);
-          setSubsubmenuOpen(true);
-        } else {
-          setSubsubmenulist([]);
-          setSubsubmenuOpen(false);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   };
 
   // Handle language change
@@ -115,7 +56,8 @@ function Header() {
               >
                 {t("Home")}
               </Link>
-              <div className={styles.tournament} onClick={toggleSubmenu}>
+              <BasicMenu />
+              {/* <div className={styles.tournament} onClick={toggleSubmenu}>
                 <span
                   className={`${styles.link} ${
                     activeMenu === "tournaments" ? styles.active : ""
@@ -160,7 +102,7 @@ function Header() {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
               <Link
                 className={`${styles.link} ${
                   activeMenu === "news" ? styles.active : ""
