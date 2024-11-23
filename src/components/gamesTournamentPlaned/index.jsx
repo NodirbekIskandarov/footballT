@@ -46,7 +46,7 @@ function GamesTournamentPlaned() {
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`} // Delay for staggered animation
             >
-              <span className={styles.sana}>{formatDateToYMD(item?.date)}, {formatDateToHMS(item?.date)}</span>
+              <span className={styles.sana}>{formatDateToYMD(item?.date)} {formatDateToHMS(item?.date)}</span>
               <div className={styles.table_part}>
                 <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{ cursor: "pointer" }}>
                   <div className={styles.image_part}>

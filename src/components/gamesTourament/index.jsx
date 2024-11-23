@@ -53,7 +53,7 @@ function GamesTournament() {
       <div className="container">
         {data?.passed?.map((item) => (
           <div className={styles.table} key={item.id} data-aos="fade-up">
-            <span className={styles.sana}>{formatDateToYMD(item?.date)}, {formatDateToHMS(item?.date)}</span>
+            <span className={styles.sana}>{formatDateToYMD(item?.date)} {formatDateToHMS(item?.date)}</span>
             <div className={styles.table_part}>
               <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{ cursor: "pointer" }}>
                 <div className={styles.image_part}>
