@@ -47,6 +47,7 @@ function PlayersTable() {
                 <th></th>
                 <th>{t("Player")}</th>
                 <th>{t("Date of Birth")}</th>
+                <th>{t("O'yinchi raqami")}</th>
                 <th>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <img src={ball} alt="ball" />
@@ -81,6 +82,7 @@ function PlayersTable() {
                     <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.birthday}</td>
+                  <td>{item?.number}</td>
                   <td>{item?.events?.goals}</td>
                   <td>{item?.events?.assists}</td>
                   <td>{item?.events?.yellows}</td>
