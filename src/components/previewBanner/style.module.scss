@@ -82,7 +82,7 @@
                 width: 45%;
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 10px;
                 align-items: center;
                 cursor: pointer;
 
@@ -107,16 +107,17 @@
                 }
 
                 span {
+                    height: 80px;
                     font-weight: 700;
-                    font-size: 28px;
+                    font-size: 16px!important;
                     color: #FFFFFF;
                     text-align: center;
 
                     @media (max-width: 768px) {
-                        font-size: 24px;
+                        font-size: 18px;
                     }
                     @media (max-width: 576px) {
-                        font-size: 20px;
+                        font-size: 16px;
                     }
                 }
             }
