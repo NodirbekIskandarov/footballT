@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
 import defaultimage from "../../assets/images/defaultplayerimage.jpg";
-
+import logodef from '../../assets/images/logo.png'
 function AboutUs() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
@@ -93,7 +93,7 @@ function AboutUs() {
         <div className={styles.banner} data-aos="fade-up">
           {" "}
           {/* Animatsiya qo'shish */}
-          <img src={banner} alt="banner" />
+          <img src={logodef} alt="banner" />
         </div>
         <div className={styles.text_part} data-aos="fade-up">
           {" "}
