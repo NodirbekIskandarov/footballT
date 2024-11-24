@@ -8,7 +8,7 @@ import { playerbyleague } from '../../utils/API_urls';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
-
+import defaultimage from '../../assets/images/defaultplayerimage.jpg'
 const PlayerCard = ({ img, name, position, index, id, viewText }) => (
   <div className={styles.box} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
     <div className={styles.star}>
@@ -16,7 +16,7 @@ const PlayerCard = ({ img, name, position, index, id, viewText }) => (
     </div>
     <div className={styles.player_part}>
       <div className={styles.player}>
-        <img src={img} alt={`${name} profile`} />
+        <img src={img ?? defaultimage} alt={`${name} profile`} />
       </div>
       <span className={styles.name}>{name}</span>
       <span className={styles.position}>{position}</span>
@@ -53,7 +53,7 @@ function PlayersTournament() {
   }, [id]);
 
   const handleClick = () => {
-    getRequest(`${playerbyleague}${id}?size=100`)
+    getRequest(`${playerbyleague}${id}?size=40`)
       .then((response) => {
         setData(response?.data);
       })

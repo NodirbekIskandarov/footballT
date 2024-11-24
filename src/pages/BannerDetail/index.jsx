@@ -7,7 +7,7 @@ import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 function BannerDetail() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);

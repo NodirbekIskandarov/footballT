@@ -9,7 +9,7 @@ import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 
 function GamesTournament() {
   const navigate = useNavigate()

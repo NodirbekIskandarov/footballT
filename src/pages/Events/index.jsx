@@ -6,7 +6,7 @@ import { match_detail } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 function Events() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);

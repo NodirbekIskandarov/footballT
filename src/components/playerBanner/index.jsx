@@ -8,6 +8,7 @@ import { about_player } from '../../utils/API_urls';
 import { useTranslation } from 'react-i18next';
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
+import playerdefault from '../../assets/images/defaultplayerimage.jpg'
 
 function PlayerBanner() {
   const { t, i18n } = useTranslation();
@@ -48,7 +49,7 @@ function PlayerBanner() {
       <div className='container'>
         <div className={styles.image_part} data-aos="fade-right"> {/* Animatsiya qo'shish */}
           <div className={styles.image}>
-            <img src={data?.image} alt="player detail image" />
+            <img src={data?.image ?? playerdefault} alt="player detail image" />
           </div>
           <div className={styles.right}>
             <span className={styles.name}>{name}</span>

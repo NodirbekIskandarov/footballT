@@ -6,7 +6,7 @@ import { teamsbyleague } from "../../utils/API_urls";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 
 function ResultsTournamentTable() {
   const [data, setData] = useState(null);

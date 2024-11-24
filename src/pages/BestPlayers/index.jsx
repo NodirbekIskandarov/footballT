@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
-
+import defaultimage from '../../assets/images/defaultplayerimage.jpg'
 function BestPlayers() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function BestPlayers() {
           {data?.map((item, index) => {
             return (
               <div className={styles.box} key={index} data-aos="fade-up"> {/* Yangi animatsiya */}
-                <img src={item?.image} alt="player" />
+                <img src={item?.image ?? defaultimage} alt="player" />
                 <span className={styles.name}>{item[`name_${lng}`]}</span>
                 <span className={styles.position}>{item.position[`position_${lng}`]}</span>
                 <button onClick={() => navigateFunc(item?.uuid)}>

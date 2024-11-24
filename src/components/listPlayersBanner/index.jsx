@@ -6,7 +6,7 @@ import AOS from 'aos'; // AOS import
 import { getRequest } from '../../utils/request';
 import { playerbyteam } from '../../utils/API_urls';
 import { useTranslation } from 'react-i18next';
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 
 function PlayersBanner() {
   const [data, setData] = useState(null)

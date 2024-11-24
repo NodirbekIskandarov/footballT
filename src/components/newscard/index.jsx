@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'; // AOS CSS import
 import AOS from 'aos'; // AOS import
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import clublogo from '../../assets/images/club-logo2.png'
+import clublogo from '../../assets/images/club-logo2.jpg'
 function NewsCard() {
   const [data, setData] = useState(null);
   const { i18n } = useTranslation()
