@@ -60,6 +60,7 @@ function PlayerGamesTable() {
                 <th></th>
                 <th>{t("Jamoa nomi")}</th>
                 <th>{t("Transfer sanasi")}</th>
+                <th>{t("O'yinchi raqami")}</th>
                 <th>
                   <div
                     style={{
@@ -131,6 +132,7 @@ function PlayerGamesTable() {
                       <span>{item?.current_team?.name}</span>
                     </td>
                     <td>{item?.start_date}</td>
+                    <td>{item?.number}</td>
                     <td>{item?.current_team?.matches}</td>
                     <td>{item?.events?.goals}</td>
                     <td>{item?.events?.assists}</td>
