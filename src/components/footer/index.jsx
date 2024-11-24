@@ -68,7 +68,7 @@ function Footer() {
             })}
           </div>
           <div className={styles.text}>
-            <span>Super Leguage 2024</span>
+            <span>LLF Uzbekistan 2022</span>
           </div>
         </div>
       </div>
