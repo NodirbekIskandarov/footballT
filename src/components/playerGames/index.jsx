@@ -161,7 +161,7 @@ function PlayerGamesTable() {
                 return (
                   <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{item[`name_${lng}`]}</td>
+                    <td>{item?.name}</td>
                     <td>{item?.league_name[`name_${lng}`]}</td>
                     <td>
                       <span>{item?.start_date}</span>
