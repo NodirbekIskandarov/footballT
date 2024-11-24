@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useTranslation } from 'react-i18next';
 import defaultimage from '../../assets/images/defaultplayerimage.jpg'
-const PlayerCard = ({ img, name, position, index, id, viewText }) => (
+const PlayerCard = ({ img, name, position, index, id, viewText, goals }) => (
   <div className={styles.box} data-aos="fade-up" data-aos-delay={`${index * 100}`}>
     <div className={styles.star}>
       <img src={star} alt="Star icon" />
@@ -20,6 +20,7 @@ const PlayerCard = ({ img, name, position, index, id, viewText }) => (
       </div>
       <span className={styles.name}>{name}</span>
       <span className={styles.position}>{position}</span>
+      <span className={styles.position}>{goals}</span>
     </div>
     <div className={styles.button_part}>
       <Link to={`/about-player/${id}`}><button className={styles.link}>{viewText}</button></Link>
@@ -30,6 +31,7 @@ const PlayerCard = ({ img, name, position, index, id, viewText }) => (
 PlayerCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  goals: PropTypes.number.isRequired,
   position: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired, // Changed to string assuming uuid is a string
@@ -77,6 +79,7 @@ function PlayersTournament() {
               img={player.image} 
               name={player[`name_${lng}`]} 
               position={player?.position[`position_${lng}`]} // Assuming `position` has a language key
+              goals={player?.goals_count}
               index={index} 
               id={player.uuid} 
               viewText={t("View")}
