@@ -52,7 +52,7 @@
     "Yuborilmoqda...": "Sending...",
     "O'tkazilgan turnirlar": "Held tournaments",
     "Rejalashtirilgan turnirlar": "Planned tournaments",
-    "Goals scored": "Goals scored",
+    "Goals scored": "Goals scored in the season",
     "F.I.SH": "Full Name",
     "Telefon raqam": "Phone number",
     "Message": "Message",
@@ -63,5 +63,6 @@
     "Gollar nisbati": "Goal difference",
     " JADVALI": " TABLE",
     "O'yinchi raqami": "Player number",
-    "Hakamlar": "Referees"
+    "Hakamlar": "Referees",
+    "Tashkilotchilar": "Organizers"
 }

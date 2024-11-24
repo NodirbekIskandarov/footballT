@@ -52,7 +52,7 @@
     "Yuborilmoqda...": "Отправка...",
     "O'tkazilgan turnirlar": "Проведённые турниры",
     "Rejalashtirilgan turnirlar": "Запланированные турниры",
-    "Goals scored": "Забитые голы",
+    "Goals scored": "Голы, забитые за сезон",
     "F.I.SH": " Ф.И.О",
     "Telefon raqam": "Номер телефона",
     "Message": "Сообщение",
@@ -63,5 +63,6 @@
     "Gollar nisbati": "Разница голов",
     " JADVALI": " ТАБЛИЦА",
     "O'yinchi raqami": "Номер игрока",
-    "Hakamlar": "Судьи"
+    "Hakamlar": "Судьи",
+    "Tashkilotchilar": "Организаторы"
 }

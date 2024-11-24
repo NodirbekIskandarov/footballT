@@ -2,14 +2,16 @@ import styles from "./style.module.scss";
 import banner from "../../assets/images/planedback.png";
 import { useEffect, useState } from "react";
 import { getRequest, postRequest } from "../../utils/request";
-import { about_us, postdata } from "../../utils/API_urls";
+import { about_us, organization_list, postdata } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
+import defaultimage from "../../assets/images/defaultplayerimage.jpg";
 
 function AboutUs() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
+  const [organizators, setOrganizators] = useState(null);
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
@@ -26,6 +28,16 @@ function AboutUs() {
     getRequest(about_us)
       .then((response) => {
         setData(response?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    getRequest(organization_list)
+      .then((response) => {
+        setOrganizators(response?.data);
       })
       .catch((error) => {
         console.log(error);
@@ -89,6 +101,20 @@ function AboutUs() {
           <h3>{t("Tashkilot haqida")}</h3>
           <span>{description}</span>
         </div>
+        <div className={styles.organizators} data-aos="fade-up">
+          <h3>{t("Tashkilotchilar")}</h3>
+          <div className={styles.cards}>
+            {organizators?.map((item, index) => {
+              return (
+                <div className={styles.card} key={index} data-aos="fade-up">
+                  <img src={item?.image ?? defaultimage} alt="player" />
+                  <span className={styles.name}>{item[`name_${lng}`]}</span>
+                  <span className={styles.position}>{item?.position}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
       <div className={styles.contact}>
         <div className="container">
@@ -101,7 +127,7 @@ function AboutUs() {
               <br />
               <span className={styles.two}>{t("Aloqa nomeri")}</span>
               <br />
-              <span className={styles.three}>+998945854512</span>
+              <span className={styles.three}>{data?.phone}</span>
             </div>
             <div className={styles.form_part}>
               <input
