@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { home_banner } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
+import { Tooltip } from "@mui/material";
 
 export default function Banner() {
   const [data, setData] = useState([]);
@@ -52,60 +53,63 @@ export default function Banner() {
           data?.map((item, index) => {
             return (
               <SwiperSlide key={index}>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%", // CSS fayli orqali boshqariladi
-                    backgroundImage: `url(${item?.photo})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
+                <Tooltip followCursor title={t("Ko'proq ma'lumot uchun rasm ustiga bosing")}>
                   <div
                     style={{
-                      width: "90%", // Mobil va tablet uchun kenglikni qisqartirish
-                      maxWidth: "800px",
+                      width: "100%",
+                      height: "100%", // CSS fayli orqali boshqariladi
+                      backgroundImage: `url(${item?.photo})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
                       display: "flex",
-                      flexDirection: "column",
-                      gap: "10px",
-                      padding: "20px",
-                      backgroundColor: "rgba(0, 0, 0, 0.5)",
-                      backdropFilter: "blur(5px)",
-                      borderRadius: "10px"
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    <span
+                    <Link to={item?.uuid } style={{width: "100%", height: "100%"}}></Link>
+                    {/* <div
                       style={{
-                        fontWeight: "500",
-                        fontSize: "32px", // Desktop: 48px, Tablet: 32px, Mobil: 24px
-                        color: "#FFFFFF",
-                        textAlign: "center", // Mobil va tabletda matnni markazlashtirish
+                        width: "90%", // Mobil va tablet uchun kenglikni qisqartirish
+                        maxWidth: "800px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "10px",
+                        padding: "20px",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                        backdropFilter: "blur(5px)",
+                        borderRadius: "10px"
                       }}
                     >
-                      {item[`title_${lng}`]}
-                    </span>
-                    <Link to={item?.uuid}>
-                      <button
+                      <span
                         style={{
-                          padding: "12px 16px",
-                          backgroundColor: "#FFFFFF",
-                          borderRadius: "8px",
-                          border: "none",
-                          fontSize: "18px",
-                          color: "#1E1E1E",
-                          cursor: "pointer",
-                          alignSelf: "center", // Mobil va tabletda markaziy joylashuv
+                          fontWeight: "500",
+                          fontSize: "32px", // Desktop: 48px, Tablet: 32px, Mobil: 24px
+                          color: "#FFFFFF",
+                          textAlign: "center", // Mobil va tabletda matnni markazlashtirish
                         }}
                       >
-                        {t("Ko’proq ma’lumot")}
-                      </button>
-                    </Link>
+                        {item[`title_${lng}`]}
+                      </span>
+                      <Link to={item?.uuid}>
+                        <button
+                          style={{
+                            padding: "12px 16px",
+                            backgroundColor: "#FFFFFF",
+                            borderRadius: "8px",
+                            border: "none",
+                            fontSize: "18px",
+                            color: "#1E1E1E",
+                            cursor: "pointer",
+                            alignSelf: "center", // Mobil va tabletda markaziy joylashuv
+                          }}
+                        >
+                          {t("Ko’proq ma’lumot")}
+                        </button>
+                      </Link>
+                    </div> */}
                   </div>
-                </div>
+                </Tooltip>
               </SwiperSlide>
             );
           })}
