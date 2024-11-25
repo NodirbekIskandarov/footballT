@@ -17,7 +17,7 @@ function Events() {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
         setData(response?.data);
-        console.log(response.data);
+        console.log(response.data, "ksdnk");
       })
       .catch((error) => {
         console.log(error);
@@ -67,7 +67,7 @@ function Events() {
 
         <div className={styles.events_part}>
           <div className={styles.timeline}>
-            {data?.events[0]?.player!==null && data?.events?.map((item, index) => {
+            {data?.events?.map((item, index) => {
               return (
                 <div className={styles.tr} key={index} data-aos="fade-left">
                   {" "}
@@ -75,7 +75,7 @@ function Events() {
                   <div className={styles.player}>
                     <span>
                       {/* shujoyi */}
-                      {/* {item?.team == team1 ? item?.player[`name_${lng}`] : ""}{" "} */}
+                      {item?.team == team1 ? item?.player[`name_${lng}`] : ""}{" "}
                       {item?.team == team1 &&
                         (item?.type === "goal"
                           ? "⚽️"
@@ -89,11 +89,11 @@ function Events() {
                     </span>
                   </div>
                   <div className={styles.time}>
-                    <span>{item?.time}&apos;</span>
+                    {/* <span>{item?.time}&apos;</span> */}
                   </div>
                   <div className={styles.player}>
                     <span>
-                      {/* {item?.team == team2 ? item?.player[`name_${lng}`] : ""}{" "} */}
+                      {item?.team == team2 ? item?.player[`name_${lng}`] : ""}{" "}
                       {item?.team == team2 &&
                         (item?.type === "goal"
                           ? "⚽️"
