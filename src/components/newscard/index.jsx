@@ -43,12 +43,12 @@ function NewsCard() {
               <div className={styles.left}>
                 <div className={styles.club_part}>
                   <img src={item?.match?.team1?.icon_url ?? clublogo} alt="club logotip" />
-                  <span>{item?.match?.team1[`name_${lng}`]}</span>
+                  {/* <span>{item?.match?.team1[`name_${lng}`]}</span> */}
                 </div>
                 <span className={styles.vs}>vs</span>
                 <div className={styles.club_part}>
                   <img src={item?.match?.team2?.icon_url ?? clublogo} alt="club logotip" />
-                  <span>{item?.match?.team2[`name_${lng}`]}</span>
+                  {/* <span>{item?.match?.team2[`name_${lng}`]}</span> */}
                 </div>
                 <span className={styles.text}>
                   {item[`title_${lng}`]}
