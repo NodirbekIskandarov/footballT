@@ -7,7 +7,7 @@ import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import clublogo from '../../assets/images/club-logo2.jpg'
+import clublogo from "../../assets/images/club-logo2.jpg";
 function BannerDetail() {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState(null);
@@ -39,8 +39,14 @@ function BannerDetail() {
     navigate(`/preview/previ/${id}`);
   }
 
-  const title = lng === "uz" ? data?.title_uz : lng === "ru" ? data?.title_ru : data?.title_en;
-  const body = lng === "uz" ? data?.body_uz : lng === "ru" ? data?.body_ru : data?.body_en;
+  const title =
+    lng === "uz"
+      ? data?.title_uz
+      : lng === "ru"
+      ? data?.title_ru
+      : data?.title_en;
+  const body =
+    lng === "uz" ? data?.body_uz : lng === "ru" ? data?.body_ru : data?.body_en;
 
   return (
     <div className={styles.banner_detail} data-aos="fade-up">
@@ -55,56 +61,71 @@ function BannerDetail() {
             <span className={styles.desc}>{body}</span>
           </div>
         </div>
-        <div className={styles.table} data-aos="fade-up">
-          <span className={styles.sana}>{formatDateToYMD(data?.match?.date)} </span>
-          <br />
-          <span style={{ fontSize: "29px", fontWeight: "500", marginTop: "20px" }}>
-            {formatDateToHMS(data?.match?.date)}
-          </span>
-          <div className={styles.table_part}>
-            <div
-              className={styles.left}
-              onClick={() => navigateFunc(data?.match?.team1?.uuid)}
-              data-aos="fade-right"
+        {data?.match && (
+          <div className={styles.table} data-aos="fade-up">
+            <span className={styles.sana}>
+              {formatDateToYMD(data?.match?.date)}{" "}
+            </span>
+            <br />
+            <span
+              style={{ fontSize: "29px", fontWeight: "500", marginTop: "20px" }}
             >
-              <div className={styles.image_part}>
-                <img src={data?.match?.team1?.icon_url ?? clublogo} alt="club logosi" />
+              {formatDateToHMS(data?.match?.date)}
+            </span>
+            <div className={styles.table_part}>
+              <div
+                className={styles.left}
+                onClick={() => navigateFunc(data?.match?.team1?.uuid)}
+                data-aos="fade-right"
+              >
+                <div className={styles.image_part}>
+                  <img
+                    src={data?.match?.team1?.icon_url ?? clublogo}
+                    alt="club logosi"
+                  />
+                </div>
+                <div className={styles.name_part}>
+                  {data?.match?.team1[`name_${lng}`]}
+                </div>
               </div>
-              <div className={styles.name_part}>
-                {data?.match?.team1[`name_${lng}`]}
+              <div
+                className={styles.shot}
+                onClick={() => navigateFuncMatch(data?.match?.uuid)}
+                data-aos="fade-in"
+              >
+                {data?.match?.score?.team1_score}:
+                {data?.match?.score?.team2_score}
               </div>
-            </div>
-            <div
-              className={styles.shot}
-              onClick={() => navigateFuncMatch(data?.match?.uuid)}
-              data-aos="fade-in"
-            >
-              {data?.match?.score?.team1_score}:{data?.match?.score?.team2_score}
-            </div>
-            <div
-              className={styles.right}
-              onClick={() => navigateFunc(data?.match?.team2?.uuid)}
-              data-aos="fade-left"
-            >
-              <div className={styles.name_part}>
-                {data?.match?.team2[`name_${lng}`]}
-              </div>
-              <div className={styles.image_part}>
-                <img src={data?.match?.team2?.icon_url ?? clublogo} alt="club logosi" />
+              <div
+                className={styles.right}
+                onClick={() => navigateFunc(data?.match?.team2?.uuid)}
+                data-aos="fade-left"
+              >
+                <div className={styles.name_part}>
+                  {data?.match?.team2[`name_${lng}`]}
+                </div>
+                <div className={styles.image_part}>
+                  <img
+                    src={data?.match?.team2?.icon_url ?? clublogo}
+                    alt="club logosi"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.epizod} data-aos="fade-up">
-          <span>{t("O’yindagi epizodlar")}</span>
-          <div className={styles.boxes}>
-            {data?.media?.map((item, index) => (
-              <div className={styles.box} key={index} data-aos="zoom-in">
-                <img src={item?.photo} alt="media rasm" />
-              </div>
-            ))}
+        )}
+        {data?.media && (
+          <div className={styles.epizod} data-aos="fade-up">
+            <span>{t("O’yindagi epizodlar")}</span>
+            <div className={styles.boxes}>
+              {data?.media?.map((item, index) => (
+                <div className={styles.box} key={index} data-aos="zoom-in">
+                  <img src={item?.photo} alt="media rasm" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
