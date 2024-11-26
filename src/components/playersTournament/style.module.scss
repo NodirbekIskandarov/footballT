@@ -1,175 +1,191 @@
 .players {
+  width: 100%;
+  margin: 50px 0; // Combined margin for top and bottom
+
+  .title {
+    font-size: 36px;
+    font-weight: 500;
+    color: #1e1e1e;
     width: 100%;
-    margin: 50px 0; // Combined margin for top and bottom
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; // Added margin for spacing below the title
+  }
 
-    .title {
-        font-size: 36px;
-        font-weight: 500;
-        color: #1E1E1E;
+  .boxes {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping on smaller screens
+    justify-content: space-between;
+    align-items: center;
+    //   align-items: flex-start; // Changed to flex-start to improve alignment
+
+    .box {
+      width: 24%;
+      height: 350px;
+      border-radius: 5px;
+      background-color: #295fa7;
+      padding: 17px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative; /* Ensure stacking context for pseudo-element */
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../assets/images/backcardlogo.png");
+        background-position: center;
+        background-size: 150%;
+        filter: blur(5px); /* Apply blur to the background */
+        z-index: -1; /* Place the pseudo-element behind content */
+        border-radius: 10px;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .star {
         width: 100%;
         display: flex;
-        justify-content: center;
-        margin-bottom: 20px; // Added margin for spacing below the title
-    }
+        justify-content: flex-start;
 
-    .boxes {
+        img {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+        }
+      }
+
+      .player_part {
         width: 100%;
-        margin-top: 30px;
         display: flex;
-        flex-wrap: wrap; // Allow wrapping on smaller screens
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 10px;
         align-items: center;
-        //   align-items: flex-start; // Changed to flex-start to improve alignment
 
-        .box {
-            width: 24%;
-            height: 350px;
-            border-radius: 5px;
-            background-color: #295FA7;
-            padding: 17px;
-            margin-bottom: 20px; 
-            transition: transform 0.3s; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            &:hover {
-                transform: scale(1.05); 
-            }
+        .player {
+          width: 100px;
+          height: 100px;
 
-            .star {
-                width: 100%;
-                display: flex;
-                justify-content: flex-start;
-
-                img {
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                }
-            }
-
-            .player_part {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-
-                .player {
-                    width: 100px;
-                    height: 100px;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 50%;
-                        object-fit: cover; // Ensure images are scaled properly
-                    }
-                }
-
-                .name {
-                    font-size: 24px;
-                    font-weight: 500;
-                    color: #FFFFFF;
-                    text-align: center; // Center-align text
-                }
-
-                .position {
-                    font-size: 20px;
-                    font-weight: 400;
-                    color: #FFFFFF;
-                    text-align: center; // Center-align text
-                }
-            }
-
-            .button_part {
-                width: 100%;
-                text-align: center;
-                margin: 20px 0;
-                .link {
-                    width: 120px;
-                    height: 44px;
-                    border-radius: 8px;
-                    background-color: #FFFFFF;
-                    font-weight: 500;
-                    font-size: 16px;
-                    border: none;
-                    cursor: pointer;
-                    transition: background-color 0.3s; // Added transition for hover effect
-
-                    &:hover {
-                        background-color: #e0e0e0; // Change background on hover
-                    }
-                }
-            }
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover; // Ensure images are scaled properly
+          }
         }
-    }
 
-    .link2 {
-        margin-top: 50px;
-        width: 150px;
-        height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #295FA7;
-        color: #FFFFFF;
-        font-size: 18px;
-        font-weight: 400;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s; // Added transition for hover effect
-
-        &:hover {
-            background-color: #1e4c78; // Change background on hover
+        .name {
+          font-size: 24px;
+          font-weight: 500;
+          color: #ffffff;
+          text-align: center; // Center-align text
         }
+
+        .position {
+          font-size: 20px;
+          font-weight: 400;
+          color: #ffffff;
+          text-align: center; // Center-align text
+        }
+      }
+
+      .button_part {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+        .link {
+          width: 120px;
+          height: 44px;
+          border-radius: 8px;
+          background-color: #ffffff;
+          font-weight: 500;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s; // Added transition for hover effect
+
+          &:hover {
+            background-color: #e0e0e0; // Change background on hover
+          }
+        }
+      }
     }
+  }
+
+  .link2 {
+    margin-top: 50px;
+    width: 150px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #295fa7;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s; // Added transition for hover effect
+
+    &:hover {
+      background-color: #1e4c78; // Change background on hover
+    }
+  }
 }
 
 // Responsive Design
 @media (max-width: 768px) {
-    .title {
-        font-size: 32px; // Slightly smaller title font on tablets
-    }
+  .title {
+    font-size: 32px; // Slightly smaller title font on tablets
+  }
 
-    .boxes {
-        width: 100%;
+  .boxes {
+    width: 100%;
 
-        .box {
-            width: 48% !important; // Make boxes take almost half width on smaller screens
-        }
+    .box {
+      width: 48% !important; // Make boxes take almost half width on smaller screens
     }
+  }
 }
 
 @media (max-width: 480px) {
-    .title {
-        font-size: 28px; // Further reduce title size for small screens
+  .title {
+    font-size: 28px; // Further reduce title size for small screens
+  }
+
+  .boxes {
+    width: 100%;
+
+    .box {
+      width: 100% !important; // Make boxes take full width on very small screens
     }
 
-    .boxes {
-        width: 100%;
-
-        .box {
-            width: 100% !important; // Make boxes take full width on very small screens
-        }
-
-        .player {
-            width: 80px; // Smaller player image size on small screens
-            height: 80px;
-        }
-
-        .name {
-            font-size: 20px; // Smaller name font size
-        }
-
-        .position {
-            font-size: 16px; // Smaller position font size
-        }
+    .player {
+      width: 80px; // Smaller player image size on small screens
+      height: 80px;
     }
 
-    .link2 {
-        width: 100px; // Smaller link button on small screens
-        font-size: 16px; // Adjust font size for button
+    .name {
+      font-size: 20px; // Smaller name font size
     }
+
+    .position {
+      font-size: 16px; // Smaller position font size
+    }
+  }
+
+  .link2 {
+    width: 100px; // Smaller link button on small screens
+    font-size: 16px; // Adjust font size for button
+  }
 }

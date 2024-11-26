@@ -1,118 +1,134 @@
 .players {
+  width: 100%;
+  margin: 50px 0;
+
+  .title_part {
     width: 100%;
-    margin: 50px 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(to bottom, #3b73cc, #6d99e1);
+    border-radius: 10px;
 
-    .title_part {
+    span {
+      font-size: 24px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    select {
+      width: 100px;
+      outline: none;
+      padding: 5px; // Add some padding for better usability
+      border-radius: 5px; // Rounded corners for the select box
+    }
+  }
+
+  .boxes {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .box {
+      width: 30%; // Default width for larger screens
+      padding: 20px;
+      background-color: #295fa7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      border-radius: 10px;
+      position: relative; /* Ensure stacking context for pseudo-element */
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 60px;
+        height: 100%;
+        background-image: url("../../assets/images/backcardlogo.png");
+        background-position: center;
+        background-size: 150%;
+        filter: blur(5px); /* Apply blur to the background */
+        z-index: -1; /* Place the pseudo-element behind content */
+        border-radius: 10px; /* Match the container's border radius */
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: 500;
+        color: #ffffff;
+        margin-top: 50px;
+        text-align: center; // Center the name
+      }
+
+      .position {
+        font-size: 20px;
+        font-weight: 400;
+        color: #ffffff;
+        margin-top: 10px;
+        text-align: center; // Center the position
+      }
+
+      button {
         display: flex;
-        justify-content: space-between;
+        gap: 15px;
         align-items: center;
-        padding: 0 20px;
-        background: linear-gradient(to bottom, #3b73cc, #6d99e1);
-        border-radius: 10px;
+        width: 120px;
+        height: 44px;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 20px;
+        border: none;
+        margin-top: 30px;
+        cursor: pointer; // Change cursor on hover
+      }
+    }
+  }
 
-        span {
-            font-size: 24px;
-            font-weight: 500;
-            color: #FFFFFF;
-        }
+  // Responsive Styles
+  @media (max-width: 1024px) {
+    .boxes {
+      .box {
+        width: 45%; // Two boxes in a row for tablets
+      }
+    }
+  }
 
-        select {
-            width: 100px;
-            outline: none;
-            padding: 5px; // Add some padding for better usability
-            border-radius: 5px; // Rounded corners for the select box
-        }
+  @media (max-width: 768px) {
+    .boxes {
+      .box {
+        width: 48%; // Two boxes in a row for smaller screens
+        margin-top: 20px; // Add spacing between rows
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title_part {
+      span {
+        font-size: 20px; // Smaller font size for mobile
+      }
     }
 
     .boxes {
-        width: 90%;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-
-        .box {
-            width: 30%; // Default width for larger screens
-            padding: 20px;
-            background-color: #295FA7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            border-radius: 10px;
-
-            img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-            }
-
-            .name {
-                font-size: 24px;
-                font-weight: 500;
-                color: #FFFFFF;
-                margin-top: 50px;
-                text-align: center; // Center the name
-            }
-
-            .position {
-                font-size: 20px;
-                font-weight: 400;
-                color: #FFFFFF;
-                margin-top: 10px;
-                text-align: center; // Center the position
-            }
-
-            button {
-                display: flex;
-                gap: 15px;
-                align-items: center;
-                width: 120px;
-                height: 44px;
-                justify-content: center;
-                background-color: #FFFFFF;
-                border-radius: 20px;
-                border: none;
-                margin-top: 30px;
-                cursor: pointer; // Change cursor on hover
-            }
-        }
+      .box {
+        width: 100%; // Full width for boxes on mobile
+        margin-top: 20px; // Space between boxes
+      }
     }
-
-    // Responsive Styles
-    @media (max-width: 1024px) {
-        .boxes {
-            .box {
-                width: 45%; // Two boxes in a row for tablets
-            }
-        }
-    }
-
-    @media (max-width: 768px) {
-        .boxes {
-            .box {
-                width: 48%; // Two boxes in a row for smaller screens
-                margin-top: 20px; // Add spacing between rows
-            }
-        }
-    }
-
-    @media (max-width: 480px) {
-        .title_part {
-            span {
-                font-size: 20px; // Smaller font size for mobile
-            }
-        }
-
-        .boxes {
-            .box {
-                width: 100%; // Full width for boxes on mobile
-                margin-top: 20px; // Space between boxes
-            }
-        }
-    }
+  }
 }
