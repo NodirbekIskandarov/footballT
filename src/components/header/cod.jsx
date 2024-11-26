@@ -138,6 +138,8 @@ export default function BasicMenu({ setMenuOpen }) {
         onClick={handleClick}
         sx={{
           textTransform: "none", // Matnni asl ko'rinishida qoldiradi
+          margin: "0",
+          padding: "0"
         }}
       >
         {t("Tournaments")}
