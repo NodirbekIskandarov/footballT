@@ -31,9 +31,7 @@ function NewsCard() {
   }, []);
 
   function navigateFunc(item) {
-    if (item?.match?.is_active) {
-      navigate(`/${item?.uuid}`);
-    }
+    navigate(`/${item?.uuid}`);
   }
 
   return (
