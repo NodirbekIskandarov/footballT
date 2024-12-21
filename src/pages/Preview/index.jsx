@@ -34,14 +34,6 @@ function Preview() {
                 }}
               >{t("Preview")}</button>
             </Link>
-            {/* <Link to={`/preview/protocol/${id}`} className={styles.link}>
-              <button
-                style={{
-                  color: location.pathname.includes("protocol") ? "#295FA7" : "#FFFFFF",
-                  backgroundColor: location.pathname.includes("protocol") ? "#FFFFFF" : "#295FA7"
-                }}
-              >Protocol</button>
-            </Link> */}
             <Link to={`/preview/events/${id}`} className={styles.link}>
               <button
                 style={{
@@ -50,7 +42,6 @@ function Preview() {
                 }}
               >{t("Events")}</button>
             </Link>
-            {/* <Link to={`/preview/live/${id}`} className={styles.link}> */}
             <a href={data?.live_link} target="_blank"
               rel="noopener noreferrer" className={styles.link}><button
                 style={{
@@ -59,7 +50,6 @@ function Preview() {
                 }}
               >Live</button></a>
 
-            {/* </Link> */}
           </div>
         </div>
         <Outlet />
