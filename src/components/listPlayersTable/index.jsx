@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
 import { playerbyteam } from "../../utils/API_urls";
 import { useTranslation } from "react-i18next";
+import player from '../../assets/images/defaultplayerimage.jpg'
 
 function PlayersTable() {
   const [data, setData] = useState(null);
@@ -78,7 +79,8 @@ function PlayersTable() {
               {data?.players?.data?.map((item, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td onClick={() => navigateFunc(item?.uuid)} style={{ cursor: "pointer" }}>
+                  <td onClick={() => navigateFunc(item?.uuid)} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "10px" }}>
+                    <img src={item?.image ?? player} alt="rasn" style={{width: "30px", height: "30px", borderRadius: "50%"}}/>
                     <span>{item[`name_${lng}`]}</span>
                   </td>
                   <td>{item?.birthday}</td>
