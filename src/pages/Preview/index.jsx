@@ -26,15 +26,15 @@ function Preview() {
       <div className={styles.backimage}>
         <div className="container">
           <div className={styles.links_part}>
-            <Link to={`/preview/previ/${id}`} className={styles.link}>
+            <Link to={`/preview/${id}/previw`} className={styles.link}>
               <button
                 style={{
-                  color: location.pathname.includes("preview/previ") ? "#295FA7" : "#FFFFFF",
-                  backgroundColor: location.pathname.includes("preview/previ") ? "#FFFFFF" : "#295FA7"
+                  color: location.pathname.includes("previw") ? "#295FA7" : "#FFFFFF",
+                  backgroundColor: location.pathname.includes("previw") ? "#FFFFFF" : "#295FA7"
                 }}
               >{t("Preview")}</button>
             </Link>
-            <Link to={`/preview/events/${id}`} className={styles.link}>
+            <Link to={`/preview/${id}/events`} className={styles.link}>
               <button
                 style={{
                   color: location.pathname.includes("events") ? "#295FA7" : "#FFFFFF",
@@ -49,7 +49,6 @@ function Preview() {
                   backgroundColor: location.pathname.includes("live") ? "#FFFFFF" : "#295FA7"
                 }}
               >Live</button></a>
-
           </div>
         </div>
         <Outlet />

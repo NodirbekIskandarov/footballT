@@ -25,10 +25,10 @@ function App() {
                 <Route path='video' element={<Video/>}/>
             </Route>
             <Route path='news' element={<News/>}/>
-            <Route path='preview' element={<Preview/>}>
-              <Route index element={<PreviewC/>}/> 
-              <Route path='previ/:id' element={<PreviewC/>}/>
-              <Route path='events/:id' element={<Events/>}/>
+            <Route path='preview/:id' element={<Preview/>}>
+              {/* <Route index element={<PreviewC/>}/>  */}
+              <Route path='previw' element={<PreviewC/>}/>
+              <Route path='events' element={<Events/>}/>
             </Route>
             <Route path='best-players' element={<BestPlayers/>}/>
             <Route path='about-us' element={<AboutUs/>}/>

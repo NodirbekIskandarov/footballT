@@ -5,16 +5,16 @@ import { getRequest } from "../../utils/request";
 import { home_last_match } from "../../utils/API_urls";
 import { formatDateToYMD } from "../../utils/dateFormat";
 import { useNavigate } from "react-router-dom";
-import 'aos/dist/aos.css'; // AOS CSS import
-import AOS from 'aos'; // AOS import
+import "aos/dist/aos.css"; // AOS CSS import
+import AOS from "aos"; // AOS import
 import { useTranslation } from "react-i18next";
-import clublogo from '../../assets/images/club-logo2.jpg'
+import clublogo from "../../assets/images/club-logo2.jpg";
 
 export default function GameCar() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const {i18n} = useTranslation()
-const lng = i18n.language
+  const { i18n } = useTranslation();
+  const lng = i18n.language;
   useEffect(() => {
     getRequest(home_last_match)
       .then((response) => {
@@ -47,7 +47,7 @@ const lng = i18n.language
   };
 
   function navigateFunc(id) {
-    navigate(`/preview/previ/${id}`);
+    navigate(`/preview/${id}/events`);
   }
 
   return (
@@ -57,13 +57,23 @@ const lng = i18n.language
           <Slider {...settings}>
             {data?.map((item, index) => {
               return (
-                <div className="slide" key={index} data-aos="fade-left"> {/* Yangi animatsiya */}
-                  <div className="slidee" onClick={() => navigateFunc(item?.uuid)}>
+                <div className="slide" key={index} data-aos="fade-left">
+                  {" "}
+                  {/* Yangi animatsiya */}
+                  <div
+                    className="slidee"
+                    onClick={() => navigateFunc(item?.uuid)}
+                  >
                     <div className="slide-child">
-                      <span className="game_date">{formatDateToYMD(item?.date)}</span>
+                      <span className="game_date">
+                        {formatDateToYMD(item?.date)}
+                      </span>
                       <div className="clubs_part">
                         <div>
-                          <img src={item?.team1?.icon_url ?? clublogo} alt="komonda logosi" />
+                          <img
+                            src={item?.team1?.icon_url ?? clublogo}
+                            alt="komonda logosi"
+                          />
                         </div>
                         <div className="span">
                           <span>{item?.team1[`name_${lng}`]}</span>
@@ -73,10 +83,15 @@ const lng = i18n.language
                           <span>{item?.team2[`name_${lng}`]}</span>
                         </div>
                         <div>
-                          <img src={item?.team2?.icon_url ?? clublogo} alt="komonda logosi" />
+                          <img
+                            src={item?.team2?.icon_url ?? clublogo}
+                            alt="komonda logosi"
+                          />
                         </div>
                       </div>
-                      <span className="game_date">{item?.score?.team1_score} : {item?.score?.team2_score}</span>
+                      <span className="game_date">
+                        {item?.score?.team1_score} : {item?.score?.team2_score}
+                      </span>
                       <div className="liga-name">
                         <span>{item?.league[`name_${lng}`]}</span>
                       </div>
