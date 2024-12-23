@@ -1,5 +1,6 @@
 import GamesTournament from "../../components/gamesTourament"
 import PlayersTournament from "../../components/playersTournament"
+import Asists from "../../components/playersTournament/Asists"
 import ResultsTournamentTable from "../../components/resultsTournamentTable"
 
 function PastedGames() {
@@ -8,6 +9,7 @@ function PastedGames() {
       <GamesTournament/>
       <ResultsTournamentTable/>
       <PlayersTournament/>
+      <Asists/>
     </div>
   )
 }
