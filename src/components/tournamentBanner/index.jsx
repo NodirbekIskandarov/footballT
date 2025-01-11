@@ -9,7 +9,6 @@ function TournamentBanner() {
   useEffect(() => {
     getRequest(get_league_banner + id)
       .then((response) => {
-        console.log(response);
         setData(response?.data);
       })
       .catch((error) => {

@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { match_detail } from "../../utils/API_urls";
-import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
 import { useTranslation } from "react-i18next";
 import clublogo from '../../assets/images/club-logo2.jpg'
 function PreviewBanner() {
@@ -37,12 +36,12 @@ function PreviewBanner() {
     >
       <div className={styles.box}>
         <div className={styles.info_part}>
-          <span className={styles.date}>{formatDateToYMD(data?.date)} </span>
+          <span className={styles.date}>{data?.time} </span>
           <div className={styles.location}>
             {/* <IoLocation color="red"/>
             <span>Yunusobod SM</span> */}
           </div>
-          <span className={styles.time}>{formatDateToHMS(data?.date)}</span>
+          {/* <span className={styles.time}>{formatDateToHMS(data?.date)}</span> */}
         </div>
         <div className={styles.club_part}>
           <div

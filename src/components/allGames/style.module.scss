@@ -1,0 +1,142 @@
+.games {
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 30px;
+  
+    .table {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+  
+      .sana {
+        font-size: 36px;
+        font-weight: 500;
+        color: #1E1E1E;
+        margin-bottom: 10px;
+      }
+  
+      .table_part {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 50px 0;
+  
+        .left {
+          position: relative;
+          width: 47%; // Consistent width for left and right sections
+  
+          .image_part {
+            position: absolute;
+            bottom: -18px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #295FA7;
+            // padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+            }
+          }
+  
+          .name_part {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #295FA7;
+            color: white;
+            border-radius: 56px;
+            padding: 23px 0;
+            text-align: center;
+          }
+        }
+  
+        .right {
+          position: relative;
+          width: 47%; // Consistent width for left and right sections
+          display: flex;
+          justify-content: flex-end;
+  
+          .image_part {
+            position: absolute;
+            bottom: -18px;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #295FA7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+            img {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+            }
+          }
+  
+          .name_part {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #295FA7;
+            color: white;
+            border-radius: 56px;
+            padding: 23px 0;
+            text-align: center;
+          }
+        }
+  
+        .shot {
+          color: #295FA7;
+          font-size: 30px;
+          font-weight: 700;
+        }
+      }
+    }
+  
+    // Responsive Design
+    @media (max-width: 768px) {
+      .table .sana {
+        font-size: 24px;
+      }
+  
+      .table .table_part {
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+  
+        .left,
+        .right {
+          width: 100%;
+  
+          .image_part {
+            width: 60px;
+            height: 60px;
+            padding: 5px;
+            bottom: -7px;
+            img {
+              width: 40px;
+              height: 40px;
+            }
+          }
+  
+          .name_part {
+            padding: 15px 0;
+          }
+        }
+  
+        .shot {
+          font-size: 20px;
+        }
+      }
+    }
+  }

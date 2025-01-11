@@ -2,8 +2,7 @@ import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRequest } from "../../utils/request";
-import { matchbyleague } from "../../utils/API_urls";
-import { formatDateToHMS, formatDateToYMD } from "../../utils/dateFormat";
+import { planedbyleague } from "../../utils/API_urls";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
@@ -17,7 +16,7 @@ function GamesTournamentPlaned() {
   const lng = i18n.language
 
   useEffect(() => {
-    getRequest(`${matchbyleague}${id}`)
+    getRequest(`${planedbyleague}${id}`)
       .then((response) => {
         setData(response?.data);
       })
@@ -38,7 +37,7 @@ function GamesTournamentPlaned() {
   return (
     <div className={styles.games}>
       <div className="container">
-        {data?.expect?.map((item, index) => {
+        {data?.matches?.map((item, index) => {
           return (
             <div
               className={styles.table}
@@ -46,7 +45,7 @@ function GamesTournamentPlaned() {
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`} // Delay for staggered animation
             >
-              <span className={styles.sana}>{formatDateToYMD(item?.date)} {formatDateToHMS(item?.date)}</span>
+              <span className={styles.sana}>{item?.time}</span>
               <div className={styles.table_part}>
                 <div className={styles.left} onClick={() => navigateFunc(item?.team1?.uuid)} style={{ cursor: "pointer" }}>
                   <div className={styles.image_part}>

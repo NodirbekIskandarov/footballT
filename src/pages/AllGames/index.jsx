@@ -1,7 +1,10 @@
+import { AllGamesComponent } from "../../components"
 
 function AllGames() {
   return (
-    <div>AllGames</div>
+    <div>
+      <AllGamesComponent/>
+    </div>
   )
 }
 

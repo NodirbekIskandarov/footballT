@@ -17,7 +17,6 @@ function Events() {
     getRequest(`${match_detail}${pk.id}`)
       .then((response) => {
         setData(response?.data);
-        console.log(response.data, "ksdnk");
       })
       .catch((error) => {
         console.log(error);
