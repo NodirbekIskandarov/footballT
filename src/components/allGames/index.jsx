@@ -43,6 +43,8 @@ function AllGamesComponent() {
               data-aos="fade-up"
               data-aos-delay={`${index * 100}`} // Delay for staggered animation
             >
+              <span className={styles.sana}>{item?.name}</span>
+              <br />
               <span className={styles.sana}>{item?.date}</span>
               {item?.matches?.map((match, ind) => {
                 return (

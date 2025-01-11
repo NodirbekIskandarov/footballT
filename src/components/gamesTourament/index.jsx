@@ -50,6 +50,11 @@ function GamesTournament() {
   return (
     <div className={styles.games}>
       <div className="container">
+        <span className={styles.sana}>{data?.name}</span>
+        <br />
+        <span className={styles.sana}>{data?.date}</span>
+        <br />
+        <br />
         {data?.matches?.map((item) => (
           <div className={styles.table} key={item.id} data-aos="fade-up">
             <span className={styles.sana}>{item?.time}</span>

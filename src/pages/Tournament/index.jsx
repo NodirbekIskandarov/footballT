@@ -1,5 +1,4 @@
 import { Link, Outlet, useParams, useLocation } from "react-router-dom";
-import { TournamentBanner } from "../../components";
 import styles from "./style.module.scss";
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +13,7 @@ export default function Tournament() {
 
   return (
     <div>
-      <TournamentBanner />
+      {/* <TournamentBanner /> */}
       <div className={styles.container}>
         <div className={`${styles.left}`} style={{
           backgroundColor: isPastedActive ? "white" : "#295FA7"

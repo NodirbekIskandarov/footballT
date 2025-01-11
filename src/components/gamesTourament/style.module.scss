@@ -1,7 +1,13 @@
 .games {
   width: 100%;
   margin-top: 30px;
-
+  text-align: center;
+  .sana {
+    font-size: 36px;
+    font-weight: 500;
+    color: #1E1E1E;
+    margin-bottom: 10px;
+  }
   .table {
     width: 80%;
     margin: 0 auto;
@@ -102,7 +108,7 @@
 
   // Responsive Design
   @media (max-width: 768px) {
-    .table .sana {
+  .sana {
       font-size: 24px;
     }
    

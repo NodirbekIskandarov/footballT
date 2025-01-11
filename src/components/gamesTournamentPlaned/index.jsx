@@ -37,6 +37,11 @@ function GamesTournamentPlaned() {
   return (
     <div className={styles.games}>
       <div className="container">
+      <span className={styles.sana}>{data?.name}</span>
+        <br />
+        <span className={styles.sana}>{data?.date}</span>
+        <br />
+        <br />
         {data?.matches?.map((item, index) => {
           return (
             <div
