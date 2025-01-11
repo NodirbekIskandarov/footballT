@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AboutPlayer, AboutUs, BannerDetail, BestPlayers, Events, Home, Kids, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC } from './pages'
+import { AboutPlayer, AboutUs, AllGames, BannerDetail, BestPlayers, Events, Home, Kids, MainLayout, Media, News, PastedGames, PlanedGames, Players, Preview, PreviewC } from './pages'
 import './App.css'
 import { Photo, Video } from './components'
 import './i18n'
@@ -17,6 +17,7 @@ function App() {
               <Route index element={<PastedGames/>}/>
               <Route path='pasted/:id' element={<PastedGames/>}/>
               <Route path='planed/:id' element={<PlanedGames/>}/>
+              <Route path='all/:id' element={<AllGames/>}/>
             </Route>
             <Route path='players/:id' element={<Players/>}/>
             <Route path="about-player/:id" element={<AboutPlayer/>}/>

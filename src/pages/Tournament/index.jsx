@@ -10,6 +10,7 @@ export default function Tournament() {
 
   const isPastedActive = location.pathname.includes("/pasted");
   const isPlanedActive = location.pathname.includes("/planed");
+  const isAllActive = location.pathname.includes("/all");
 
   return (
     <div>
@@ -26,6 +27,12 @@ export default function Tournament() {
           
         }}>
           <Link className={styles.link} to={`/tournament/planed/${id}`} style={{color: isPlanedActive ? "#295FA7" : "white"}}>{t("Rejalashtirilgan turnirlar")}</Link>
+        </div>
+        <div className={`${styles.all}`} style={{
+          backgroundColor: isAllActive ? "white" : "#295FA7"
+          
+        }}>
+          <Link className={styles.link} to={`/tournament/all/${id}`} style={{color: isAllActive ? "#295FA7" : "white"}}>{t("Barcha turnirlar")}</Link>
         </div>
       </div>
       <Outlet />

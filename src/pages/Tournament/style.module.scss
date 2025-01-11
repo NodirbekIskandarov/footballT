@@ -6,8 +6,8 @@
   background-color: #fff; // background for the whole container
   
   .left,
-  .right {
-    width: 50%;
+  .right, .all {
+    width: calc(100% / 3);
     padding: 10px 0;
   }
 
@@ -22,6 +22,15 @@
   }
 
   .right {
+    background-color: #295fa7;
+    display: flex;
+    justify-content: center;
+
+    .link {
+      color: white;
+    }
+  }
+  .all {
     background-color: #295fa7;
     display: flex;
     justify-content: center;
