@@ -20,7 +20,7 @@ const PlayerCard = ({ img, name, position, index, id, viewText, goals }) => (
       </div>
       <span className={styles.name}>{name}</span>
       <span className={styles.position}>{position}</span>
-      <span className={styles.position}>{goals}</span>
+      <span className={styles.position}>Gol - {goals}</span>
     </div>
     <div className={styles.button_part}>
       <Link to={`/about-player/${id}`}><button className={styles.link}>{viewText}</button></Link>

@@ -20,7 +20,7 @@ const PlayerCard = ({ img, name, position, index, id, viewText, goals }) => (
       </div>
       <span className={styles.name}>{name}</span>
       <span className={styles.position}>{position}</span>
-      <span className={styles.position}>{goals}</span>
+      <span className={styles.position}>Assist - {goals}</span>
     </div>
     <div className={styles.button_part}>
       <Link to={`/about-player/${id}`}><button className={styles.link}>{viewText}</button></Link>
@@ -79,7 +79,7 @@ function Asists() {
               img={player.image} 
               name={player[`name_${lng}`]} 
               position={player?.position[`position_${lng}`]} // Assuming `position` has a language key
-              goals={player?.goals_count}
+              goals={player?.assists_count}
               index={index} 
               id={player.uuid} 
               viewText={t("View")}
