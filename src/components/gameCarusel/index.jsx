@@ -3,7 +3,6 @@ import "./GameCar.css"; // Import the CSS file
 import { useEffect, useState } from "react";
 import { getRequest } from "../../utils/request";
 import { home_last_match } from "../../utils/API_urls";
-import { formatDateToYMD } from "../../utils/dateFormat";
 import { useNavigate } from "react-router-dom";
 import "aos/dist/aos.css"; // AOS CSS import
 import AOS from "aos"; // AOS import
@@ -19,6 +18,7 @@ export default function GameCar() {
     getRequest(home_last_match)
       .then((response) => {
         setData(response?.data);
+        console.log(response?.data)
       })
       .catch((error) => {
         console.log(error);
@@ -66,7 +66,7 @@ export default function GameCar() {
                   >
                     <div className="slide-child">
                       <span className="game_date">
-                        {formatDateToYMD(item?.date)}
+                        {item?.time}
                       </span>
                       <div className="clubs_part">
                         <div>
